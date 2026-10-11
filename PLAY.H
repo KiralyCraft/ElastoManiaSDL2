@@ -14,9 +14,9 @@ void replayjelenlegi( char* filenev );
 //int palyabe( int level, unsigned long belyeg = 0, char* filenev = NULL );
 
 // belyeg == 0 eseten internal level file:
-void saveplay( long belyeg );
+void saveplay( int32_t belyeg );
 
-void idoelintezes( long ido, char* valasz, int level, char* filenev );
+void idoelintezes( int32_t ido, char* valasz, int level, char* filenev );
 // 0-ESC, 1-this level, 2-next level, 3-skip level
 // Ha filenev nem NULL, akkor external file:
 int afterplay( int level, int nextdefault, char* idoeredmeny, char* filenev );

@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 // Ha ez define-olva van, Billint-et 0-ra kell allitani:
 // Ezzel lehet allitani hogy kulonallo upg file maker legyen-e:
@@ -13,6 +13,8 @@
 #endif
 
 static void beirxor40ezret( FILE* hout, FILE* hin, char* oldresnev ) {
+	int i; // Legacy for-loop scope.
+
 	FILE* holdres = fopen( oldresnev, "rb" );
 	if( !holdres )
 		hiba( "beirxor40ezret-ben nem nyilik file!: ", oldresnev );
@@ -20,7 +22,7 @@ static void beirxor40ezret( FILE* hout, FILE* hin, char* oldresnev ) {
 	fseek( holdres, 1600000, SEEK_SET );
 
 	fseek( hin, 0, SEEK_SET );
-	for( int i = 0; i < 40000; i++ ) {
+	for( i = 0; i < 40000; i++ ) {
 		int a1 = fgetc( hin );
 		if( a1 == EOF )
 			hiba( "6742657854" );
@@ -47,6 +49,8 @@ static void beirxor40ezret( FILE* hout, FILE* hin, char* oldresnev ) {
 // Csak kulonallo exe-kent kell meghivni, ezert kulonben ki kell kommentezni
 // belsejet:
 void makeupgradefile( void ) {
+	int i; // Legacy for-loop scope.
+
 #ifdef MAKEUPGFILE
 	if( Billint )
 		hiba( "Billint-et ki kell kapcsolni makeupgradefile eseten!" );
@@ -86,7 +90,7 @@ void makeupgradefile( void ) {
 	beirxor40ezret( helmaupg, helma, "upg.res" );
 
 	// Most elma.res 40.000 ezer utani byte-jait beirjuk elmaupg.res-be:
-	for( int i = 0; i < elmareshossz - 40000; i++ ) {
+	for( i = 0; i < elmareshossz - 40000; i++ ) {
 		int c = fgetc( helma );
 		if( c == EOF )
 			hiba( "97824656745" );
@@ -109,6 +113,8 @@ void makeupgradefile( void ) {
 // byte-jat es bemasolja elma.res elejere. Vegere meg elmaupg.res veget:
 // Csak full verzioban van megvalositva:
 void upgradehakell( void ) {
+	int i; // Legacy for-loop scope.
+
 #ifndef SARVARI
 	if( access( "files.inf", 0 ) == 0 )
 		return;
@@ -131,7 +137,7 @@ void upgradehakell( void ) {
 		uzenet( "Cannot open for reading file, across.res!" );
 
 	int bytetomb[8] = { 0x6e, 0, 0, 0, 0x41, 0x71, 0x4a, 0x7b };
-	for( int i = 0; i < 8; i++ ) {
+	for( i = 0; i < 8; i++ ) {
 		int c = 0;
 		if( fread( &c, 1, 1, holdres ) != 1 )
 			uzenet( "Read error from file, across.res!" );

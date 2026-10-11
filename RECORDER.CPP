@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 recorder *Prec1 = NULL, *Prec2 = NULL;
 int Multirec = 0; // Ha multiplayer, akkor ez igaz
@@ -43,14 +43,14 @@ recorder::recorder( void ) {
 	tag = 0;
 
 	// Ellenorzes:
-	long hossz = sizeof( float );
+	int32_t hossz = sizeof( float );
 	if( hossz != 4 )
 		hiba( "float hossz != 4!" );
-	hossz = long(Darabszam)*sizeof( float );
+	hossz = int32_t(Darabszam)*sizeof( float );
 	if( hossz > 64000l )
 		hiba( "Darabszam*sizeof( float )!" );
 
-	hossz = long(Hangdarabszam)*sizeof( egyhang );
+	hossz = int32_t(Hangdarabszam)*sizeof( egyhang );
 	if( hossz > 64000l )
 		hiba( "Hangdarabszam*sizeof( egyhang )!" );
 
@@ -315,7 +315,8 @@ void recorder::store( motorst* pmot, double ido, hanginfo* phinfo ) {
 
 		// Belerakunk egy veletlen szamot felso negy bitbe:
 		double tmpb = pmot->kor4.alfa + i*5.752364;
-		memcpy( &pgazhatra[i], (&tmpb)+4, 1 );
+		// Original read past tmpb; upper nibble is non-gameplay filler.
+		memcpy(&pgazhatra[i], reinterpret_cast<const unsigned char*>(&tmpb) + 4, 1);
 		pgazhatra[i] = pgazhatra[i] & 0xf0;
 
 		if( phinfo->gaz )
@@ -456,7 +457,7 @@ static void olvhiba( char* nev ) {
 
 // demo eseten resource file-bol nyit:
 // belyeg-et adja vissza, vagy 0-at:
-long recorder::load( char* nev, FILE* h, int demo ) {
+int32_t recorder::load( char* nev, FILE* h, int demo ) {
 	int megvoltnyitva = 0;
 	if( h )
 		megvoltnyitva = 1;
@@ -486,7 +487,7 @@ long recorder::load( char* nev, FILE* h, int demo ) {
 		hiba( "recorder load-ban betoltve > Darabszam!" );
 	}
 
-	long verzio = 0;
+	int32_t verzio = 0;
 	if( fread( &verzio, 1, 4, h ) != 4 )
 		hiba( "Nem sikerult olvasni recorded file-bol!: ", nev );
 
@@ -504,7 +505,7 @@ long recorder::load( char* nev, FILE* h, int demo ) {
 	if( fread( &tag, 1, 4, h ) != 4 )
 		hiba( "Nem sikerult olvasni recorded file-bol!: ", nev );
 
-	long belyeg = 0;
+	int32_t belyeg = 0;
 	if( fread( &belyeg, 1, 4, h ) != 4 )
 		olvhiba( nev );
 	if( fread( palyanev, 1, 16, h ) != 16 )
@@ -571,7 +572,7 @@ long recorder::load( char* nev, FILE* h, int demo ) {
 	if( fread( phangok, 1, hossz, h ) != hossz )
 		olvhiba( nev );
 
-	long magic = 0;
+	int32_t magic = 0;
 	if( fread( &magic, 1, 4, h ) != 4 )
 		olvhiba( nev );
 	if( magic != MAGICNUMBER )
@@ -610,7 +611,7 @@ static void irhiba( char* nev ) {
 	hiba( "Nem sikerult irni recorded file-ba!: ", nev );
 }
 
-void recorder::save( char* nev, FILE* h, long belyeg, int tag_p ) {
+void recorder::save( char* nev, FILE* h, int32_t belyeg, int tag_p ) {
 	tag = tag_p;
 
 	int megvoltnyitva = 0;
@@ -634,7 +635,7 @@ void recorder::save( char* nev, FILE* h, long belyeg, int tag_p ) {
 
 	// Verzio csak 1.2-tol kezdodoen jon bele:
 	// Elozoleg itt level volt, ami biztos hogy kisebb volt 120-nal:
-	long verzio = 131;
+	int32_t verzio = 131;
 	if( fwrite( &verzio, 1, 4, h ) != 4 )
 		irhiba( nev );
 
@@ -695,7 +696,7 @@ void recorder::save( char* nev, FILE* h, long belyeg, int tag_p ) {
 	if( fwrite( phangok, 1, hossz, h ) != hossz )
 		irhiba( nev );
 
-	long magic = MAGICNUMBER;
+	int32_t magic = MAGICNUMBER;
 	if( fwrite( &magic, 1, 4, h ) != 4 )
 		irhiba( nev );
 
@@ -704,7 +705,7 @@ void recorder::save( char* nev, FILE* h, long belyeg, int tag_p ) {
 }
 
 // demo eseten resource file-bol nyit:
-long loadrecek( char* nev, int demo ) {
+int32_t loadrecek( char* nev, int demo ) {
 	// Eloszor megvizsgaljuk, hogy multirec vagy nem:
 	FILE* h;
 	if( demo ) {
@@ -723,7 +724,7 @@ long loadrecek( char* nev, int demo ) {
 	if( fread( &tmp, 1, 4, h ) != 4 )
 		hiba( "Nem sikerult olvasni recorded file-bol!: ", nev );
 
-	long verzio = 0;
+	int32_t verzio = 0;
 	if( fread( &verzio, 1, 4, h ) != 4 )
 		hiba( "Nem sikerult olvasni recorded file-bol!: ", nev );
 
@@ -744,7 +745,7 @@ long loadrecek( char* nev, int demo ) {
 
 
 	// Most jon tenyleges beolvasas:
-	long belyeg = 0;
+	int32_t belyeg = 0;
 	if( Multirec ) {
 		FILE* h;
 		if( demo ) {
@@ -794,7 +795,7 @@ long loadrecek( char* nev, int demo ) {
 }
 
 // belyeg-et adja vissza, vagy 0-at:
-void saverecek( char* nev, long belyeg, int tag ) {
+void saverecek( char* nev, int32_t belyeg, int tag ) {
 	if( Multirec ) {
 		char tmpnev[40];
 		sprintf( tmpnev, "rec\\%s", nev );
@@ -839,13 +840,15 @@ void resetwavegyujto( void ) {
 
 // Igaz, ha van bent wav:
 int getwavegyujto( int* pwavazonosito, double* phangero, int* pobjszam ) {
+	int i; // Legacy for-loop scope.
+
 	if( Begyujtve == 0 )
 		return 0;
 	*pwavazonosito = Azonosito[0];
 	*phangero = Hangero[0];
 	*pobjszam = Objszam[0];
 	Begyujtve--;
-	for( int i = 0; i < Begyujtve; i++ ) {
+	for( i = 0; i < Begyujtve; i++ ) {
 		Azonosito[i] = Azonosito[i+1];
 		Hangero[i] =   Hangero[i+1];
 		Objszam[i] = Objszam[i+1];

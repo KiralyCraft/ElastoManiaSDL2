@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 #define MAXBUFFER (20000u)
 static int Maxegybefuggo = 255;
@@ -27,6 +27,8 @@ static int nemkellszinudb( pic8* ppic, int x, int y, unsigned char szin ) {
 
 unsigned char* spriteadat8( pic8* ppic, unsigned char szin,
 											unsigned short* pspritehossz ) {
+	int y; // Legacy for-loop scope.
+
 	*pspritehossz = 0;
 	unsigned char* buffer = NULL;
 	{ buffer = NEW(unsigned char*) unsigned char[MAXBUFFER]; }
@@ -37,7 +39,7 @@ unsigned char* spriteadat8( pic8* ppic, unsigned char szin,
 	int xsize = ppic->getxsize();
 	int ysize = ppic->getysize();
 	unsigned buf = 0;
-	for( int y = 0; y < ysize; y++ ) {
+	for( y = 0; y < ysize; y++ ) {
 		// Egy sor feldolgozasa:
 		int x = 0;
 		while( x < xsize ) {
@@ -57,7 +59,7 @@ unsigned char* spriteadat8( pic8* ppic, unsigned char szin,
 			}
 			if( buf >= MAXBUFFER ) {
 				hiba( "Nem fer be egy szegmensbe spriteadat!" );
-				DELETE buffer; }
+				DELETE[] buffer; }
 				return NULL;
 			}
 		}
@@ -69,14 +71,14 @@ unsigned char* spriteadat8( pic8* ppic, unsigned char szin,
 	{ jobuffer = NEW(unsigned char*) unsigned char[buf]; }
 	if( !jobuffer ) {
 		uzenet( "spriteadat8-ban memory!" );
-		DELETE buffer; }
+		DELETE[] buffer; }
 		return NULL;
 	}
 	BYTECOPY( jobuffer, buffer, buf );
 
 	*pspritehossz = buf;
 
-	DELETE buffer; }
+	DELETE[] buffer; }
 	return jobuffer;
 }
 

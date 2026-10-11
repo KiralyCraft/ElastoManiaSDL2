@@ -1,0 +1,73 @@
+{
+  "scenario": "editor",
+  "binary_sha256": "aa0d82338f2e10e8f6605e84660889a6a58d58ff0800fba85e6567f6b8f58f97",
+  "exit_code": 0,
+  "original_data_unchanged": true,
+  "audio_device": "dummy",
+  "screenshots": [
+    {
+      "name": "intro",
+      "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "main-menu",
+      "sha256": "3f38c6dfd871dba34a9aec235d9d4ef993ad6351914cd110687ebc85c929dd04",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "editor",
+      "sha256": "8136d73833b9dac0511049e7be41b2ef5ed4c248a826db602898be970e192062",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "editor-loaded",
+      "sha256": "02062070090b5a45e287ea1eeb0c3fa087e49bf788d7cb0b7cd0b435ed82e0ec",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "editor-save-as",
+      "sha256": "18c257d28fd3fc5d14b6d8b62a44b2dca2947e46a2253083d71df0df5dc7f4ad",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "editor-saved",
+      "sha256": "6e1298e140c0bf66ed4a99afba08dd26a8719a8bdcbb9d0a7e23ffdf3965f6ab",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "editor-reloaded",
+      "sha256": "350341658d097a89019d1d04d6b3a57a7c0a0b9072309e715c2199480f997f32",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    }
+  ],
+  "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+}

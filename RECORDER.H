@@ -15,8 +15,8 @@ struct egyhang {
 class recorder {
 	// demo eseten resource file-bol nyit:
 	// belyeg-et adja vissza, vagy 0-at:
-	friend long loadrecek( char* nev, int demo );
-	friend void saverecek( char* nev, long belyeg, int tag );
+	friend int32_t loadrecek( char* nev, int demo );
+	friend void saverecek( char* nev, int32_t belyeg, int tag );
 	// pgazhatra-ba beepitik es ellenorzik betoltvet:
 	friend void berakrecbehosszat( recorder* prec );
 	friend int jorechossza( recorder* prec );
@@ -30,12 +30,12 @@ class recorder {
 	unsigned char  *pfrekvencia, *psurlero;
 	unsigned char  *pgazhatra;
 
-	long betoltve;
+	int32_t betoltve;
 	int ucsokiadva;
 
 	egyhang* phangok;
-	long hangbetoltve;
-	long hangkov;
+	int32_t hangbetoltve;
+	int32_t hangkov;
 
 	vekt2 ucso_r;
 	double ucsot, legkozt;
@@ -44,8 +44,8 @@ class recorder {
 	int tag;
 	// demo eseten resource file-bol nyit:
 	// belyeg-et adja vissza, vagy 0-at:
-	long load( char* nev, FILE* h, int demo );
-	void save( char* nev, FILE* h, long belyeg, int tag );
+	int32_t load( char* nev, FILE* h, int demo );
+	void save( char* nev, FILE* h, int32_t belyeg, int tag );
 public:
 	char palyanev[16];
 
@@ -77,3 +77,7 @@ void resetwavegyujto( void );
 int getwavegyujto( int* pwavazonosito, double* phangero, int* pobjszam );
 
 
+
+int32_t loadrecek(char* nev, int demo);
+void saverecek(char* nev, int32_t belyeg, int tag);
+static_assert(sizeof(egyhang) == 16, "Replay event layout must match Win32.");

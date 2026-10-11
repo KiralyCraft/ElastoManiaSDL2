@@ -1,0 +1,37 @@
+{
+  "scenario": "demo",
+  "binary_sha256": "aa0d82338f2e10e8f6605e84660889a6a58d58ff0800fba85e6567f6b8f58f97",
+  "exit_code": 0,
+  "original_data_unchanged": true,
+  "audio_device": "dummy",
+  "screenshots": [
+    {
+      "name": "intro",
+      "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "main-menu",
+      "sha256": "863bb2a22b2aceed3e5b9ad78818638d98d0a797f5e0b229442e0aa9ffff4ab3",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "demo",
+      "sha256": "0843c2e7f5bded6b12297040a448da2d3d96c1f35bbd4682f0d1b1241c0dabaf",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    }
+  ],
+  "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+}

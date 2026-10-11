@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 //#define UCSOSOROK "", "You can dismiss this dialog by pressing ENTER, ESC, or clicking the right mouse button." );
 #define UCSOSOROK "" );

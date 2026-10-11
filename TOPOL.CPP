@@ -1,4 +1,4 @@
-#include    "all.h"
+#include    "ALL.H"
 
 #define DEFAULTSIZE (20.0)
 
@@ -59,13 +59,15 @@ int Leveldescinited = 0;
 char Leveldescek[(DESCNEVHOSSZ+2)*MAXBEEPLEVELSZAM+6];
 
 // Ki is lep:
-static void kiirdesceket( void ) {
+void kiirdesceket( void ) {
+	int i; // Legacy for-loop scope.
+
     FILE* h = fopen( "desclist.txt", "wt" );
     if( !h )
         hiba( "6deyhqe" );
 
     int nemolvastobbet = 0;
-    for( int i = 0; i < MAXBEEPLEVELSZAM; i++ ) {
+    for( i = 0; i < MAXBEEPLEVELSZAM; i++ ) {
         if( nemolvastobbet || i >= MAXPALYASZAM ) {
             fprintf( h, "Itt nincs nev\n" );
             continue;
@@ -123,12 +125,14 @@ static char Sor[110];
 
 // Sikerest adja vissza:
 static int titkosread( void* mut, int hossz, FILE* h ) {
+	int i; // Legacy for-loop scope.
+
     if( fread( mut, 1, hossz, h ) != hossz )
         return 0;
     unsigned char* pc = (unsigned char*)mut;
     short a = 21, b = 9783, c = 3389;
 
-    for( int i = 0; i < hossz; i++ ) {
+    for( i = 0; i < hossz; i++ ) {
         pc[i] ^= a;
         a %= c;
         b += a*c;
@@ -139,10 +143,12 @@ static int titkosread( void* mut, int hossz, FILE* h ) {
 
 // Sikerest adja vissza:
 static int titkoswrite( void* mut, int hossz, FILE* h ) {
+	int i; // Legacy for-loop scope.
+
     unsigned char* pc = (unsigned char*)mut;
     short a = 21, b = 9783, c = 3389;
 
-    for( int i = 0; i < hossz; i++ ) {
+    for( i = 0; i < hossz; i++ ) {
         pc[i] ^= a;
         a %= c;
         b += a*c;
@@ -163,12 +169,14 @@ static int titkoswrite( void* mut, int hossz, FILE* h ) {
 
 char* getleveldescription( int level ) {
     if( !Leveldescinited ) {
+	int i; // Legacy for-loop scope.
+
         Leveldescinited = 1;
         FILE* h = qopen( "desclist.txt", "rt" );
         if( !h )
             kiirdesceket(); // ki is lep
 
-        for( int i = 0; i < MAXBEEPLEVELSZAM; i++ ) {
+        for( i = 0; i < MAXBEEPLEVELSZAM; i++ ) {
             if( !fgets( Sor, 100, h ) )
                 hiba( "7de2y7" );
             if( strchr( Sor, '\n' ) )
@@ -203,11 +211,13 @@ kerek::kerek( double x, double y, int tipusp ) {
 static const double Hal_eltol = -0.15 + 0.3 * (0.07/0.37);
 
 void kerek::kirajzol( void ) {
+	int i; // Legacy for-loop scope.
+
     int szegmensszam = 16;
     double sugar = 0.4;
 
     double elfordulas = 2.0*K_pi/szegmensszam;
-    for( int i = 0; i < szegmensszam; i++ ) {
+    for( i = 0; i < szegmensszam; i++ ) {
         double alfa1 = i*elfordulas;
         double alfa2 = (i+1)*elfordulas;
         vekt2 r1( sugar*sin( alfa1 ), sugar*cos( alfa1 ) );
@@ -378,13 +388,13 @@ sprite::sprite( FILE* h ) {
 
     if( fread( kepnev, 1, 10, h ) != 10 )
         hiba( "Nemo sp!" );
-    kepnev[10] = 0; // Csak biztonsagert
+    kepnev[9] = 0; // Csak biztonsagert
     if( fread( texturanev, 1, 10, h ) != 10 )
         hiba( "Nemo sp!" );
-    texturanev[10] = 0; // Csak biztonsagert
+    texturanev[9] = 0; // Csak biztonsagert
     if( fread( maszknev, 1, 10, h ) != 10 )
         hiba( "Nemo sp!" );
-    maszknev[10] = 0; // Csak biztonsagert
+    maszknev[9] = 0; // Csak biztonsagert
 
     if( fread( &r.x, 1, sizeof( r.x ), h ) != sizeof( r.x ) )
         hiba( "Nem olvas file-bol sprite::sprite-ban!" );
@@ -464,6 +474,8 @@ double sprite::belyegszamitas( void ) {
 // TOPOL TOPOL TOPOL TOPOL TOPOL TOPOL TOPOL TOPOL TOPOL TOPOL TOPOL TOPOL
 
 topol::topol( void ) {
+	int i; // Legacy for-loop scope.
+
     belyeg = 0;
     nincslgrje = 0;
     kerekekfejjellefele = 0;
@@ -471,7 +483,7 @@ topol::topol( void ) {
     lezart = 0;
     idokhelye = 0;
 
-    for( int i = 0; i < MAXGYURU; i++ )
+    for( i = 0; i < MAXGYURU; i++ )
         ptomb[i] = NULL;
     for( i = 0; i < MAXKEREK; i++ )
         kerektomb[i] = NULL;
@@ -490,7 +502,9 @@ topol::topol( void ) {
 }
 
 topol::~topol( void ) {
-    for( int i = 0; i < MAXGYURU; i++ ) {
+	int i; // Legacy for-loop scope.
+
+    for( i = 0; i < MAXGYURU; i++ ) {
         if( ptomb[i] )
             delete ptomb[i];
         ptomb[i] = NULL;
@@ -509,12 +523,14 @@ topol::~topol( void ) {
 
 // Igazzal ter vissza, ha volt valtozas:
 int topol::pic_selejtez( lgrfile* plgr ) {
+	int i; // Legacy for-loop scope.
+
     // Most minden sprite-ot kitorol, ha nincs meg hozza LGR-file-ban
     // kep, maszk, vagy textura nev:
 
     // Ezt lehetne hasznalni dialogushoz:
     int volttorles = 0;
-    for( int i = 0; i < MAXSPRITE; i++ ) {
+    for( i = 0; i < MAXSPRITE; i++ ) {
         if( spritetomb[i] ) {
             sprite* psp = spritetomb[i];
             // Default meret:
@@ -574,8 +590,10 @@ int topol::pic_selejtez( lgrfile* plgr ) {
     // Most meg spritetomb elejere kompaktaljuk spriteokat:
     int voltvaltozas = 1;
     while( voltvaltozas ) {
+	int i; // Legacy for-loop scope.
+
         voltvaltozas = 0;
-        for( int i = 0; i < MAXSPRITE-1; i++ ) {
+        for( i = 0; i < MAXSPRITE-1; i++ ) {
             if( !spritetomb[i] && spritetomb[i+1] ) {
                 // Kovetkezo mutatot ide hozzuk:
                 spritetomb[i] = spritetomb[i+1];
@@ -616,12 +634,14 @@ int topol::pic_selejtez( lgrfile* plgr ) {
 
 gyuru* topol::legkozpont( double x, double y, int* pk, double* ptav,
                                                         gyuru* kimarad ) {
+	int i; // Legacy for-loop scope.
+
     if( ptav )
         *ptav = 1000000000.0;
 
     double tav = 1000000.0;
     gyuru* pgy = NULL;
-    for( int i = 0; i < MAXGYURU; i++ ) {
+    for( i = 0; i < MAXGYURU; i++ ) {
         if( !ptomb[i] )
             continue;
         if( ptomb[i] == kimarad )
@@ -649,13 +669,15 @@ gyuru* topol::legkozpont( double x, double y, int* pk, double* ptav,
 }
 
 kerek* topol::legkozkerek( double x, double y, double* ptav ) {
+	int i; // Legacy for-loop scope.
+
     if( ptav )
         *ptav = 1000000000.0;
 
     double tav = 1000000.0;
     kerek* pker = NULL;
     vekt2 r( x, y );
-    for( int i = 0; i < MAXKEREK; i++ ) {
+    for( i = 0; i < MAXKEREK; i++ ) {
         if( kerektomb[i] ) {
             double ujtav = abs( kerektomb[i]->r - r );
             if( ujtav < tav ) {
@@ -673,13 +695,15 @@ kerek* topol::legkozkerek( double x, double y, double* ptav ) {
 }
 
 sprite* topol::legkozsprite( double x, double y, double* ptav ) {
+	int i; // Legacy for-loop scope.
+
     if( ptav )
         *ptav = 1000000000.0;
 
     double tav = 1000000.0;
     sprite* psp = NULL;
     vekt2 r( x, y );
-    for( int i = 0; i < MAXSPRITE; i++ ) {
+    for( i = 0; i < MAXSPRITE; i++ ) {
         if( !Rajzolkepek )
             continue;
         if( !spritetomb[i] )
@@ -700,7 +724,9 @@ sprite* topol::legkozsprite( double x, double y, double* ptav ) {
 }
 
 void topol::kirajzol( void ) {
-    for( int i = 0; i < MAXGYURU; i++ ) {
+	int i; // Legacy for-loop scope.
+
+    for( i = 0; i < MAXGYURU; i++ ) {
         if( ptomb[i] ) {
             if( ptomb[i]->koveto ) {
                 // Kovetok:
@@ -729,6 +755,8 @@ void topol::kirajzol( void ) {
 
 // Igaz, ha bent van:
 int topol::levegoben( gyuru* pgy, vekt2* pr ) {
+	int i; // Legacy for-loop scope.
+
     if( (pgy && pr) || (!pgy && !pr) )
         hiba( "topol::levegoben-ben paramok nem stimmelnek!" );
 
@@ -740,7 +768,7 @@ int topol::levegoben( gyuru* pgy, vekt2* pr ) {
     vekt2 v = vekt2( 27654.475374565578, 37850.5364775 );
     // Vegigmegyunk az egeszen:
     int metszes = 0;
-    for( int i = 0; i < MAXGYURU; i++ ) {
+    for( i = 0; i < MAXGYURU; i++ ) {
         if( ptomb[i] && !ptomb[i]->koveto && ptomb[i] != pgy )
             metszes += ptomb[i]->metszesszam( r, v );
     }
@@ -751,6 +779,8 @@ int topol::levegoben( gyuru* pgy, vekt2* pr ) {
 }
 
 int nevanalizis( char* nev ) {
+	int i; // Legacy for-loop scope.
+
     char ctmp = nev[5];
 	nev[5] = 0;
 	// (rekorder.cpp-ben is be van huzalozva ez a string:)
@@ -762,7 +792,7 @@ int nevanalizis( char* nev ) {
 
     char* fut = &nev[5];
     int sum = 0;
-    for( int i = 0; i < 3; i++ ) {
+    for( i = 0; i < 3; i++ ) {
         sum *= 10;
         int add = *fut - '0';
         if( add < 0 || add > 9 )
@@ -837,10 +867,12 @@ static char* Lgrtabla[110] = { NULL, NULL }; // 1-es indexut figyeli hogy init-e
 static char Szo[50] = "";
 
 static void makelgrtabla( void ) {
+	int i; // Legacy for-loop scope.
+
 	if( Palyaszam > 105 )
 		hiba( "uierty895" );
 
-	for( int i = 0; i < 110; i++ )
+	for( i = 0; i < 110; i++ )
 		Lgrtabla[i] = NULL;
 
 	static char* chartomb = NULL;
@@ -931,6 +963,8 @@ static int Ucsolevsarvari = 0;
 #endif
 
 void topol::loadkulso( char* filenev ) {
+	int i; // Legacy for-loop scope.
+
 #ifdef BUTITOTT
 	uzenet( "Kulso file-t most nem szabad olvasni!" );
 #else
@@ -944,7 +978,7 @@ void topol::loadkulso( char* filenev ) {
     idokhelye = 0;
     memset( &idok, 0, sizeof( idok ) );
 
-    for( int i = 0; i < MAXGYURU; i++ )
+    for( i = 0; i < MAXGYURU; i++ )
         ptomb[i] = NULL;
     for( i = 0; i < MAXKEREK; i++ )
         kerektomb[i] = NULL;
@@ -1226,6 +1260,8 @@ void topol::loadkulso( char* filenev ) {
 
 // Ezt ha ujra kell kepezni loadkulso atalakitasaval kell:
 void topol::loadbelso( char* filenev ) {
+	int i; // Legacy for-loop scope.
+
     nincslgrje = 0;
     kerekekfejjellefele = 0;
     hibas = 0;
@@ -1234,7 +1270,7 @@ void topol::loadbelso( char* filenev ) {
     idokhelye = 0;
     memset( &idok, 0, sizeof( idok ) );
 
-    for( int i = 0; i < MAXGYURU; i++ )
+    for( i = 0; i < MAXGYURU; i++ )
         ptomb[i] = NULL;
     for( i = 0; i < MAXKEREK; i++ )
         kerektomb[i] = NULL;
@@ -1419,9 +1455,9 @@ void topol::loadbelso( char* filenev ) {
         uzenet( "Corrupt .LEV file!: ", filenev );
 }
 
-static long longosit( double belyeg ) {
+static int32_t longosit( double belyeg ) {
     srand( clock() );
-    unsigned long veletlen = s_random(6542);
+    uint32_t veletlen = s_random(6542);
     veletlen *= s_random(7042);
     veletlen += s_random(4542);
     veletlen *= s_random(3042);
@@ -1430,14 +1466,16 @@ static long longosit( double belyeg ) {
 
     belyeg = sin( belyeg );
     belyeg *= (belyeg+1.0001)*40000;
-    unsigned long l = belyeg;
+    uint32_t l = belyeg;
 
-    unsigned long belyeg_l = ( l & 0x0000ffff ) |
+    uint32_t belyeg_l = ( l & 0x0000ffff ) |
                              ( veletlen & 0xffff0000 );
     return belyeg_l;
 }
 
 void topol::save( char* filenev, int nemkellcheck ) {
+	int iiii; int i; // Legacy for-loop scope.
+
 #ifdef BUTITOTT
 	uzenet( "Menteni most nem szabad!" );
 #else
@@ -1523,7 +1561,7 @@ void topol::save( char* filenev, int nemkellcheck ) {
 	// Kiirjuk level nevet:
 	#ifdef BELSOTIR
 		// leb-nel toroljuk nevet:
-		for( int iiii = 0; iiii < LEVELNAMEHOSSZ; iiii++ )
+		for( iiii = 0; iiii < LEVELNAMEHOSSZ; iiii++ )
 			levelname[iiii] = 0;
 	#endif
 	fwrite( levelname, 1, LEVELNAMEHOSSZ+1, h );
@@ -1538,7 +1576,7 @@ void topol::save( char* filenev, int nemkellcheck ) {
     // fseek( h, 100, SEEK_SET ); 14-es verzio ota mar nem seek-el
 
     int gyuruszam = 0;
-    for( int i = 0; i < MAXGYURU; i++ ) {
+    for( i = 0; i < MAXGYURU; i++ ) {
         if( ptomb[i] )
             gyuruszam++;
     }
@@ -1637,11 +1675,13 @@ void topol::saveidok( char* filenev_p ) {
 
 void topol::getminmax( double* px1, double* py1, double* px2, double* py2,
                                             int kerekkel ) {
+	int i; // Legacy for-loop scope.
+
     *px1 = 100000000000.0;
     *py1 = 100000000000.0;
     *px2 = -100000000000.0;
     *py2 = -100000000000.0;
-    for( int i = 0; i < MAXGYURU; i++ ) {
+    for( i = 0; i < MAXGYURU; i++ ) {
         if( ptomb[i] ) {
             ptomb[i]->getminmax( px1, py1, px2, py2 );
         }
@@ -1675,8 +1715,10 @@ void topol::getminmax( double* px1, double* py1, double* px2, double* py2,
 }
 
 double topol::belyegszamitas( int kellspriteis ) {
+	int i; // Legacy for-loop scope.
+
     double belyeg = 0.0;
-    for( int i = 0; i < MAXGYURU; i++ ) {
+    for( i = 0; i < MAXGYURU; i++ ) {
         if( ptomb[i] ) {
             belyeg += ptomb[i]->belyegszamitas();
         }
@@ -1700,12 +1742,14 @@ double topol::belyegszamitas( int kellspriteis ) {
 // Ha Sarvari, megvizsgalja hogy palya megfelel-e sarvari verzionak:
 // Ha nem, akkor kilep corrupt hibauzenettel:
 void topol::checklevelforsarvari( void ) {
+	int i; // Legacy for-loop scope.
+
     //Maxpont_sarvari
     //Maxkerek_sarvari
     //Maxgyuru_sarvari
     #ifdef SARVARI
         int gyuruszam = 0;
-        for( int i = 0; i < MAXGYURU; i++ ) {
+        for( i = 0; i < MAXGYURU; i++ ) {
             if( ptomb[i] ) {
                 gyuruszam++;
                 if( ptomb[i]->pontszam > Maxpont_sarvari )
@@ -1730,13 +1774,13 @@ void topol::checklevelforsarvari( void ) {
 
 
 // Barmilyen hiba eseten 1-el ter vissza:
-unsigned long getbelyeg( char* nev ) {
+uint32_t getbelyeg( char* nev ) {
     char tmp[30];
     sprintf( tmp, "lev\\%s", nev );
     FILE* h = fopen( tmp, "rb" );
     if( !h )
         return 1;
-    unsigned long l = 0;
+    uint32_t l = 0;
     if( fread( &l, 1, 1, h ) != 1 )
         return 1;
     if( fread( &l, 1, 4, h ) != 4 )
@@ -1814,9 +1858,11 @@ vekt2 Kezdetihelydiff;
 // Motor helyzetet is o allitja be, kajaszamot adja vissza:
 // Eheto kerekeket aktivizalja:
 int topol::setallaktiv( motorst* pmot ) {
+	int i; // Legacy for-loop scope.
+
     int kajaszam = 0;
     int voltkezdo = 0;
-    for( int i = 0; i < MAXKEREK; i++ ) {
+    for( i = 0; i < MAXKEREK; i++ ) {
         kerek* pker = Ptop->kerektomb[i];
         if( pker ) {
             pker->sinfazisint = s_random( 1000 );
@@ -1846,8 +1892,10 @@ int topol::setallaktiv( motorst* pmot ) {
 
 // Kerekeket rendezi:
 void topol::killerekelore( void ) {
+	int i; int j; // Legacy for-loop scope.
+
     int szam = 0;
-    for( int i = 0; i < MAXKEREK; i++ ) {
+    for( i = 0; i < MAXKEREK; i++ ) {
         kerek* pker = Ptop->kerektomb[i];
         if( pker )
             szam++;
@@ -1860,8 +1908,10 @@ void topol::killerekelore( void ) {
 
     if( szam < 2 )
         hiba( "topol::killerekelore-ben szam < 2!" );
-    for( int j = 0; j < szam+4; j++ ) {
-        for( int i = 0; i < szam-1; i++ ) {
+    for( j = 0; j < szam+4; j++ ) {
+	int i; // Legacy for-loop scope.
+
+        for( i = 0; i < szam-1; i++ ) {
             int tipus1 = Ptop->kerektomb[i]->tipus;
             int tipus2 = Ptop->kerektomb[i+1]->tipus;
 
@@ -1894,7 +1944,9 @@ void topol::killerekelore( void ) {
 
 // Osszes kerek szinet bejegyzi:
 void topol::kitoltiszineket( void ) {
-    for( int i = 0; i < MAXKEREK; i++ ) {
+	int i; // Legacy for-loop scope.
+
+    for( i = 0; i < MAXKEREK; i++ ) {
         kerek* pker = Ptop->kerektomb[i];
         if( pker ) {
             if( pker->tipus == T_CEL )
@@ -1919,10 +1971,12 @@ kerek* topol::getptrkerek( int index ) {
 //kerekekfejjellefele;
 
 void topol::kereklefejjel( void ) {
+	int i; // Legacy for-loop scope.
+
     if( kerekekfejjellefele )
         return;
     kerekekfejjellefele = 1;
-    for( int i = 0; i < MAXKEREK; i++ ) {
+    for( i = 0; i < MAXKEREK; i++ ) {
         kerek* pker = Ptop->kerektomb[i];
         if( pker ) {
             pker->r.y = - pker->r.y;
@@ -1931,10 +1985,12 @@ void topol::kereklefejjel( void ) {
 }
 
 void topol::kerekjolalljon( void ) {
+	int i; // Legacy for-loop scope.
+
     if( !kerekekfejjellefele )
 		return;
 	kerekekfejjellefele = 0;
-	for( int i = 0; i < MAXKEREK; i++ ) {
+	for( i = 0; i < MAXKEREK; i++ ) {
 		kerek* pker = Ptop->kerektomb[i];
 		if( pker ) {
 			pker->r.y = - pker->r.y;

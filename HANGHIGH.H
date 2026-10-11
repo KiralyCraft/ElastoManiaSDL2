@@ -24,5 +24,5 @@ void setsurlodas( double ero );
 void startwave( int wavazonosito, double hangero );
 int vanmegwav( void );
 
-void hangosdelay( long t );
+void hangosdelay( int32_t t );
 

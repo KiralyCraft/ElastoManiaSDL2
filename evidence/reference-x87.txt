@@ -1,0 +1,17 @@
+Static reference, not an executed Windows test
+Elma.exe SHA-256: 348d1f3480c001956493f67f159d815bbe5bc51d8a16f8805cc2052039c1c44d
+objdump -d -M intel Elma.exe
+
+Original CRT startup call: mask 0x30000, value 0x10000 (53-bit precision selection).
+The target function controls the floating-point environment; a matching startup
+setting does not prove equivalence of all arithmetic or source revision.
+
+  43d7d6:	68 00 00 03 00       	push   0x30000
+  43d7db:	68 00 00 01 00       	push   0x10000
+  43d7e0:	e8 24 3f 00 00       	call   0x441709
+  43d7e5:	59                   	pop    ecx
+  43d7e6:	59                   	pop    ecx
+  43d7e7:	c3                   	ret
+
+Static instruction sightings: fsin, fcos, fsqrt; fpatan at 0x41a607 and 0x41a648.
+No original-executable trajectory was recorded in this environment.

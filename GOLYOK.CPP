@@ -1,4 +1,4 @@
-#include "all.h"
+#include "ALL.H"
 
 double Hosszuido = 500000000.0;
 
@@ -14,11 +14,15 @@ static double Legkozelebbiutkozesideje = -2, Pillanatnyiido = 0;
 typedef double *  duplaramutato;
 
 static void kitoltgolyokat( void ) {
+	int x; // Legacy for-loop scope.
+
 	Ngolyok = 9;
 	Golyok = new golyo[Ngolyok];
 	// Nullazas:
-	for( int x = 0; x < 3; x++ ) {
-		for( int y = 0; y < 3; y++ ) {
+	for( x = 0; x < 3; x++ ) {
+	int y; // Legacy for-loop scope.
+
+		for( y = 0; y < 3; y++ ) {
 			int i = y*3 + x;
 			if( x == 0 )
 				Golyok[i].sug = 24;
@@ -77,8 +81,8 @@ void initgolyo( void ) {
 		if( Idok ) {
 			for( i = 0; i < Ngolyok+4; i++ )
 				if( Idok[i] )
-					delete Idok[i];
-			delete Idok;
+					delete[] Idok[i];
+			delete[] Idok;
 			Idok = NULL;
 		}
 		hiba( "Out of memory!" );
@@ -92,8 +96,8 @@ void initgolyo( void ) {
 
 	if( Konstrualva ) {
 		for( i = 0; i < Ngolyok; i ++ )
-			delete Idok[i];
-		delete Idok;
+			delete[] Idok[i];
+		delete[] Idok;
 		Idok = NULL;
 		Konstrualva = 0;
 	}
@@ -102,6 +106,8 @@ void initgolyo( void ) {
 static double Kezdoszamlalo = 0.0;
 
 void leptetgolyo( double stept ) {
+	int i; int j; // Legacy for-loop scope.
+
 	if( Kezdoszamlalo < 1.0 /*400.0*/ ) {
 		Kezdoszamlalo += stept;
 		stept = 0.00000000001;
@@ -133,8 +139,10 @@ void leptetgolyo( double stept ) {
 	// sokat szamolni (Egyszeruen kihagyja hatso reszt):
 	if( Legkozelebbiutkozesideje > -1 &&
 		Legkozelebbiutkozesideje > Pillanatnyiido + stept ) {
+	int i; // Legacy for-loop scope.
+
 		Pillanatnyiido += stept;
-		for( int i = 0; i < Ngolyok; i++ ) {
+		for( i = 0; i < Ngolyok; i++ ) {
 			Golyok[i].rmostani = Golyok[i].r +
 						(Pillanatnyiido * Golyok[i].v);
 			Golyok[i].alfamostani = Golyok[i].alfa +
@@ -159,7 +167,7 @@ void leptetgolyo( double stept ) {
 			utkoztet( x, y );
 	}
 	// stept idore igazit minden golyot es lenullazza idejet:
-	for( int i = 0; i < Ngolyok; i++ ) {
+	for( i = 0; i < Ngolyok; i++ ) {
 		//dsvlet( &Golyok[i].r, dsvossz( &Golyok[i].r,
 		//					dsvmul( stept-Golyok[i].t, &Golyok[i].v ) ) );
 		Golyok[i].r = Golyok[i].r + ((stept-Golyok[i].t) * Golyok[i].v);
@@ -171,7 +179,7 @@ void leptetgolyo( double stept ) {
 	}
 	// Idok tablaban mindenbol kivon stept idot:
 	for( i = 0; i < Ngolyok; i++ )
-		for( int j = i+1; j < Ngolyok+4; j++ )
+		for( j = i+1; j < Ngolyok+4; j++ )
 			Idok[i][j] -= stept;
 	Pillanatnyiido = 0;
 	Legkozelebbiutkozesideje -= stept;

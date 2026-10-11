@@ -1,9 +1,9 @@
-#include	"all.h"
+#include	"ALL.H"
 
 Ez a file most kimarad forditasbol
 
 static int Beallitas = 0;
-static unsigned long Crcszam = 0x05b839e45l;
+static uint32_t Crcszam = 0x05b839e45l;
 
 static int Crchiba = 0; // 1 eseten elma.exe, 2 eseten readme.txt valtozott,
 						// 3 eseten kommand line nem elma-val fejezodik
@@ -12,6 +12,8 @@ static int Crcellenorizve = 0;
 enum { FILE_IS_MISSING = 10, FILE_HAS_CHANGED, FILE_NAME_CHANGED, ELMA_EXE, README_TXT };
 
 void check_kommand( const char* komline_ ) {
+	int i; // Legacy for-loop scope.
+
 	if( Beallitas )
 		return;
 
@@ -53,11 +55,13 @@ void check_kommand( const char* komline_ ) {
 	tmp[4] = 'e'; //
 
 	if( strcmpi( nevmutato, tmp ) == 0 ) {
-		for( int i = 0; i < 11; i++ )
+	int i; // Legacy for-loop scope.
+
+		for( i = 0; i < 11; i++ )
 			tmp[i] = ' ';
 		return;
 	}
-	for( int i = 0; i < 11; i++ )
+	for( i = 0; i < 11; i++ )
 		tmp[i] = ' ';
 	// Nem stimmel kommand line nev:
 	// Most nem azt irjuk, hogy nev valtozott,hanem hogy 
@@ -67,6 +71,8 @@ void check_kommand( const char* komline_ ) {
 }
 
 static char* titstring( int azonosito, int masodikbuff = 0 ) {
+	int i; // Legacy for-loop scope.
+
 	static char titbuffer1[100];
 	static char titbuffer2[100];
 	static int titbufferi[100];
@@ -167,7 +173,7 @@ static char* titstring( int azonosito, int masodikbuff = 0 ) {
 		default:
 			hiba( "titstring-ben azonosito default!" );
 	}
-	for( int i = 0; i < 100; i++ ) {
+	for( i = 0; i < 100; i++ ) {
 		if( masodikbuff ) {
 			titbuffer1[i] = (char)titbufferi[i];
 			if( !titbuffer1[i] )
@@ -184,24 +190,26 @@ static char* titstring( int azonosito, int masodikbuff = 0 ) {
 }
 
 // Valodi file-t nez:
-static unsigned long getcrc( char* nev_p, long ellenorzohossz ) {
+static uint32_t getcrc( char* nev_p, int32_t ellenorzohossz ) {
+	int32_t l; // Legacy for-loop scope.
+
 	char nev[40];
 	strcpy( nev, nev_p );
 	FILE* h = fopen( nev, "rb" );
 	if( !h )
 		return 0;
-	long hossz = filelength( fileno( h ) );
+	int32_t hossz = filelength( fileno( h ) );
 	if( hossz != ellenorzohossz && !Beallitas ) {
 		//uzenet( "File size has changed!: ", nev );
 		Crchiba = 1;
 		return 0;
 	}
 
-	long number = (hossz-3)/4;
+	int32_t number = (hossz-3)/4;
 
-	unsigned long sum = Crcszam;
-	for( long l = 0; l < number; l++ ) {
-		unsigned long ujszam;
+	uint32_t sum = Crcszam;
+	for( l = 0; l < number; l++ ) {
+		uint32_t ujszam;
 		if( fread( &ujszam, 1, 4, h ) != 4 )
 			return 0;
 		sum ^= ujszam ^ Crcszam;
@@ -217,19 +225,19 @@ static unsigned long getcrc( char* nev_p, long ellenorzohossz ) {
 		FILE* h2 = fopen( "biztlist.txt", "at" );
 		if( !h2 )
 			hiba( "!h2!" );
-		fprintf( h2, "%ld\n%lu\n", hossz, sum );
+		fprintf( h2, "%d\n%u\n", hossz, sum );
 		fclose( h2 );
 	}
 
 	return sum;
 }
 
-static unsigned long loadulong( FILE* h ) {
-	unsigned long ertek = 0xfffffffful;
+static uint32_t loadulong( FILE* h ) {
+	uint32_t ertek = 0xfffffffful;
 	char sor[200];
 	if( fgets( sor, 190, h ) == NULL )
 		hiba( "Nem tudott olvasni sort filebol!" );
-	if( sscanf( sor, "%lu", &ertek ) != 1 )
+	if( sscanf( sor, "%u", &ertek ) != 1 )
 		hiba( "loadulong-ban nem tudta feldolgozni sort!: ", sor );
 	if( ertek == 0xfffffffful )
 		hiba( "loadulong-ban ertek == 0xfffffffful!: ", sor );
@@ -264,8 +272,8 @@ void crccheck( void ) {
 		return;
 	Crcellenorizve = 1;
 
-	long hossz_elma_exe = 0, hossz_readme_txt = 0;
-	unsigned long crc_elma_exe = 0, crc_readme_txt = 0;
+	int32_t hossz_elma_exe = 0, hossz_readme_txt = 0;
+	uint32_t crc_elma_exe = 0, crc_readme_txt = 0;
 	if( !Beallitas ) {
 		#ifdef SARVARI
 			FILE* h = qopen( "bizton_s.txt", "rt" );

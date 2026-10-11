@@ -1,4 +1,4 @@
-#include    "all.h"
+#include    "ALL.H"
 
 typedef unsigned char* puchar;
 
@@ -22,7 +22,9 @@ public:
 // kezdodik. LGR file beolvasas es betolthattereket alatt aktiv:
 int Paratlankepsorok = 0;
 
-int pic8::lefoglal( long xsizep, long ysizep ) {
+int pic8::lefoglal( int32_t xsizep, int32_t ysizep ) {
+	int i; int y; // Legacy for-loop scope.
+
     // nem szabad hasznalni size-eket, hanem sizep-eket!
     if( sormuttomb || szegmuttomb ) {
         hiba( "Bhiba pic8::lefoglalban!" );
@@ -40,11 +42,11 @@ int pic8::lefoglal( long xsizep, long ysizep ) {
         hiba( "sizep tul pici pic8::lefoglalban!" );
         return 0;
     }
-    long egyszegben = 0x0ff00l/long(xsizep); // Nehogy szegmens merete
+    int32_t egyszegben = 0x0ff00l/int32_t(xsizep); // Nehogy szegmens merete
                 // megkozelitse 65536-ot
     // szegnum meg inkrementalva lesz a vegen, ha plussz is van!:
     szegnum = unsigned(ysizep)/egyszegben;
-    long pluszszegbensorok = ysizep - szegnum*egyszegben;
+    int32_t pluszszegbensorok = ysizep - szegnum*egyszegben;
     int vanplussz = pluszszegbensorok != 0;
     { sormuttomb = NEW(puchar*) puchar[unsigned(ysizep)]; }
     if( vanplussz ) {
@@ -57,7 +59,7 @@ int pic8::lefoglal( long xsizep, long ysizep ) {
         uzenet( "pic8::alloc memory!" );
         return 0;
     }
-    for( int i = 0; i < ysizep; i++ ) {
+    for( i = 0; i < ysizep; i++ ) {
         sormuttomb[i] = NULL;
     }
     for( i = 0; i < szegnum; i++ ) {
@@ -66,23 +68,27 @@ int pic8::lefoglal( long xsizep, long ysizep ) {
     if( vanplussz )
         szegmuttomb[unsigned(szegnum)] = NULL;
     for( i = 0; i < szegnum; i++ ) {
+	int j; // Legacy for-loop scope.
+
         { szegmuttomb[i] = NEW(unsigned char*) unsigned char[unsigned(egyszegben*xsizep)]; }
         if( !szegmuttomb[i] ) {
             uzenet( "pic8::alloc memory!" );
             return 0;
         }
-        for( int j = 0; j < egyszegben; j++ )
+        for( j = 0; j < egyszegben; j++ )
             sormuttomb[unsigned(i*egyszegben+j)] =
 							&szegmuttomb[i][unsigned(j*xsizep)];
     }
     if( vanplussz ) {
+	int j; // Legacy for-loop scope.
+
         { szegmuttomb[unsigned(szegnum)] =
     NEW(unsigned char*) unsigned char[unsigned(pluszszegbensorok*xsizep)]; }
         if( !szegmuttomb[unsigned(szegnum)] ) {
             uzenet( "pic8::alloc memory!" );
             return 0;
         }
-        for( int j = 0; j < pluszszegbensorok; j++ )
+        for( j = 0; j < pluszszegbensorok; j++ )
             sormuttomb[unsigned(szegnum*egyszegben+j)] =
                     &szegmuttomb[unsigned(szegnum)][unsigned(j*xsizep)];
     }
@@ -90,7 +96,7 @@ int pic8::lefoglal( long xsizep, long ysizep ) {
     if( vanplussz )
         szegnum++;
 
-	for( int y = 0; y < ysizep; y++ ) {
+	for( y = 0; y < ysizep; y++ ) {
 		memset( sormuttomb[y], 0, unsigned(xsizep) ); // nullazunk
 		if( Paratlankepsorok && (y % 2) )
 			sormuttomb[y]++;
@@ -103,13 +109,13 @@ pic8::~pic8( void ) {
     if( nemdestrukt )
         return;
     if( sormuttomb )
-        DELETE sormuttomb; }
+        DELETE[] sormuttomb; }
     if( szegmuttomb )
         for( int i = 0; i < szegnum; i++ )
-            DELETE szegmuttomb[i]; }
-    DELETE szegmuttomb; }
+            DELETE[] szegmuttomb[i]; }
+    DELETE[] szegmuttomb; }
     if( sprite )
-        DELETE sprite; }
+        DELETE[] sprite; }
 }
 
 pic8::pic8( int xsizep, int ysizep ) {
@@ -119,7 +125,7 @@ pic8::pic8( int xsizep, int ysizep ) {
     szegmuttomb = NULL;
     fizkep = 0;
     sprite = NULL;
-    spritehossz = NULL;
+    spritehossz = 0;
     success = lefoglal( xsizep, ysizep );
 }
 
@@ -131,7 +137,7 @@ pic8::pic8( int xsizep, int ysizep, unsigned char** ppc ) {
     szegmuttomb = NULL;
     fizkep = 0;
     sprite = NULL;
-    spritehossz = NULL;
+    spritehossz = 0;
     if( xsizep == -12333 && ysizep == -12334 ) {
         hiba( "fizkep nemdestruktos pic8 konstruktorban!" );
         return;
@@ -151,7 +157,7 @@ pic8::pic8( char* nev, FILE* h ) {
     szegmuttomb = NULL;
     fizkep = 0;
     sprite = NULL;
-    spritehossz = NULL;
+    spritehossz = 0;
 	// Kiterjesztes megkeresese:
     int i = strlen( nev ) - 1;
     while( i >= 0 ) {
@@ -287,6 +293,8 @@ void pic8::fillbox( unsigned char szin ) {
 }
 
 void pic8::fillbox( int x1, int y1, int x2, int y2, unsigned char szin ) {
+	int y; // Legacy for-loop scope.
+
     if( fizkep )
         hiba( "pic8::fillbox meghivasa fizikai kepernyore!" );
     if( x1 > x2 ) {
@@ -304,30 +312,34 @@ void pic8::fillbox( int x1, int y1, int x2, int y2, unsigned char szin ) {
     if( y2 >= ysize )
         y2 = ysize-1;
     int xhossz = x2-x1+1;
-    for( int y = y1; y <= y2; y++ ) {
+    for( y = y1; y <= y2; y++ ) {
 		memset( sormuttomb[y]+x1, szin, xhossz );
 	}
 }
 
 
 void pic8::vizszegmens_look( int x, int y, int size, unsigned char* lookup ) {
+	int i; // Legacy for-loop scope.
+
 	#ifdef PIC8TEST
 		if( x < 0 || y < 0 || x+size-1 >= xsize || y >= ysize )
 			hiba( "pic8::vizszegmens-ben x, y kilog!" );
 	#endif
 	unsigned char* psor = getptr( y );
-	for( int i = 0; i < size; i++ ) {
+	for( i = 0; i < size; i++ ) {
 		psor[x+i] = lookup[psor[x+i]];
 	}
 	//memset( &psor[x], szin, size );
 }
 
 void pic8::fuggszegmens_look( int x, int y, int size, unsigned char* lookup ) {
+	int i; // Legacy for-loop scope.
+
 	#ifdef PIC8TEST
 		if( x < 0 || y < 0 || x >= xsize || y+size-1 >= ysize )
 			hiba( "pic8::vizszegmens-ben x, y kilog!" );
 	#endif
-	for( int i = 0; i < size; i++ ) {
+	for( i = 0; i < size; i++ ) {
 		unsigned char* psor = getptr( y+i );
 		psor[x] = lookup[psor[x]];
 	}
@@ -344,6 +356,8 @@ void pic8::fuggszegmens_look( int x, int y, int size, unsigned char* lookup ) {
 } */
 
 void pic8::spritebeolvas( char* nev, FILE* h ) {
+	int y; // Legacy for-loop scope.
+
     int volth = 1;
     if( !h ) {
         volth = 0;
@@ -381,7 +395,7 @@ void pic8::spritebeolvas( char* nev, FILE* h ) {
     if( !lefoglal( xsize, ysize ) )
         return;
 
-    for( int y = 0; y < ysize; y++ ) {
+    for( y = 0; y < ysize; y++ ) {
         // Egy sor beolvasasa:
         if( fread( sormuttomb[y], xsize, 1, h ) != 1 ) {
             hiba( "Nem tudott olvasni SPRITE file-bol!: ", nev );
@@ -434,6 +448,8 @@ void pic8::spritebeolvas( char* nev, FILE* h ) {
 }
 
 int pic8::spritesave( char* nev, FILE* h ) {
+	int y; // Legacy for-loop scope.
+
     int volth = 1;
     if( !h ) {
         volth = 0;
@@ -452,7 +468,7 @@ int pic8::spritesave( char* nev, FILE* h ) {
         return 0;
     }
 
-    for( int y = 0; y < ysize; y++ ) {
+    for( y = 0; y < ysize; y++ ) {
         // Egy sor kiirasa:
         if( fwrite( sormuttomb[y], xsize, 1, h ) != 1 ) {
             hiba( "Nem tudott irni SPRITE file-ba!: ", nev );
@@ -491,6 +507,8 @@ struct  pcxdescriptor {
 };
 
 void pic8::pcxbeolvas( char* nev, FILE* h ) {
+	int y; // Legacy for-loop scope.
+
 	// Gany:
 	success = 1;
 
@@ -513,13 +531,13 @@ void pic8::pcxbeolvas( char* nev, FILE* h ) {
 	//if( !lefoglal( desc.Xmax-desc.Xmin+1, desc.Ymax-desc.Ymin+1 ) ) {
 	if( !lefoglal( desc.Xmax-desc.Xmin+1, desc.Ymax-desc.Ymin+1 ) )
 		hiba( "pcx !lefoglal!" );
-	for( int y = 0; y < ysize; y++ ) {
+	for( y = 0; y < ysize; y++ ) {
 		// Egy sor beolvasasa:
 		short nnn = 0, ccc, iii;
 
 		do {
 			unsigned char szin;
-			long l = fread( &szin, 1, 1, h );
+			int32_t l = fread( &szin, 1, 1, h );
 			ccc = szin;
 			if( l != 1 )
 				hiba( "\nNem tud olvasni PCX-ben", nev );
@@ -562,6 +580,8 @@ static int numberofrepeats( pic8* ppic, int x, int y, int xsize ) {
 }
 
 int pic8::pcxsave( char *nev, unsigned char* pal ) {
+	int y; // Legacy for-loop scope.
+
     FILE* h = fopen( nev, "wb" );
     if( !h ) {
         hiba( "pcxsave-ben nem nyilik file!: ", nev );
@@ -586,7 +606,7 @@ int pic8::pcxsave( char *nev, unsigned char* pal ) {
         fclose( h );
         return 0;
     }
-    for( int y = 0; y < ysize; y++ ) {
+    for( y = 0; y < ysize; y++ ) {
         int x = 0;
         while( x < xsize ) {
             int i = numberofrepeats( this, x, y, xsize );
@@ -641,8 +661,10 @@ int pic8::pcxsave( char *nev, unsigned char* pal ) {
         return 0;
     }
     if( pal ) {
+	int i; // Legacy for-loop scope.
+
         // Van paletta!:
-        for( int i = 0; i < 768; i++ ) {
+        for( i = 0; i < 768; i++ ) {
             unsigned char c = (unsigned char)(pal[i]<<2);
             if( fwrite( &c, 1, 1, h ) != 1 ) {
                 hiba( "pcxsave-ben nem ir!: ", nev );
@@ -652,10 +674,14 @@ int pic8::pcxsave( char *nev, unsigned char* pal ) {
         }
     }
     else {
+	int i; // Legacy for-loop scope.
+
         // Nincs paletta megadva!
-        for( int i = 0; i < 256; i++ ) {
+        for( i = 0; i < 256; i++ ) {
+	int j; // Legacy for-loop scope.
+
             unsigned char c = (unsigned char)i;
-            for( int j = 0; j < 3; j++ ) {
+            for( j = 0; j < 3; j++ ) {
                 if( fwrite( &c, 1, 1, h ) != 1 ) {
                     hiba( "pcxsave-ben nem ir!: ", nev );
                     fclose( h );
@@ -672,6 +698,8 @@ int pic8::pcxsave( char *nev, unsigned char* pal ) {
 //int Debugblt = 0;
 void blt8( pic8* pd, pic8* ps, int x, int y,
                 int x1, int y1, int x2, int y2 ) {
+	int fy; // Legacy for-loop scope.
+
     #ifdef PIC8TEST
         if( y2 == -10000 && (x1 != -10000 || y1 != -10000 || x2 != -10000 ) ) {
             hiba( "blt8 hivasa y2 == -10000 (default), de elotte nem mind!" );
@@ -757,12 +785,14 @@ void blt8( pic8* pd, pic8* ps, int x, int y,
 		return;
 
 	if( ps->sprite ) {
+	int sy; // Legacy for-loop scope.
+
 		// sprite lejatszas:
 		// Itt vegig kell futni teljes sprite kepet es kozben vagni!
 		unsigned buf = 0;
 		unsigned char* buffer = ps->sprite;
 		int desty = y-y1;
-		for( int sy = 0; sy < ps->ysize; sy++ ) {
+		for( sy = 0; sy < ps->ysize; sy++ ) {
 			int ybentvan = 1;
 			if( sy < y1 || sy > y2 )
 				ybentvan = 0;
@@ -823,26 +853,30 @@ void blt8( pic8* pd, pic8* ps, int x, int y,
 
 	// Most mar tuti jok koordok!
 	if( pd->fizkep ) {
+	int fy; // Legacy for-loop scope.
+
 		// Fizikai kepernyore iras:
 		#ifdef W_95
 			hiba( "0895t" );
 		#else
 			int xmeret = x2-x1+1;
 			int dfy = y;
-			for( int fy = y1; fy <= y2; fy++ ) {
+			for( fy = y1; fy <= y2; fy++ ) {
 				putline8_l( x, dfy++, &ps->sormuttomb[fy][x1], xmeret );
 			}
 			return;
 		#endif
 	}
 	if( ps->fizkep ) {
+	int fy; // Legacy for-loop scope.
+
 		// Fizikai kepernyorol olvasas:
 		#ifdef W_95
 			hiba( "8795t" );
 		#else
 			int xmeret = x2-x1+1;
 			int dfy = y;
-			for( int fy = y1; fy <= y2; fy++ ) {
+			for( fy = y1; fy <= y2; fy++ ) {
 				getline8_l( x1, fy, &pd->sormuttomb[dfy++][x], xmeret );
 			}
 			return;
@@ -855,7 +889,7 @@ void blt8( pic8* pd, pic8* ps, int x, int y,
 	// if( Debugblt )	idejott
 	//	hiba( "Itt van 18!" );
 
-    for( int fy = y1; fy <= y2; fy++ ) {
+    for( fy = y1; fy <= y2; fy++ ) {
 		BYTECOPY( &pd->sormuttomb[dfy++][x], &ps->sormuttomb[fy][x1], xmeret );
     }
 	//if( Debugblt )	
@@ -885,13 +919,15 @@ void blt8( pic8* pd, pic8* ps, int x, int y,
 } */
 
 int pcxtopal( char* nev, unsigned char* pal ) {
+	int i; // Legacy for-loop scope.
+
     // Paletta beolvasasa:
     FILE* h = qopen( nev, "rb" );
     if( !h ) {
         hiba( "pcxtopal-ban nem tudta megnyitni file-t!: ", nev );
         return 0;
     }
-    long l = -769;
+    int32_t l = -769;
     if( qseek( h, l, SEEK_END ) != 0 ) {
         hiba( "Nem tud visszalepni palettahoz 768-at PCX-ben!: ", nev );
         qclose( h );
@@ -914,7 +950,7 @@ int pcxtopal( char* nev, unsigned char* pal ) {
         qclose( h );
         return 0;
     }
-    for( int i = 0; i < 768; i++ )
+    for( i = 0; i < 768; i++ )
         pal[i] = (unsigned char)(pal[i] >> 2);
     qclose( h );
     return 1;
@@ -931,6 +967,8 @@ int pcxtopal( char* nev, ddpal** ppddpal ) {
     return 1;
 }
 void mintavetel8( pic8* pdest, pic8* psour, int x1, int y1, int x2, int y2 ) {
+	int y; // Legacy for-loop scope.
+
     // Ellenorzesek:
     #ifdef PIC8TEST
         if( !pdest || !psour )
@@ -956,9 +994,11 @@ void mintavetel8( pic8* pdest, pic8* psour, int x1, int y1, int x2, int y2 ) {
     int yss = psour->getysize();
     double s_per_d_y = (double)yss/ysd;
     double s_per_d_x = (double)xss/xsd;
-    for( int y = 0; y < ysd; y++ ) {
+    for( y = 0; y < ysd; y++ ) {
+	int x; // Legacy for-loop scope.
+
         double sy = (y+0.5)*s_per_d_y;
-        for( int x = 0; x < xsd; x++ ) {
+        for( x = 0; x < xsd; x++ ) {
             double sx = (x+0.5)*s_per_d_x;
             unsigned char c = psour->gpixel( sx, sy );
             pdest->ppixel( x1+x, y1+y, c );
@@ -998,14 +1038,18 @@ void pic8::line( int x1, int y1, int x2, int y2, unsigned char szin ) {
         y2 = tmp;
     }
     if( x1 == x2 ) {
+	int y; // Legacy for-loop scope.
+
         // Fuggoleges:
-        for( int y = y1; y <= y2; y++ )
+        for( y = y1; y <= y2; y++ )
             ppixel( x1, y, szin  );
         return;
     }
     if( y1 == y2 ) {
+	int x; // Legacy for-loop scope.
+
         // Vizszintes:
-        for( int x = x1; x <= x2; x++ )
+        for( x = x1; x <= x2; x++ )
             ppixel( x, y1, szin  );
         return;
     }
@@ -1014,13 +1058,15 @@ void pic8::line( int x1, int y1, int x2, int y2, unsigned char szin ) {
 
 
 void pic8::keszitbelsot( int x1, int y1, int x2, int y2, pic8* ppic ) {
+	int y; // Legacy for-loop scope.
+
 	xsize = x2-x1+1;
 	ysize = y2-y1+1;
 	#ifdef TEST
 	if( x1 < 0 || x2 >= 640 || y1 < 0 || y2 >= 480 )
 		hiba( "pic8::keszitbelsot!" );
 	#endif
-	for( int y = 0; y < ysize; y++ )
+	for( y = 0; y < ysize; y++ )
 		sormuttomb[y] = ppic->getptr( y+y1 ) + x1;
 }
 

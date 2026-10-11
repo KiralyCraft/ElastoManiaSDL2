@@ -1,0 +1,22 @@
+Elasto Mania Classic SDL2
+Usage: elma-sdl2 --data-dir /path/to/Elma [options]
+
+  --user-dir PATH         Separate writable profile (default: SDL_GetPrefPath)
+  --import-state FILE     Copy a state.dat into a new, empty profile
+  --fullscreen            Desktop fullscreen; original 640x480 logical view
+  --scale 1..4             Initial window scale (default 2)
+  --integer-scale         Integer-only nearest-neighbor scaling
+  --no-vsync              Disable presentation vsync, not the physics clock
+  --fps N                 Fallback frame cap without vsync (default 60; 0 uncapped)
+  --buffers 2|3           Legacy framebuffer page count (default 3)
+  --no-audio              Disable audio output; gameplay events remain active
+  --no-dialogs            Report errors on stderr instead of modal dialogs
+  --capture PATH.bmp      Destination for F12 or timed SDL output capture
+  --capture-after-ms N    Capture on a presented frame after N milliseconds
+  --quit-after-ms N       Development smoke-test timeout; normal default is off
+  --record-input FILE     Log polled original key codes with SDL millisecond timestamps
+  --version               Show compatibility status
+
+F11 toggles fullscreen. F12 captures the actual SDL-rendered output.
+Original assets are required and are not included. Other architectures are experimental.
+x86 targets original behavior; 1:1 equivalence to Elma.exe is not yet certified.

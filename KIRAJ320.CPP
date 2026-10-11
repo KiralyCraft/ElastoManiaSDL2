@@ -1,4 +1,4 @@
-#include    "all.h"
+#include    "ALL.H"
 
 // Ezek mindig beallitodnak Kepmeret-bol kirajzol320-ban:
 
@@ -80,12 +80,16 @@ void beallitmereteket( int splitscreen ) {
 }
 
 void forditkepet( pic8* ppic ) {
-    for( int y1 = 0; y1 < ppic->getysize()/2; y1++ ) {
+	int y1; // Legacy for-loop scope.
+
+    for( y1 = 0; y1 < ppic->getysize()/2; y1++ ) {
+	int x; // Legacy for-loop scope.
+
         int y2 = ppic->getysize()-1-y1;
         unsigned char* sora = ppic->getptr( y1 );
         unsigned char* sorb = ppic->getptr( y2 );
         int xsize = ppic->getxsize();
-        for( int x = 0; x < xsize; x++ ) {
+        for( x = 0; x < xsize; x++ ) {
             unsigned char tmp = sora[x];
             sora[x] = sorb[x];
             sorb[x] = tmp;
@@ -185,6 +189,8 @@ static void felhokfel( int x, int y, pic8* ppicbuffer, pic8* pfelho,
 
 static void kiview( int ajatekos, pic8* ppic, double baljobb,
 				vekt2 motorkozep, motorst* pmot2 ) {
+	int i; int y; // Legacy for-loop scope.
+
 
     double Viewxsize_d = Viewxsize*Viewzoom*Aranyrec;
     double Viewysize_d = Viewysize*Viewzoom*Aranyrec;
@@ -209,7 +215,7 @@ static void kiview( int ajatekos, pic8* ppic, double baljobb,
     int objminy = balalsoy;
     int objmaxx = balalsox + Viewxsize-1;
     int objmaxy = balalsoy + Viewysize-1;
-    for( int i = 0; i < MAXKEREK; i++ ) {
+    for( i = 0; i < MAXKEREK; i++ ) {
         kerek* pker = Ptop->kerektomb[i];
         if( !pker )
             break;
@@ -261,7 +267,7 @@ static void kiview( int ajatekos, pic8* ppic, double baljobb,
 	// Kirajzoljuk keretet:
 	vx1--; vy1--;
     vx2++; vy2++;
-    for( int y = vy1; y <= vy2; y++ ) {
+    for( y = vy1; y <= vy2; y++ ) {
 		ppic->ppixel( vx1, y, Plgr->keretindex );
 		ppic->ppixel( vx2, y, Plgr->keretindex );
 	}
@@ -588,6 +594,8 @@ static void kirakegyjatekost(
 		valtozok* pvalt,
 		int viewki, int timeki,
 		motorst* pmot2, valtozok* pvalt2 ) {
+	int i; // Legacy for-loop scope.
+
 
 	// Kiszamoljuk kepernyo bal also sarkat:
 	vekt2 motorkozep = pmot->kor1.r;
@@ -609,7 +617,7 @@ static void kirakegyjatekost(
 	int objminy = balalsoy - 2*OBJEKTUMSUGAR_I - 2;
 	int objmaxx = balalsox + 640;
 	int objmaxy = balalsoy + 480;
-	for( int i = 0; i < MAXKEREK; i++ ) {
+	for( i = 0; i < MAXKEREK; i++ ) {
 		kerek* pker = Ptop->kerektomb[i];
 		if( !pker )
 			break;

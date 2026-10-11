@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 /*void tesztloadlgr( void ) {
 	int a = 1, b = 2, c = 4;
@@ -118,13 +118,15 @@ void lgrfile::chopbiker( pic8* pbiker, motkepek* pkepek ) {
 }
 
 static pic8* kepetbovitvizszint( textura* pt ) {
+	int i; // Legacy for-loop scope.
+
 	int cellasize = pt->origxsize;
 	int szorzo = 1;
 	while( cellasize * szorzo < 640 )
 		szorzo++;
 	szorzo++; // Igy mar legalabb egy keppel szelesebb 640-nel
 	pic8* ppic = new pic8( cellasize * szorzo, pt->ppic->getysize() );
-	for( int i = 0; i < szorzo; i++ ) {
+	for( i = 0; i < szorzo; i++ ) {
 		blt8( ppic, pt->ppic, i*cellasize, 0 );
 	}
 	return ppic;
@@ -132,6 +134,8 @@ static pic8* kepetbovitvizszint( textura* pt ) {
 
 // h-nak pcx file vegen kell allnia:
 static unsigned char* getnewpalfromh( FILE* h ) {
+	int i; // Legacy for-loop scope.
+
 	unsigned char* pal = new unsigned char[768];
 
 	if( fseek( h, -769, SEEK_CUR ) != 0 )
@@ -144,7 +148,7 @@ static unsigned char* getnewpalfromh( FILE* h ) {
 	if( fread( pal, 1, 768, h ) != 768 )
 		hiba( "Nem tud olvasni palettat LGR-ben!: " );
 
-	for( int i = 0; i < 768; i++ )
+	for( i = 0; i < 768; i++ )
 		pal[i] = (unsigned char)(pal[i] >> 2);
 
 	return pal;
@@ -175,6 +179,8 @@ static int getatlatszosag( int tipus, pic8* ppic ) {
 static unsigned char* Tmptomb = NULL;
 
 void lgrfile::beirkepet( pic8* ppic, piclist* ppiclist, int index ) {
+	int y; // Legacy for-loop scope.
+
 	if( kepszam >= MAXKEPSZAM )
 		uzenet( "Too many pictures in lgr file!" );
 
@@ -201,7 +207,7 @@ void lgrfile::beirkepet( pic8* ppic, piclist* ppiclist, int index ) {
 		hiba( "Not enough memory!" );
 
 	int i = 0;
-	for( int y = 0; y < pkep->ysize; y++ ) {
+	for( y = 0; y < pkep->ysize; y++ ) {
 		// Egy sor elintezese:
 		unsigned char* sor = ppic->getptr( y );
 		if( i > PICTOMBMERET )
@@ -290,6 +296,8 @@ void lgrfile::beirtexturat( pic8* ppic, piclist* ppiclist, int index ) {
 static maszkelem Melemtomb[MAXMASZKELEM];
 
 void lgrfile::beirmaszkot( pic8* ppic, piclist* ppiclist, int index ) {
+	int j; // Legacy for-loop scope.
+
 	if( maszkszam >= MAXMASZKSZAM )
 		uzenet( "Too many masks in lgr file!" );
 
@@ -303,8 +311,10 @@ void lgrfile::beirmaszkot( pic8* ppic, piclist* ppiclist, int index ) {
 	int i = 0;
 	int atlatszo = getatlatszosag( ppiclist->atlatszosagok[index], ppic );
 	if( atlatszo >= 0 ) {
+	int y; // Legacy for-loop scope.
+
 		// Van atlatszosag:
-		for( int y = 0; y < pm->ysize; y++ ) {
+		for( y = 0; y < pm->ysize; y++ ) {
 			// Kep egy soranak elintezese:
 			unsigned char* sor = ppic->getptr( y );
 
@@ -345,8 +355,10 @@ void lgrfile::beirmaszkot( pic8* ppic, piclist* ppiclist, int index ) {
 		}
 	}
 	else {
+	int y; // Legacy for-loop scope.
+
 		// Nincs atlatszosag:
-		for( int y = 0; y < pm->ysize; y++ ) {
+		for( y = 0; y < pm->ysize; y++ ) {
 			// Kep egy soranak elintezese:
 			Melemtomb[i].tipus = ME_TELI;
 			Melemtomb[i].hossz = pm->xsize;
@@ -361,7 +373,7 @@ void lgrfile::beirmaszkot( pic8* ppic, piclist* ppiclist, int index ) {
 	pm->adatok = new maszkelem[i];
 	if( !pm->adatok )
 		hiba( "Memory!" );
-	for( int j = 0; j < i; j++ )
+	for( j = 0; j < i; j++ )
 		pm->adatok[j] = Melemtomb[j];
 
 	delete ppic;
@@ -371,6 +383,8 @@ void lgrfile::beirmaszkot( pic8* ppic, piclist* ppiclist, int index ) {
 // Bemegy egy 768 byte-os paletta es kijon egy 256 byte-os lookup tabla:
 // Idokiiras ez alapjan ir ki minel kontrasztosabb szinnel:
 static unsigned char* makenegalttomb( unsigned char* pal ) {
+	int i; // Legacy for-loop scope.
+
 	unsigned char* lookuptomb = new unsigned char[260];
 	if( !lookuptomb )
 		hiba( "memory (h34252)" );
@@ -378,7 +392,7 @@ static unsigned char* makenegalttomb( unsigned char* pal ) {
 	// Megkeressuk legvilagosabb szint:
 	int eddigiertek = -1;
 	int legvilag = 0;
-	for( int i = 0; i < 256; i++ ) {
+	for( i = 0; i < 256; i++ ) {
 		int ujertek = pal[i*3] + pal[i*3+1] + pal[i*3+2];
 		if(  eddigiertek < ujertek ) {
 			eddigiertek = ujertek;
@@ -411,13 +425,15 @@ static unsigned char* makenegalttomb( unsigned char* pal ) {
 }
 
 lgrfile::lgrfile( char* lgrnev ) {
+	int i; // Legacy for-loop scope.
+
 	Paratlankepsorok = 1;
 
 	// Lenullaz mindent:
 	kepszam = 0;
 	maszkszam = 0;
 	texturaszam = 0;
-	for( int i = 0; i < MAXKEPSZAM; i++ )
+	for( i = 0; i < MAXKEPSZAM; i++ )
 		BYTESET( &kepek[i], 0, sizeof(kep) );
 	for( i = 0; i < MAXMASZKSZAM; i++ )
 		BYTESET( &maszkok[i], 0, sizeof(maszk) );
@@ -480,6 +496,8 @@ lgrfile::lgrfile( char* lgrnev ) {
 	pic8* p2biker = NULL;
 	pic8* pcolors = NULL;
 	for( i = 0; i < osszkepszam; i++ ) {
+	int foodi; // Legacy for-loop scope.
+
 		// Egy kep:
 		char nev[30];
 		if( fread( nev, 1, 20, h ) != 20 )
@@ -491,7 +509,7 @@ lgrfile::lgrfile( char* lgrnev ) {
 			uzenet( "Corrupt LGR file!:", lgrtmp );
 
 		// Beolvassuk kepet:
-		long kurpos = ftell( h );
+		int32_t kurpos = ftell( h );
 		pic8* ppic = new pic8( nev, h );
 		fseek( h, kurpos+hossz, SEEK_SET );
 
@@ -584,7 +602,7 @@ lgrfile::lgrfile( char* lgrnev ) {
 			pcolors = ppic; continue; }
 
 		int ezfoodvolt = 0;
-		for( int foodi = 0; foodi < 9; foodi++ ) {
+		for( foodi = 0; foodi < 9; foodi++ ) {
 			char tmpnev[20];
 			sprintf( tmpnev, "qfood%d.pcx", foodi+1 );
 			if( strcmpi( nev, tmpnev ) == 0 ) {
@@ -729,6 +747,8 @@ lgrfile::lgrfile( char* lgrnev ) {
 
 	// Most texturakat kibovitjuk vizszintes iranyban:
 	for( i = 0; i < texturaszam; i++ ) {
+	int k; // Legacy for-loop scope.
+
 		textura* pt = &texturak[i];
 		if( !pt->ppic )
 			hiba( "iuo4gt" );
@@ -742,7 +762,7 @@ lgrfile::lgrfile( char* lgrnev ) {
 			szorzo++;
 		pic8* pbovitett = new pic8( szorzo*pt->ppic->getxsize(),
 									pt->ppic->getysize() );
-		for( int k = 0; k < szorzo; k++ ) {
+		for( k = 0; k < szorzo; k++ ) {
 			blt8( pbovitett, pt->ppic,
 						k*pt->ppic->getxsize(), 0 );
 		}
@@ -752,7 +772,9 @@ lgrfile::lgrfile( char* lgrnev ) {
 
 	// Most kepeket abc sorrendbe rendezzuk:
 	for( i = 0; i < kepszam+2; i++ ) {
-		for( int j = 0; j < kepszam-1; j++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 0; j < kepszam-1; j++ ) {
 			if( strcmpi( kepek[j].nev, kepek[j+1].nev ) == 0 )
 				uzenet( "Picture name is duplicated in LGR file!: ",
 												kepek[j].nev );
@@ -768,7 +790,9 @@ lgrfile::lgrfile( char* lgrnev ) {
 
 	// Most maszkokat abc sorrendbe rendezzuk:
 	for( i = 0; i < maszkszam+2; i++ ) {
-		for( int j = 0; j < maszkszam-1; j++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 0; j < maszkszam-1; j++ ) {
 			if( strcmpi( maszkok[j].nev, maszkok[j+1].nev ) == 0 )
 				uzenet( "Mask name is duplicated in LGR file!: ",
 												maszkok[j].nev );
@@ -784,7 +808,9 @@ lgrfile::lgrfile( char* lgrnev ) {
 
 	// Most texturakat abc sorrendbe rendezzuk:
 	for( i = 0; i < texturaszam+2; i++ ) {
-		for( int j = 0; j < texturaszam-1; j++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 0; j < texturaszam-1; j++ ) {
 			if( strcmpi( texturak[j].nev, texturak[j+1].nev ) == 0 )
 				uzenet( "Texture name is duplicated in LGR file!: ",
 												texturak[j].nev );
@@ -805,7 +831,7 @@ lgrfile::lgrfile( char* lgrnev ) {
 
 	// Pic adatok letrehozasahoz felvett tombot toroljuk, mivel tul nagy:
 	if( Tmptomb ) {
-		delete Tmptomb;
+		delete[] Tmptomb;
 		Tmptomb = NULL;
 	}
 
@@ -853,16 +879,18 @@ static void deletemkepekstruct( motkepek* pk ) {
 }
 
 lgrfile::~lgrfile( void ) {
-	for( int i = 0; i < kepszam; i++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < kepszam; i++ ) {
 		if( !kepek[i].adatok )
 			hiba( "987ty7" );
-		delete kepek[i].adatok;
+		delete[] kepek[i].adatok;
 		kepek[i].adatok = NULL;
 	}
 	for( i = 0; i < maszkszam; i++ ) {
 		if( !maszkok[i].adatok )
 			hiba( "gk7u6tk" );
-		delete maszkok[i].adatok;
+		delete[] maszkok[i].adatok;
 		maszkok[i].adatok = NULL;
 	}
 	for( i = 0; i < texturaszam; i++ ) {
@@ -882,8 +910,8 @@ lgrfile::~lgrfile( void ) {
 	if( !pal || !paltomb || !idonegtomb )
 		hiba( "lgrfile::~lgrfile-ban !pal || !paltomb || !idonegtomb!" );
 	delete pal;
-	delete paltomb;
-	delete idonegtomb;
+	delete[] paltomb;
+	delete[] idonegtomb;
 	pal = NULL; paltomb = NULL; idonegtomb = NULL;
 
 	deletemkepekstruct( &mkepek1 );
@@ -961,9 +989,11 @@ void lgrfile::betolthattereket( void ) {
 
 // Ha nincs ilye nevu, akkor -1-et ad vissza
 int lgrfile::getkepindex( char* nev ) {
+	int i; // Legacy for-loop scope.
+
 	if( !nev[0] )
 		return -1;
-	for( int i = 0; i < kepszam; i++ )
+	for( i = 0; i < kepszam; i++ )
 		if( strcmpi( kepek[i].nev, nev ) == 0 )
 			return i;
 	return -1;
@@ -971,9 +1001,11 @@ int lgrfile::getkepindex( char* nev ) {
 
 // Ha nincs ilye nevu, akkor -1-et ad vissza
 int lgrfile::getmaszkindex( char* nev ) {
+	int i; // Legacy for-loop scope.
+
 	if( !nev[0] )
 		return -1;
-	for( int i = 0; i < maszkszam; i++ )
+	for( i = 0; i < maszkszam; i++ )
 		if( strcmpi( maszkok[i].nev, nev ) == 0 )
 			return i;
 	return -1;
@@ -981,9 +1013,11 @@ int lgrfile::getmaszkindex( char* nev ) {
 
 // Ha nincs ilye nevu, akkor -1-et ad vissza
 int lgrfile::gettexturaindex( char* nev ) {
+	int i; // Legacy for-loop scope.
+
 	if( !nev[0] )
 		return -1;
-	for( int i = 0; i < texturaszam; i++ )
+	for( i = 0; i < texturaszam; i++ )
 		if( strcmpi( texturak[i].nev, nev ) == 0 )
 			return i;
 	return -1;
@@ -1094,7 +1128,7 @@ void filemasolas( FILE* hout, char* nev, char* outnev ) {
 
 	pbuffer = Nagybuffer;
 	while( hossz > 0 ) {
-		long hosszmost = hossz;
+		int32_t hosszmost = hossz;
 		if( hosszmost > 60000 )
 			hosszmost = 60000;
 		if( hosszmost != fwrite( pbuffer, 1, hosszmost, hout ) )
@@ -1105,6 +1139,8 @@ void filemasolas( FILE* hout, char* nev, char* outnev ) {
 }
 
 void makelgrfile( void ) {
+	int i; // Legacy for-loop scope.
+
 	if( Billint ) {
 		printf( "Billint-et 0-ra kell allitani!\n" );
 		exit( 0 );
@@ -1130,7 +1166,7 @@ void makelgrfile( void ) {
 	if( listszam >= MAXPICLISTKEPSZAM )
 		uzenet( "Too many pcx files in PICTURES.LST file!" );
 	int kepszam = 0;
-	for( int i = 0; i < listszam; i++ ) {
+	for( i = 0; i < listszam; i++ ) {
 		char nev[20];
 		if( i < Allandokepszam )
 			strcpy( nev, Allandotomb[i] );

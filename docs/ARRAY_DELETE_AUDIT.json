@@ -1,0 +1,117 @@
+[
+  {
+    "file": "ABC8.CPP",
+    "array": "ppsprite",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "ABC8.CPP",
+    "array": "ytomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "ECSET.CPP",
+    "array": "nagydarabtomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "GOLYOK.CPP",
+    "array": "Idok[i]",
+    "deletions_corrected": 2
+  },
+  {
+    "file": "GOLYOK.CPP",
+    "array": "Idok",
+    "deletions_corrected": 2
+  },
+  {
+    "file": "GYURU.CPP",
+    "array": "ponttomb",
+    "deletions_corrected": 2
+  },
+  {
+    "file": "KISKEP.CPP",
+    "array": "tomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "LGRFILE.CPP",
+    "array": "Tmptomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "LGRFILE.CPP",
+    "array": "kepek[i].adatok",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "LGRFILE.CPP",
+    "array": "maszkok[i].adatok",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "LGRFILE.CPP",
+    "array": "paltomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "LGRFILE.CPP",
+    "array": "idonegtomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "MAIN.CPP",
+    "array": "tomb[i]",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "MENUKEP.CPP",
+    "array": "sorok",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "PIC8.CPP",
+    "array": "sormuttomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "PIC8.CPP",
+    "array": "szegmuttomb[i]",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "PIC8.CPP",
+    "array": "szegmuttomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "PIC8.CPP",
+    "array": "sprite",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "SPRITE.CPP",
+    "array": "buffer",
+    "deletions_corrected": 3
+  },
+  {
+    "file": "SZAKASZ.CPP",
+    "array": "tomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "SZAKASZ.CPP",
+    "array": "tertomb",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "VALASZT2.CPP",
+    "array": "rubrikak",
+    "deletions_corrected": 1
+  },
+  {
+    "file": "VALASZT2.CPP",
+    "array": "rubrikak_tab",
+    "deletions_corrected": 1
+  }
+]

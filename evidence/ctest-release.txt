@@ -1,0 +1,50 @@
+Internal ctest changing into directory: /mnt/data/elma-work/release
+UpdateCTestConfiguration  from :/mnt/data/elma-work/release/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/mnt/data/elma-work/release/DartConfiguration.tcl
+Test project /mnt/data/elma-work/release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: preservation
+
+1: Test command: /mnt/data/elma-work/release/elma-preservation-tests
+1: Working Directory: /mnt/data/elma-work/release
+1: Environment variables: 
+1:  ASAN_OPTIONS=detect_leaks=0
+1:  UBSAN_OPTIONS=halt_on_error=1:print_stacktrace=1
+1: Test timeout computed to be: 10000000
+1: PASS 20,000 full + 20,000 clipped sampler cases, including wrap/carry/transparency/count zero
+1: PASS x87 environment and numeric primitives
+1: PASS legacy MSVC random sequence
+1: PASS original disk layouts
+1: PASS profile symlink cannot write into original data
+1: PASS Windows paths and case-insensitive resource lookup
+1: PASS copy-on-write keeps installed data untouched
+1: PASS absolute paths and traversal rejected
+1: PASS 8.3 level enumeration merges profile overrides once
+1: PASS fresh state is isolated; legacy encrypted state round-trips
+1: PASS physical key map and original two-player control defaults
+1: PASS muting does not discard gameplay object events
+1: PASS registered/shareware resource decoding and virtual seeks
+1: PASS BMP output stores the real pixel channel order
+1: All 14 preservation test groups passed. This is not an original-binary physics oracle.
+1/2 Test #1: preservation .....................   Passed    0.02 sec
+test 2
+    Start 2: malformed-resource
+
+2: Test command: /mnt/data/elma-work/release/elma-preservation-tests "malformed-resource"
+2: Working Directory: /mnt/data/elma-work/release
+2: Environment variables: 
+2:  ASAN_OPTIONS=detect_leaks=0
+2:  UBSAN_OPTIONS=halt_on_error=1:print_stacktrace=1
+2: Test timeout computed to be: 10000000
+2: PASS malformed resource directory rejected before asset loading
+2/2 Test #2: malformed-resource ...............   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.03 sec

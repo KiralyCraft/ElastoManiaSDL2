@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 static int Szakaszmaxszam = 5130;
 
@@ -10,6 +10,8 @@ szakaszok* Pszak = NULL;
 int Ucsoloadszakasz_lezart = 0;
 
 szakaszok::szakaszok( topol* ptop ) {
+	int i; // Legacy for-loop scope.
+
 	// Elejen ugyanaz, mint void konstruktor:
 	tomb = NULL;
 	maxszam = szam = 0;
@@ -28,18 +30,20 @@ szakaszok::szakaszok( topol* ptop ) {
 		return;
 	}
 	maxszam = Szakaszmaxszam;
-	for( int i = 0; i < maxszam; i++ )
+	for( i = 0; i < maxszam; i++ )
 		memset( &tomb[i], 0, sizeof( vonal ) );
 
 	// Normal szakaszok beolvasasa:
 	for( i = 0; i < MAXGYURU; i++ ) {
+	int j; // Legacy for-loop scope.
+
 		gyuru* pgy = ptop->ptomb[i];
 		if( !pgy )
 			continue;
 		if( pgy->koveto )
 			continue;
 		int elsopontszama = szam;
-		for( int j = 0; j < pgy->pontszam; j++ ) {
+		for( j = 0; j < pgy->pontszam; j++ ) {
 			if( szam >= Szakaszmaxszam )
 				hiba( "szakaszok::szakaszok-ban z >= Szakaszmaxszam!" );
 				vekt2 r1, r2;
@@ -62,10 +66,10 @@ szakaszok::szakaszok( topol* ptop ) {
 
 szakaszok::~szakaszok( void ) {
 	if( tomb ) {
-		DELETE tomb; }
+		DELETE[] tomb; }
 	}
 	if( tertomb ) {
-		DELETE tertomb; }
+		DELETE[] tertomb; }
 	}
 	deleteallnodes();
 }
@@ -208,6 +212,8 @@ void szakaszok::beindexelvonalat( vonal* pv, double maxtav ) {
 }
 
 void szakaszok::rendez( double maxtav ) {
+	int i; // Legacy for-loop scope.
+
 	// Ellenorzes:
 	if( szam <= 0 )
 		hiba( "szakaszok::rendez-ben szam <= 0!" );
@@ -273,7 +279,7 @@ void szakaszok::rendez( double maxtav ) {
 	if( !tertomb )
 		uzenet( "memory!" );
 	int hatar = xdim*ydim;
-	for( int i = 0; i < hatar; i++ )
+	for( i = 0; i < hatar; i++ )
 		tertomb[i] = NULL;
 
 	// Most vegigmegy szakaszokon es beilleszti oket:

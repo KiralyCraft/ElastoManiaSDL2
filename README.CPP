@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 // Ha ez define-olva van, akkor titkositani fog.
 // (Igy kell eloallitani titkosito exe-t.)
@@ -56,6 +56,8 @@ void titkositreadme( void ) {
 #endif
 
 static void beirnevet( FILE* h ) {
+	int i; // Legacy for-loop scope.
+
 	char nev[18];
 
 	nev[2] = 'a';
@@ -78,7 +80,7 @@ static void beirnevet( FILE* h ) {
 	fwrite( &c, 1, 1, h );
 	c = ' ';
 	fwrite( &c, 1, 1, h );
-	for( int i = 0; i < 15; i++ )
+	for( i = 0; i < 15; i++ )
 		fwrite( nev+i, 1, 1, h );
 
 	// Toroljuk nevet:
@@ -88,6 +90,8 @@ static void beirnevet( FILE* h ) {
 static int Readmementve = 0;
 
 void kimentreadme( void ) {
+	int i; // Legacy for-loop scope.
+
 	if( Readmementve )
 		return;
 	Readmementve = 1;
@@ -136,7 +140,7 @@ void kimentreadme( void ) {
 
 	int szamlalo = 0;
 	int igaziszamlalo = 0;
-	for( int i = 0; i < hossz; i++ ) {
+	for( i = 0; i < hossz; i++ ) {
 		unsigned char c;
 
 		int szamzero = 14624;

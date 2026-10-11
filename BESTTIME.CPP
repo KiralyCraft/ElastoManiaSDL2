@@ -1,6 +1,6 @@
-#include	"all.h"
+#include	"ALL.H"
 
-void ido2string( long l, char* text, int hosszu ) {
+void ido2string( int32_t l, char* text, int hosszu ) {
 	if( l < 0 )
 		hiba( "ido2string-ben ido < 0!" );
 	int szazad = int(l%100);
@@ -50,6 +50,8 @@ void ido2string( long l, char* text, int hosszu ) {
 }
 
 void elemibesttimes( palyaegyfeleidok* pidok, char* fejlec, int single ) {
+	int i; // Legacy for-loop scope.
+
 	if( pidok->idokszama == 0 )
 		return;
 
@@ -66,7 +68,7 @@ void elemibesttimes( palyaegyfeleidok* pidok, char* fejlec, int single ) {
 		x1 = 80;
 		x2 = 400;
 	}
-	for( int i = 0; i < pidok->idokszama; i++ ) {
+	for( i = 0; i < pidok->idokszama; i++ ) {
 		char szoveg[50];
 		strcpy( szoveg, pidok->nevek1[i] );
 		if( !single ) {
@@ -115,8 +117,10 @@ void besttimes( topol* ptop, int single ) {
 }
 
 void besttimes_egytipus( int single ) {
+	int i; // Legacy for-loop scope.
+
 	int palyaszam = 0;
-	for( int i = 0; i < State->jatekosokszama; i++ ) {
+	for( i = 0; i < State->jatekosokszama; i++ ) {
 		if( State->jatekosok[i].sikerespalyakszama > palyaszam )
 			palyaszam = int(State->jatekosok[i].sikerespalyakszama);
 	}

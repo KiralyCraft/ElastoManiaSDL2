@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 pic8* Buffsima = NULL;
 pic8* Buffgolyo = NULL;
@@ -54,8 +54,12 @@ void initmenukep2( void ) {
 }
 
 void tilevaltas( void ) {
-	for( int y = 0; y < Kisnevsima->getysize(); y += Vegetile1->getysize() ) {
-		for( int x = 0; x < Kisnevsima->getxsize(); x += Vegetile1->getxsize() ) {
+	int y; // Legacy for-loop scope.
+
+	for( y = 0; y < Kisnevsima->getysize(); y += Vegetile1->getysize() ) {
+	int x; // Legacy for-loop scope.
+
+		for( x = 0; x < Kisnevsima->getxsize(); x += Vegetile1->getxsize() ) {
 			blt8( Kisnevsima, Vegetile1, x, y );
 			blt8( Kisnevgolyo, Vegetile2, x, y );
 		}
@@ -75,7 +79,7 @@ szoveglista::szoveglista( void ) {
 szoveglista::~szoveglista( void ) {
 	if( !sorok )
 		hiba( "szoveglista::~szoveglista !sorok!" );
-	delete sorok;
+	delete[] sorok;
 	sorok = NULL;
 }
 
@@ -108,16 +112,18 @@ void szoveglista::clear( void ) {
 
 static pic8* Tmpbuffer = NULL; // Ideiglenes
 
-static Scrolly1 = 0; // Ennel kiseb x-ek helyere sotet zoldet rak kirazgolyo
+static int Scrolly1 = 0; // Ennel kiseb x-ek helyere sotet zoldet rak kirazgolyo
 static unsigned char Introhatter = 254;
 static unsigned char* Zoldsor = NULL;
 static unsigned char* Hattersor = NULL;
 
 static void kirajzgolyo( vekt2 g, double r, pic8* forras ) {
 	if( !Zoldsor ) {
+	int i; // Legacy for-loop scope.
+
 		Zoldsor = new unsigned char[640];
 		Hattersor = new unsigned char[640];
-		for( int i = 0; i < 640; i++ ) {
+		for( i = 0; i < 640; i++ ) {
 			Zoldsor[i] = 248;
 			Hattersor[i] = Introhatter;
 		}
@@ -181,6 +187,8 @@ static int Kezdoanimjon = 1;
 void szoveglista::kirajzol( int nemkellgolyo,
 							pic8* rarakkep1, pic8* rarakkep2,
 							pic8* rarakkep3, pic8* rarakkep4 ) {
+	int i; // Legacy for-loop scope.
+
 	// Kirakjuk hatteret:
 	if( !Tmpbuffer ) // Ideiglenes
 		Tmpbuffer = new pic8( 640, 480 );
@@ -225,7 +233,9 @@ void szoveglista::kirajzol( int nemkellgolyo,
 			blt8( Buffgolyo, rarakkep4, 0, 360 );
 		}
 		else {
-			for( int i = 0; i < elemszam; i++ ) {
+	int i; // Legacy for-loop scope.
+
+			for( i = 0; i < elemszam; i++ ) {
 				Pmenuabc->write( Buffsima, sorok[i].x, sorok[i].y,
 									sorok[i].text );
 				Pmenuabc->write( Buffgolyo, sorok[i].x, sorok[i].y,
@@ -289,7 +299,7 @@ void szoveglista::kirajzol( int nemkellgolyo,
 
 	blt8( Tmpbuffer, Buffsima );
 
-	for( int i = 0; i < Ngolyok; i++ ) {
+	for( i = 0; i < Ngolyok; i++ ) {
 		if( nemkellgolyo || !State->animatedmenus )
 			break;
 
@@ -319,13 +329,17 @@ void szoveglista::kirajzol( int nemkellgolyo,
 
 static int Elsokiranim = 1;
 // Teljes olvassa be es elso kiirloading szabaditja fel:
-extern pic8* Pintro = NULL;
+pic8* Pintro = NULL;
 
 static double Animkezdete = 0.0;
 
 // Hamis ha animnak mar vege:
 int szoveglista::kirajzolanim( double ido ) {
+	int i; // Legacy for-loop scope.
+
 	if( Elsokiranim ) {
+	int i; // Legacy for-loop scope.
+
 		leptetgolyo( 0.000000001 );
 		Elsokiranim = 0;
 		Animkezdete = ido;
@@ -354,7 +368,7 @@ int szoveglista::kirajzolanim( double ido ) {
 
 		Scrolly1 = 0;
 		double yeltolas = 0.0;
-		for( int i = 0; i < Ngolyok; i++ ) {
+		for( i = 0; i < Ngolyok; i++ ) {
 			if( !State->animatedmenus )
 				break;
 
@@ -413,7 +427,7 @@ int szoveglista::kirajzolanim( double ido ) {
 
 	Scrolly1 = 480-frame;
 	double yeltolas = frame-480.0;
-	for( int i = 0; i < Ngolyok; i++ ) {
+	for( i = 0; i < Ngolyok; i++ ) {
 		if( !State->animatedmenus )
 			break;
 
@@ -458,6 +472,8 @@ typedef char hibasor[MAXHIBASORHOSSZ+4];
 static hibasor Hibasortomb[MAXHIBASOR];
 
 void grafikushiba( char* text1, char* text2, char* text3 ) {
+	int i; // Legacy for-loop scope.
+
 	// Kirajzoljuk hatteret Buffsima-ba:
 	int y = 0;
 	int paros = 0;
@@ -474,7 +490,7 @@ void grafikushiba( char* text1, char* text2, char* text3 ) {
 	}
 
 	int sorszam = 0;
-	for( int i = 0; i < 3; i++ ) {
+	for( i = 0; i < 3; i++ ) {
 		char* text = text1;
 		if( i == 1 )
 			text = text2;

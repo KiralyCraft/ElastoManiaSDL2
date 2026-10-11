@@ -1,0 +1,7 @@
+[1/7] Building CXX object CMakeFiles/elma-sdl2.dir/platform/main.cpp.o
+[2/7] Building CXX object CMakeFiles/elma-engine.dir/EDITTOLT.CPP.o
+[3/7] Building CXX object CMakeFiles/elma-preservation-tests.dir/platform/filesystem.cpp.o
+[4/7] Building CXX object CMakeFiles/elma-preservation-tests.dir/tests/preservation.cpp.o
+[5/7] Building CXX object CMakeFiles/elma-sdl2.dir/platform/filesystem.cpp.o
+[6/7] Linking CXX executable elma-preservation-tests
+[7/7] Linking CXX executable elma-sdl2

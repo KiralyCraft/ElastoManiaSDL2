@@ -1,4 +1,4 @@
-#include    "all.h"
+#include    "ALL.H"
 
 // szamitogep
 // monitor
@@ -89,11 +89,13 @@ void mv_main( void ) {
 	//initqopen();
 
 	if( access( "nemmem.inf", 0 ) != 0 ) {
+	int i; // Legacy for-loop scope.
+
 		// Ha nem talalja nemmem.inf-et:
 		// mem Totall Free 11600K-nal meg eppen elmegy, 101 mar uzenetet ir:
 		int memkell = 100;
 		char* tomb[110];
-		for( int i = 0; i < memkell; i++ ) {
+		for( i = 0; i < memkell; i++ ) {
 			{ tomb[i] = NEW(char*) char[100000]; }
 			if( !tomb[i] ) {
 				char tmp[200];
@@ -102,7 +104,7 @@ void mv_main( void ) {
 			}
 		}
 		for( i = 0; i < memkell; i++ )
-			DELETE tomb[i]; }
+			DELETE[] tomb[i]; }
 	}
 
 	if( access( "otszor.inf", 0 ) == 0 )

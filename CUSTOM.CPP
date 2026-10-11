@@ -1,4 +1,4 @@
-#include "all.h"
+#include "ALL.H"
 
 #ifdef W_95
 // W_DI.CPP-ben van definialva:
@@ -71,8 +71,12 @@ static void gombotvalaszt( int rubrikaszam, billmuttomb bmuttomb, int sorszam ) 
 
 	// Megnezzuk milyen gombot nyomott le:
 	while( 1 ) {
+	int i; // Legacy for-loop scope.
+
 		mv_check( /*"cust.cpp"*/ );	
-		for( int i = 1; i < 256; i++ ) {
+		for( i = 1; i < 256; i++ ) {
+	int j; // Legacy for-loop scope.
+
 			if( mk_getstate( MK_ESC ) )
 				return;
 
@@ -94,7 +98,7 @@ static void gombotvalaszt( int rubrikaszam, billmuttomb bmuttomb, int sorszam ) 
 
 			// Most meg van nyomva egy gomb:
 			// Kiszedjuk mindenhonnan mashonnan ezt a billt:
-			for( int j = 3; j < Rubrikaszam0; j++ ) { // 1-tol megy
+			for( j = 3; j < Rubrikaszam0; j++ ) { // 1-tol megy
 				if( *Pbilltomb0[j] == i )
 					*Pbilltomb0[j] = 0;
 			}

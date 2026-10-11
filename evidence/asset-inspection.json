@@ -1,0 +1,9 @@
+{
+  "edition": "registered",
+  "resource_entries": 82,
+  "resource_size": 1176456,
+  "resource_sha256": "87a24b8f9e56066b418e78c80e30561235118dbf20344089e94bad1bfea50146",
+  "cmake_option": "-DELMA_SHAREWARE=OFF",
+  "default_lgr_sha256": "b722ab1a10226b576f869f29a1f9a218f38481771fe6588c998b9f5353298ed0",
+  "note": "Directory/header validation only, not a full asset audit or physics compatibility certificate"
+}

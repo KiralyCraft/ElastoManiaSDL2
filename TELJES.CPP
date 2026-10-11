@@ -1,8 +1,10 @@
-#include    "all.h"
+#include    "ALL.H"
 
 state_s* State = NULL;
 
 void cheatplayer( void ) {
+	int i; // Legacy for-loop scope.
+
 	// Egyetlen jatekosnak sem szabad lennie:
 	if( State->jatekosokszama != 0 )
 		hiba( "cheatplayer-ben mar van valaki bejegyezve!" );
@@ -18,7 +20,7 @@ void cheatplayer( void ) {
 	pjat->jelenlegipalya = 0;
 
 
-	for( int i = 0; i < hanypalya; i++ ) {
+	for( i = 0; i < hanypalya; i++ ) {
 		palyaegyfeleidok* pidok = &State->palyakidejei[i].singleidok;
 		if( pidok->idokszama != 0 )
 			hiba( "cheatplayer-ben bug!" );
@@ -84,18 +86,8 @@ void teljes( void ) {
 
 	// Ezt majd elso kiirloading szabaditja fel (menukep-ben van definialva):
 	Pintro = new pic8( "intro.pcx" );
-	// Itt most atirjuk verziot 1.1-re:
-	//blt8( Pintro, Pintro, 343, 433, 520, 459, 530, 468 ); // a betu
-	if( Sarvari ) {
-		blt8( Pintro, Pintro, 321, 420, 296, 420, 314, 441 );
-		blt8( Pintro, Pintro, 321+15, 420, 296, 420, 314, 441 );
-		blt8( Pintro, Pintro, 321+15+17, 432, 88, 458, 98, 468 );
-	}
-	else {
-		blt8( Pintro, Pintro, 321, 420, 297, 420, 315, 441 );
-		blt8( Pintro, Pintro, 321+15, 420, 297, 420, 315, 441 );
-		blt8( Pintro, Pintro, 321+15+16, 432, 88, 458, 98, 468 );
-	}
+	// SDL preservation port: retain the installed asset version lettering.
+	// The published source patched the 1.0 graphic to 1.11a here.
 	spriteosit( Pintro );
 	pic8* tmpintro = new pic8( 640, 480 ); // ezt majd kesobb szabaditjuk fel
 	tmpintro->fillbox( 254 );
@@ -268,13 +260,15 @@ void kilep( void ) {
 
 static void mergeegyfele( palyaegyfeleidok* pst, palyaegyfeleidok* pmrg,
 								int single ) {
+	int i; // Legacy for-loop scope.
+
 	int idokszama = pst->idokszama + pmrg->idokszama;
 	int idok[MAXIDOK*2];
 	int ujetomb[MAXIDOK*2]; // Igaz, ha merge file-bol van ido
 	jatekosnev_type nevek1[MAXIDOK*2];
 	jatekosnev_type nevek2[MAXIDOK*2];
 	// Feltoltjuk tablat:
-	for( int i = 0; i < pst->idokszama; i++ ) {
+	for( i = 0; i < pst->idokszama; i++ ) {
 		idok[i] =  pst->idok[i];
 		ujetomb[i] = 0;
 		strcpy( nevek1[i], pst->nevek1[i] );
@@ -299,7 +293,9 @@ static void mergeegyfele( palyaegyfeleidok* pst, palyaegyfeleidok* pmrg,
 	}
 	// Rendezzuk oket:
 	for( i = 0; i < idokszama+4; i++ ) {
-		for( int j = 0; j < idokszama-1; j++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 0; j < idokszama-1; j++ ) {
 			// Megnezzuk hogy kell-e csere:
 			// Eloszor ido szamit, utana elso es masodik nev, majd
 			// az hogy merge.dat-bol van-e ido:
@@ -353,14 +349,18 @@ static void mergeegyfele( palyaegyfeleidok* pst, palyaegyfeleidok* pmrg,
 	// Most egyforma idoket egy forma versenyzoktol kiszedjuk:
 	// (csak az uj idoket):
 	for( i = 0; i < idokszama+2; i++ ) {
-		for( int j = 0; j < idokszama-1; j++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 0; j < idokszama-1; j++ ) {
 			if( idok[j] == idok[j+1] &&
 				strcmp( nevek1[j], nevek1[j+1] ) == 0 &&
 				(single || strcmp( nevek2[j], nevek2[j+1] ) == 0) &&
 				ujetomb[j+1] ) {
+	int k; // Legacy for-loop scope.
+
 
 				// Kiszedjuk j+1 -ediket:
-				for( int k = j+1; k < idokszama-1; k++ ) {
+				for( k = j+1; k < idokszama-1; k++ ) {
 					// k+1 -ediket k -adikba tesszuk:
 					idok[k] = idok[k+1];
 					ujetomb[k] = ujetomb[k+1];
@@ -393,6 +393,8 @@ static void mergeegyfele( palyaegyfeleidok* pst, palyaegyfeleidok* pmrg,
 }
 
 static void mergestatedat( void ) {
+	int i; // Legacy for-loop scope.
+
 	char nev[20] = "merge.dat";
 	if( access( nev, 0 ) != 0 )
 		return; // Nincsen merge file
@@ -404,7 +406,7 @@ static void mergestatedat( void ) {
 	State->reloadidok();
 
 	// Most osszefesuljuk besttime tablakat:
-	for( int i = 0; i < MAXPALYASZAM; i++ ) {
+	for( i = 0; i < MAXPALYASZAM; i++ ) {
 		mergeegyfele( &State->palyakidejei[i].singleidok,
 					  &pmerge->palyakidejei[i].singleidok, 1 );
 		mergeegyfele( &State->palyakidejei[i].multiidok,

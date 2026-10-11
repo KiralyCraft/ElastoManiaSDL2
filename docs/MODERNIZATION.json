@@ -1,0 +1,542 @@
+{
+  "ABC8.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 3
+  },
+  "ADATOK.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 1
+  },
+  "ANIM.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 6
+  },
+  "BEALLIT.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "BESTTIME.CPP": {
+    "long_width_changes": 1,
+    "hoisted_loops": 2
+  },
+  "CRCCHECK.CPP": {
+    "long_width_changes": 12,
+    "hoisted_loops": 4
+  },
+  "CUSTOM.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 2
+  },
+  "DIALOG.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 4
+  },
+  "DIALOG32.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 3
+  },
+  "DIGIT.CPP": {
+    "long_width_changes": 2,
+    "hoisted_loops": 0
+  },
+  "DISPLAY.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 2
+  },
+  "DOBOZ.CPP": {
+    "long_width_changes": 26,
+    "hoisted_loops": 2
+  },
+  "D_PIC.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 1
+  },
+  "ECSET.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 34
+  },
+  "EDITHELP.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITMENU.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITPLAY.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITTOLT.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 25
+  },
+  "EDITTOOL.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 10
+  },
+  "EDITUJ.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 5
+  },
+  "ED_CHECK.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 3
+  },
+  "FOGOCSKA.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "GOLYKISZ.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "GOLYOK.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 5
+  },
+  "GOLYUTK.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "GYURU.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 15
+  },
+  "H_WAV.CPP": {
+    "long_width_changes": 7,
+    "hoisted_loops": 6
+  },
+  "JATEKOS.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 2
+  },
+  "KIRAJ320.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 5
+  },
+  "KISKEP.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 2
+  },
+  "KOVETO.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 4
+  },
+  "KOZOS.CPP": {
+    "long_width_changes": 1,
+    "hoisted_loops": 0
+  },
+  "LEJATSZO.CPP": {
+    "long_width_changes": 8,
+    "hoisted_loops": 0
+  },
+  "LEPTET.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 1
+  },
+  "LGRFILE.CPP": {
+    "long_width_changes": 2,
+    "hoisted_loops": 18
+  },
+  "LOAD.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "MAIN.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 1
+  },
+  "MAINMENU.CPP": {
+    "long_width_changes": 3,
+    "hoisted_loops": 3
+  },
+  "MENUKEP.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 8
+  },
+  "NEWUJ.CPP": {
+    "long_width_changes": 1,
+    "hoisted_loops": 0
+  },
+  "OPTIONS.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "PEXTMENU.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 3
+  },
+  "PIC8.CPP": {
+    "long_width_changes": 7,
+    "hoisted_loops": 24
+  },
+  "PICLIST.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 2
+  },
+  "PLAY.CPP": {
+    "long_width_changes": 6,
+    "hoisted_loops": 3
+  },
+  "QOPEN.CPP": {
+    "long_width_changes": 9,
+    "hoisted_loops": 6
+  },
+  "README.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 2
+  },
+  "RECORDER.CPP": {
+    "long_width_changes": 14,
+    "hoisted_loops": 1
+  },
+  "SKIP.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 1
+  },
+  "SPRITE.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 1
+  },
+  "STATE.CPP": {
+    "long_width_changes": 6,
+    "hoisted_loops": 12
+  },
+  "SZAKASZ.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 3
+  },
+  "TELJES.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 6
+  },
+  "TOPOL.CPP": {
+    "long_width_changes": 6,
+    "hoisted_loops": 30
+  },
+  "UPGRADE.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 3
+  },
+  "UTKOZES.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "UTKOZES2.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 1
+  },
+  "VALASZT2.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 2
+  },
+  "VEKT2.CPP": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "NEWUJ.H": {
+    "long_width_changes": 1,
+    "hoisted_loops": 0
+  },
+  "ABC8.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "BEALLIT.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "KISKEP.H": {
+    "long_width_changes": 1,
+    "hoisted_loops": 0
+  },
+  "TELJES.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "PICL8VES.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "UPGRADE.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "RECORDER.H": {
+    "long_width_changes": 7,
+    "hoisted_loops": 0
+  },
+  "M_PIC.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "GOLYOK.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "README.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "KIRAJZOL.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "GOLYKISZ.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "ADATOK.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITHELP.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "RAYBACK.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITTOLT.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "ANIM.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "DIALOG32.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "PUBGOLY.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "MENUKEP.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "M_DD.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITPLAY.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "PICLIST.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "OPTIONS.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "TULMINTA.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "MAIN.H": {
+    "long_width_changes": 1,
+    "hoisted_loops": 0
+  },
+  "JATEKOS.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "VALASZT2.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "KOR.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "RAJZ.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "MOUSE.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "PALOPTIM.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "CRCCHECK.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "LOAD.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDTARGY.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "LEJATSZO.H": {
+    "long_width_changes": 2,
+    "hoisted_loops": 0
+  },
+  "STATE.H": {
+    "long_width_changes": 5,
+    "hoisted_loops": 0
+  },
+  "ALL.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "UTKOZES.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "PLAY.H": {
+    "long_width_changes": 2,
+    "hoisted_loops": 0
+  },
+  "KOZOS.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "DISPLAY.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "LGRFILE.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "PIC8.H": {
+    "long_width_changes": 3,
+    "hoisted_loops": 0
+  },
+  "TOPOL.H": {
+    "long_width_changes": 3,
+    "hoisted_loops": 0
+  },
+  "HANGHIGH.H": {
+    "long_width_changes": 1,
+    "hoisted_loops": 0
+  },
+  "D_NEMPUB.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "M_K.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "UTKOZES2.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "M_V.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "DIGIT.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "CUSTOM.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITUJ.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "ECSET.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITMENU.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "DIALOG.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "QOPEN.H": {
+    "long_width_changes": 1,
+    "hoisted_loops": 0
+  },
+  "DOBOZ.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "FOGOCSKA.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "KOVETO.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EDITTOOL.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "GOLYUTK.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "EGAVGA.H": {
+    "long_width_changes": 2,
+    "hoisted_loops": 0
+  },
+  "HIBA.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "ED_CHECK.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "LEPTET.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "WAV.H": {
+    "long_width_changes": 2,
+    "hoisted_loops": 0
+  },
+  "SZAKASZ.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "BESTTIME.H": {
+    "long_width_changes": 1,
+    "hoisted_loops": 0
+  },
+  "SKIP.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "MAINMENU.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "VEKT2.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "HANG.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "PICMCGA.H": {
+    "long_width_changes": 0,
+    "hoisted_loops": 0
+  },
+  "F_WIN/W_HHIGH.CPP": {
+    "long_width_changes": 13,
+    "hoisted_loops": 11
+  }
+}

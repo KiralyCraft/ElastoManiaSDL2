@@ -1,0 +1,12 @@
+test_bad_extent (test_assets.AssetTests.test_bad_extent) ... ok
+test_case_lookup (test_assets.AssetTests.test_case_lookup) ... ok
+test_duplicate (test_assets.AssetTests.test_duplicate) ... ok
+test_magic (test_assets.AssetTests.test_magic) ... ok
+test_registered (test_assets.AssetTests.test_registered) ... ok
+test_shareware (test_assets.AssetTests.test_shareware) ... ok
+test_truncated (test_assets.AssetTests.test_truncated) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.023s
+
+OK

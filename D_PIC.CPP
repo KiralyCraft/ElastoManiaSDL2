@@ -1,4 +1,4 @@
-#include    "all.h"
+#include    "ALL.H"
 
 static pic8 *Lockbuff = NULL;
 
@@ -122,9 +122,11 @@ void  bltfront( pic8* ppic ) {
 		hiba( "5398765" );
 	extern int Locky0_alul;
 	if( Locky0_alul ) {
+	int y; // Legacy for-loop scope.
+
 		if( ppic->getxsize() != 640 || ppic->getysize() != 480 )
 			hiba( "5646879" );
-		for( int y = 0; y < 480; y++ )
+		for( y = 0; y < 480; y++ )
 			putline8_l( 0, y, ppic->sormuttomb[479-y], 640 );
 	}
 	else {

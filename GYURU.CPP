@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 // Ide balszog tesz be akkor pontot, ha talal tul hegyes szoget:
 // Check hivja gyuru->pozitivkorjaras-on keresztul:
@@ -6,6 +6,8 @@ int Vanhegyesszog = 0;
 vekt2 Rhegyesszog;
 
 gyuru::gyuru( void ) {
+	int i; // Legacy for-loop scope.
+
 	pontszam = 0;
 	lefoglaltmaxpont = 10;
 
@@ -13,7 +15,7 @@ gyuru::gyuru( void ) {
 	koveto = 0;
 
 	ponttomb = new vekt2[lefoglaltmaxpont];
-	for( int i = 0; i < lefoglaltmaxpont; i++ ) {
+	for( i = 0; i < lefoglaltmaxpont; i++ ) {
 		ponttomb[i].x = 0;
 		ponttomb[i].y = 0;
    }
@@ -31,7 +33,7 @@ gyuru::gyuru( void ) {
 
 gyuru::~gyuru( void ) {
 	if( ponttomb )
-		delete ponttomb;
+		delete[] ponttomb;
 	ponttomb = NULL;
 }
 
@@ -59,15 +61,19 @@ void gyuru::kirajz( int k, int fel, int szaggatott ) {
 }
 
 void gyuru::osszrajz( void ) {
+	int i; // Legacy for-loop scope.
+
 	if( pontszam < 3 || pontszam > MAXPONT )
 		hiba( "gyuru::osszrajz-ban pontszam < 3 || pontszam > MAXPONT!" );
-	for( int i = 0; i < pontszam; i++ )
+	for( i = 0; i < pontszam; i++ )
 		kirajz( i, 1, 0 );
 }
 
 
 // k pont utan beszur egyet ugyanolyan koordokkal
 int gyuru::beszur( int k ) {
+	int i; // Legacy for-loop scope.
+
 	if( pontszam+1 > MAXPONT ) {
 		dialog( "You cannot add more points to this GYURU!" );
 		return 0;
@@ -76,10 +82,12 @@ int gyuru::beszur( int k ) {
 		hiba( "gyuru::beszur-ban k >= pontszam!" );
 
 	if( pontszam >= lefoglaltmaxpont ) {
+	int i; // Legacy for-loop scope.
+
 		// Ujra fel kell venni pontok tombjet, csak most tobb ponttal:
 		lefoglaltmaxpont += 10;
 		vekt2* ujponttomb = new vekt2[lefoglaltmaxpont];
-		for( int i = 0; i < lefoglaltmaxpont; i++ ) {
+		for( i = 0; i < lefoglaltmaxpont; i++ ) {
 			ujponttomb[i].x = 0;
 			ujponttomb[i].y = 0;
 		}
@@ -87,11 +95,11 @@ int gyuru::beszur( int k ) {
 			ujponttomb[i].x = ponttomb[i].x;
 			ujponttomb[i].y = ponttomb[i].y;
 		}
-		delete ponttomb;
+		delete[] ponttomb;
 		ponttomb = ujponttomb;
 	}
 
-	for( int i = pontszam-1; i >= k; i-- ) {
+	for( i = pontszam-1; i >= k; i-- ) {
 		ponttomb[i+1].x = ponttomb[i].x;
 		ponttomb[i+1].y = ponttomb[i].y;
    }
@@ -100,11 +108,13 @@ int gyuru::beszur( int k ) {
 }
 
 void gyuru::torol( int k ) {
+	int i; // Legacy for-loop scope.
+
 	if( k < 0 || k >= pontszam )
 		hiba( "gyuru::torol-ben k < 0 || k >= pontszam!" );
 	if( pontszam <= 3 )
 		return;
-	for( int i = k; i < pontszam-1; i++ ) {
+	for( i = k; i < pontszam-1; i++ ) {
 		ponttomb[i].x = ponttomb[i+1].x;
 		ponttomb[i].y = ponttomb[i+1].y;
    }
@@ -112,9 +122,11 @@ void gyuru::torol( int k ) {
 }
 
 double gyuru::legkozpont( double x, double y, int* pk ) {
+	int i; // Legacy for-loop scope.
+
 	double tav = 1000000000000000.0;
 	*pk = 0;
-	for( int i = 0; i < pontszam; i++ ) {
+	for( i = 0; i < pontszam; i++ ) {
 		double dx = ponttomb[i].x-x;
 		double dy = ponttomb[i].y-y;
 		double ujtav = dx*dx + dy*dy;
@@ -127,13 +139,15 @@ double gyuru::legkozpont( double x, double y, int* pk ) {
 }
 
 int gyuru::metszesszam( vekt2 r1, vekt2 v1 ) {
+	int i; // Legacy for-loop scope.
+
 	#ifdef TEST
 		if( koveto )
 			hiba( "89yy" );
 	#endif
 
 	int metszes = 0;
-	for( int i = 0; i < pontszam; i++ ) {
+	for( i = 0; i < pontszam; i++ ) {
 		double x1 = ponttomb[i].x;
 		double y1 = ponttomb[i].y;
 		double x2, y2;
@@ -156,6 +170,8 @@ int gyuru::metszesszam( vekt2 r1, vekt2 v1 ) {
 }
 
 int gyuru::metszeshely( vekt2 r1, vekt2 v1, int kihagy, vekt2* phely ) {
+	int i; // Legacy for-loop scope.
+
 	#ifdef TEST
 		if( koveto )
 			hiba( "0i9p9" );
@@ -185,7 +201,7 @@ int gyuru::metszeshely( vekt2 r1, vekt2 v1, int kihagy, vekt2* phely ) {
 		maxy = r1.y;
 
 	// Vegigmegyunk gyuru pontjain:
-	for( int i = 0; i < pontszam; i++ ) {
+	for( i = 0; i < pontszam; i++ ) {
 		if( i == kihagy )
 			continue;
 
@@ -248,6 +264,8 @@ int gyuru::getpontszam( void ) {
 }
 
 gyuru::gyuru( FILE* h, int verzio ) {
+	int i; // Legacy for-loop scope.
+
 	pontszam = 0;
 	lefoglaltmaxpont = 0;
 	ponttomb = NULL;
@@ -288,7 +306,7 @@ gyuru::gyuru( FILE* h, int verzio ) {
 
 	lefoglaltmaxpont = pontszam+10;
 	ponttomb = new vekt2[lefoglaltmaxpont];
-	for( int i = 0; i < lefoglaltmaxpont; i++ ) {
+	for( i = 0; i < lefoglaltmaxpont; i++ ) {
 		ponttomb[i].x = 0;
 		ponttomb[i].y = 0;
 	}
@@ -315,10 +333,12 @@ void gyuru::save( FILE* h, topol* ptop ) {
 		csere = !csere; // mivel fejjel lefele fogjuk beolvasni
 
 		if( csere ) {
+	int i; // Legacy for-loop scope.
+
 			//dialog( "Most cserel." );
 
 			// Meg kell cserelni pontok sorrendjet:
-			for( int i = 0; i < pontszam/2; i++ ) {
+			for( i = 0; i < pontszam/2; i++ ) {
 				int j = pontszam-1-i;
 				vekt2 tmpv = ponttomb[i];
 				ponttomb[i] = ponttomb[j];
@@ -382,7 +402,9 @@ static void szetvalaszt_fv( vekt2* pa, vekt2* pb ) {
 }
 
 void gyuru::szetvalaszt( void ) {
-	for( int i = 0; i < pontszam; i++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < pontszam; i++ ) {
 		if( i < pontszam-1 )
 			szetvalaszt_fv( &ponttomb[i], &ponttomb[i+1] );
 		else
@@ -392,6 +414,8 @@ void gyuru::szetvalaszt( void ) {
 
 // akkor ad igazat, ha korbejaraskor poligon belseje bal oldalon van;
 int gyuru::pozitivkorjaras( void ) {
+	int i; // Legacy for-loop scope.
+
 	#ifdef TEST
 		if( koveto )
 			hiba( "d6f65" );
@@ -399,7 +423,7 @@ int gyuru::pozitivkorjaras( void ) {
 
 	// Sorban osszeadjuk belso szogeket:
 	double sum = 0.0;
-	for( int i = 0; i < pontszam-2; i++ ) {
+	for( i = 0; i < pontszam-2; i++ ) {
 		sum += balszog( &ponttomb[i], ponttomb[i+1], ponttomb[i+2] );
 	}
 	sum += balszog( &ponttomb[pontszam-2], ponttomb[pontszam-1], ponttomb[0] );
@@ -418,8 +442,10 @@ int gyuru::pozitivkorjaras( void ) {
 }
 
 vekt2 gyuru::sulypont( void ) {
+	int i; // Legacy for-loop scope.
+
 	vekt2 suly( 0.0, 0.0 );
-	for( int i = 0; i < pontszam; i++ ) {
+	for( i = 0; i < pontszam; i++ ) {
 		suly = suly + ponttomb[i];
 	}
 	suly = suly * (1.0/pontszam);
@@ -427,7 +453,9 @@ vekt2 gyuru::sulypont( void ) {
 }
 
 void gyuru::getminmax( double* px1, double* py1, double* px2, double* py2 ) {
-	for( int i = 0; i < pontszam; i++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < pontszam; i++ ) {
 		double x = ponttomb[i].x;
 		double y = ponttomb[i].y;
 		if( *px1 > x )
@@ -442,8 +470,10 @@ void gyuru::getminmax( double* px1, double* py1, double* px2, double* py2 ) {
 }
 
 double gyuru::belyegszamitas( void ) {
+	int i; // Legacy for-loop scope.
+
 	double belyeg = 0;
-	for( int i = 0; i < pontszam; i++ ) {
+	for( i = 0; i < pontszam; i++ ) {
 		belyeg += ponttomb[i].x;
 		belyeg += ponttomb[i].y;
 	}

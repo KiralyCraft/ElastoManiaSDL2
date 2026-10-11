@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 motorst Motorst1, Motorst2; // Ez nem hasznalando
 motorst *Pmot1 = &Motorst1, *Pmot2 = &Motorst2;
@@ -151,7 +151,7 @@ void initadatok( void ) {
 	if( !h )
 		return 1.0;
 	long meret = 1000;
-	if( fscanf( h, "%ld", &meret ) != 1 ) {
+	if( fscanf( h, "%d", &meret ) != 1 ) {
 		fclose( h );
 		return 1.0;
 	}
@@ -167,10 +167,12 @@ void initadatok( void ) {
 // reorder.h-ban friend-kent vannak deklaralva mar:
 // pgazhatra-ba beepiti betoltvet:
 void berakrecbehosszat( recorder* prec ) {
+	int i; // Legacy for-loop scope.
+
 	if( prec->betoltve < 80 )
 		return;
 	unsigned int beirando = prec->betoltve;
-	for( int i = 0; i < 32; i++ ) {
+	for( i = 0; i < 32; i++ ) {
 		prec->pgazhatra[40+i] = prec->pgazhatra[40+i] & 127;
 		if( beirando & 1 )
 			prec->pgazhatra[40+i] += 128;

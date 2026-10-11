@@ -1,0 +1,46 @@
+{
+  "scenario": "external",
+  "binary_sha256": "aa0d82338f2e10e8f6605e84660889a6a58d58ff0800fba85e6567f6b8f58f97",
+  "exit_code": 0,
+  "original_data_unchanged": true,
+  "audio_device": "dummy",
+  "screenshots": [
+    {
+      "name": "intro",
+      "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "main-menu",
+      "sha256": "0909335de8ce85271eb0433d9ca2e643709655b0b0a29ed62e8d7507268895d5",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "external-selector",
+      "sha256": "fb0ffdbaa8088e027e22f9e214b4013a96db7565b9e98ba0562e5aca9f209963",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "external-level",
+      "sha256": "89d42f047eac4ba5dadd5b47a5e1b30cea5792fd734c74a4fa89dc0270ca162f",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    }
+  ],
+  "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+}

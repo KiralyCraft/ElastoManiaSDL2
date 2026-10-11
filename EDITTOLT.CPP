@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 static const unsigned char Save_as_box_szin = 4, Save_as_szelszin = 5;
 
@@ -8,8 +8,12 @@ static int Maxnev = 1000; // Nem lehet nagyobb 3000-nel!
 static char* Soknev = NULL;
 
 static void abcberendez( int nevszam ) {
-	for( int i = 0; i < nevszam+3; i++ ) {
-		for( int j = 0; j < nevszam-1; j++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < nevszam+3; i++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 0; j < nevszam-1; j++ ) {
 			// Ha j es j+1 edik elem forditva van visszacsereljuk oket:
 			char* nev1 = &Soknev[j*10];
 			char* nev2 = &Soknev[(j+1)*10];
@@ -68,10 +72,12 @@ static void boxbair( pic8* ppic, box abox, unsigned char szin, char* text,
 	int alahuzas = 0 ) {
 	ppic->fillbox( abox.x1+1, abox.y1+1, abox.x2-1, abox.y2-1, szin );
 	if( alahuzas ) {
+	int i; // Legacy for-loop scope.
+
 		int hossz = Pabc2->len( text );
 		int x = (abox.x1+abox.x2)/2 - hossz/2 - 3;
 		Pabc2->write( ppic, x, (abox.y1+abox.y2)/2+5, text );
-		for( int i = 0; i < 6; i++ )
+		for( i = 0; i < 6; i++ )
 			ppic->ppixel( x+hossz+i+1, (abox.y1+abox.y2)/2 + 4, 0 );
 	}
 	else {
@@ -85,13 +91,15 @@ static void boxbair_balra( pic8* ppic, box abox, unsigned char szin, char* text 
 }
 
 static void boxbarajz( pic8* ppic, box abox, unsigned char szin, int fel ) {
+	int xfut; // Legacy for-loop scope.
+
 	int x1 = abox.x1; int y1 = abox.y1;
 	int x2 = abox.x2; int y2 = abox.y2;
 	int szeltav = 16;
 	x1 += szeltav; x2 -= szeltav;
 	y1 += 5; y2 -= 8;
 	int xkozep = (x1+x2)/2;
-	for( int xfut = x1; xfut <= xkozep; xfut++ ) {
+	for( xfut = x1; xfut <= xkozep; xfut++ ) {
 		int x = xfut;
 		int y = int( y1 + (y2-y1)/double(xkozep-x1)*(x-x1) );
 		if( fel ) {
@@ -113,6 +121,8 @@ static void boxbarajz( pic8* ppic, box abox, unsigned char szin, int fel ) {
 }
 
 void tolt_open( void ) {
+	int i; // Legacy for-loop scope.
+
 	invalidateegesz();
 	if( Valtozott ) {
 		if( dialog( "There are unsaved changes in the level file.",
@@ -126,7 +136,7 @@ void tolt_open( void ) {
 		if( !Soknev )
 			hiba( "Nincs eleg memoria tolt_open-ben (hjfdf)!" );
 	}
-	for( int i = 0; i < Maxnev*10+10; i++ )
+	for( i = 0; i < Maxnev*10+10; i++ )
 		Soknev[i] = 0;
 	finame fname;
 	int done = fifirst( "lev\\*.lev", fname );
@@ -251,11 +261,13 @@ void tolt_open( void ) {
 		}
 		igazit( &kur, &felso, nevszam, helyszam );
 		if( felso != eddigfelso || kur != eddigkur ) {
+	int i; // Legacy for-loop scope.
+
 			// Kirajzoljuk, mivel valtozott kep:
 			push();
 			kirajzbox( Buffsima, x1, y1, x2, y2, Dialogszin, Dialogszelszin );
 			kirajzbox( Buffsima, lx1, ly1, lx2, ly2, Openlistaszin,  Dialogszelszin );
-			for( int i = 0; i < helyszam && i < nevszam; i++ ) {
+			for( i = 0; i < helyszam && i < nevszam; i++ ) {
 				if( i + felso == kur ) {
 					// Ez most kurens nev:
 					Buffsima->fillbox( lx1+1, ly1+i*dy + 1,
@@ -291,13 +303,15 @@ void tolt_open( void ) {
 
 // Editfilenev alapjan megprobal josolni, majd oda teszi eredmenyt:
 void kivalasztkezdetit( void ) {
+	int i; // Legacy for-loop scope.
+
 	invalidateegesz();
 	if( !Soknev ) {
 		Soknev = new char[Maxnev*10+100];
 		if( !Soknev )
 			hiba( "Nincs eleg memoria tolt_open-ben (hjfdf)!" );
 	}
-	for( int i = 0; i < Maxnev*10+10; i++ )
+	for( i = 0; i < Maxnev*10+10; i++ )
 		Soknev[i] = 0;
 	finame fname;
 	int done = fifirst( "lev\\*.lev", fname );
@@ -435,11 +449,13 @@ void kivalasztkezdetit( void ) {
 		}
 		igazit( &kur, &felso, nevszam, helyszam );
 		if( felso != eddigfelso || kur != eddigkur ) {
+	int i; // Legacy for-loop scope.
+
 			// Kirajzoljuk, mivel valtozott kep:
 			push();
 			kirajzbox( Buffsima, x1, y1, x2, y2, Dialogszin, Dialogszelszin );
 			kirajzbox( Buffsima, lx1, ly1, lx2, ly2, Openlistaszin,  Dialogszelszin );
-			for( int i = 0; i < helyszam && i < nevszam; i++ ) {
+			for( i = 0; i < helyszam && i < nevszam; i++ ) {
 				if( i + felso == kur ) {
 					// Ez most kurens nev:
 					Buffsima->fillbox( lx1+1, ly1+i*dy + 1,
@@ -530,7 +546,7 @@ int tolt_save_as( int lokkolhato ) {
 	pop();
 
 	mk_emptychar();
-	char nev[10] = "";
+	char nev[13] = ""; // 8.3 name plus terminating NUL; .lev is appended below.
 	int i = 0;
 	int egerballevoltnyomva = 0;
 	int egerjobblevoltnyomva = 0;
@@ -576,36 +592,42 @@ int tolt_save_as( int lokkolhato ) {
 			if( ( c >= 'A' && c <= 'Z' ) ||
 				( c >= 'a' && c <= 'z' ) ||
 				( c >= '0' && c <= '9' ) ) {
+	int j; // Legacy for-loop scope.
+
 				if( strlen( nev ) >= 8 )
 					continue;
 				// c-t beillesztjuk i. helyre:
 				int hossz = strlen( nev );
-				for( int j = hossz; j >= i; j-- )
+				for( j = hossz; j >= i; j-- )
 					nev[j+1] = nev[j];
 				nev[i] = (char)c;
 				i++;
 			}
 			if( c == MK_BACKSPACE ) {
+	int j; // Legacy for-loop scope.
+
 					
 				// Torles:
 				int ikesebbnulla = 0;
 				if( i <= 0 )
-					ikesebbnulla = 0;
+					ikesebbnulla = 1; // Do not write before the name at cursor column zero.
 				if( (nev[0] == 0) || ikesebbnulla )
 					continue;
 				// Kiszedjuk i-1-edik helyrol karaktert:
 				int hossz = strlen( nev );
-				for( int j = i-1; j < hossz; j++ )
+				for( j = i-1; j < hossz; j++ )
 					nev[j] = nev[j+1];
 				i--;
 			}
 			if( c == MK_DEL ) {
+	int j; // Legacy for-loop scope.
+
 				// Torles:
 				if( (nev[0] == 0) || (i >= (int)strlen( nev )) )
 					continue;
 				// Kiszedjuk i-1-edik helyrol karaktert:
 				int hossz = strlen( nev );
-				for( int j = i; j < hossz; j++ )
+				for( j = i; j < hossz; j++ )
 					nev[j] = nev[j+1];
 			}
 			if( c == MK_LEFT && i > 0 ) {
@@ -711,7 +733,9 @@ int tolt_save_as( int lokkolhato ) {
 static unsigned char Szinkonvtomb[256];
 
 static void makeszinkonvtomb( unsigned char* pal ) {
-	for( int i = 0; i < 256; i++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < 256; i++ ) {
 		int r = pal[i*3];
 		int g = pal[i*3+1];
 		int b = pal[i*3+2];
@@ -726,6 +750,8 @@ static void makeszinkonvtomb( unsigned char* pal ) {
 
 // Szimpla
 static void vegyesblt( pic8* dest, kep* pkep, int x0, int y0 ) {
+	int y; // Legacy for-loop scope.
+
 	if( x0 < 0 || y0 < 0 || x0 >= dest->getxsize() || y0 >= dest->getysize() )
 		hiba( "7r79yffuew" );
 
@@ -742,7 +768,7 @@ static void vegyesblt( pic8* dest, kep* pkep, int x0, int y0 ) {
 
 	int i = 0;
 	unsigned char* tomb = pkep->adatok;
-	for( int y = y0; y < y0+ysize; y++ ) {
+	for( y = y0; y < y0+ysize; y++ ) {
 		// Egy sor elintezese:
 		unsigned char* dsor = dest->getptr( y ) + x0;
 
@@ -763,12 +789,16 @@ static void vegyesblt( pic8* dest, kep* pkep, int x0, int y0 ) {
 
 			// Johet konverzio:
 			if( xtullog ) {
-				for( int dx = 0; dx < teliszam; dx++ )
+	int dx; // Legacy for-loop scope.
+
+				for( dx = 0; dx < teliszam; dx++ )
 					if( x+dx < xsize )
 						dsor[x+dx] = Szinkonvtomb[ tomb[i+dx] ];
 			}
 			else {
-				for( int dx = 0; dx < teliszam; dx++ )
+	int dx; // Legacy for-loop scope.
+
+				for( dx = 0; dx < teliszam; dx++ )
 					dsor[x+dx] = Szinkonvtomb[ tomb[i+dx] ];
 			}
 
@@ -780,6 +810,8 @@ static void vegyesblt( pic8* dest, kep* pkep, int x0, int y0 ) {
 
 // Maszkos:
 static void vegyesblt( pic8* dest, textura* pt, maszk* pm, int x0, int y0 ) {
+	int y; // Legacy for-loop scope.
+
 	if( x0 < 0 || y0 < 0 || x0 >= dest->getxsize() || y0 >= dest->getysize() )
 		hiba( "7r79yffuew" );
 
@@ -791,7 +823,7 @@ static void vegyesblt( pic8* dest, textura* pt, maszk* pm, int x0, int y0 ) {
 	// Most xsize es ysize mindenkeppen benne van teljesen kepben:
 	int i = 0;
 	int picxsize = source->getxsize();
-	for( int y = y0; y < y0+maxysize; y++ ) {
+	for( y = y0; y < y0+maxysize; y++ ) {
 		unsigned char* dsor = dest->getptr( y ) + x0;
 		unsigned char* ssor = source->getptr( (y-y0) % source->getysize() );
 		int sx = 0;
@@ -799,7 +831,9 @@ static void vegyesblt( pic8* dest, textura* pt, maszk* pm, int x0, int y0 ) {
 		// Maszkos eljaras:
 		while( pm->adatok[i].tipus != ME_SOREMELES ) {
 			if( pm->adatok[i].tipus == ME_TELI ) {
-				for( int j = 0; j < pm->adatok[i].hossz; j++ ) {
+	int j; // Legacy for-loop scope.
+
+				for( j = 0; j < pm->adatok[i].hossz; j++ ) {
 					if( abszx < 640 )
 						*dsor = Szinkonvtomb[ssor[sx]];
 					dsor++;
@@ -824,6 +858,8 @@ static void vegyesblt( pic8* dest, textura* pt, maszk* pm, int x0, int y0 ) {
 // tipus 1-tol 4-ig (4. koveto file):
 static void pickanev( char* kepnev, char* texturanev, char* maszknev,
 						int tipus, int cleares = 0 ) {
+	int i; // Legacy for-loop scope.
+
 	char* nev = NULL;
 	int nevszam = 0;
 	if( tipus == 1 ) {
@@ -855,7 +891,7 @@ static void pickanev( char* kepnev, char* texturanev, char* maszknev,
 	strcpy( orignev, nev );
 
 	int kur = 0; // Ha megtalalja eddigit, akkor kur-t raallitja
-	for( int i = 0; i < nevszam; i++ ) {
+	for( i = 0; i < nevszam; i++ ) {
 		if( tipus == 1 && strcmpi( Plgr->kepek[i].nev, nev ) == 0 )
 			kur = i;
 		if( tipus == 2 && strcmpi( Plgr->texturak[i].nev, nev ) == 0 )
@@ -979,6 +1015,8 @@ static void pickanev( char* kepnev, char* texturanev, char* maszknev,
 		}
 		igazit( &kur, &felso, nevszam, helyszam );
 		if( felso != eddigfelso || kur != eddigkur ) {
+	int i; // Legacy for-loop scope.
+
 			// Rajzolunk:
 
 			// Nevet beallitjuk kur-nak megfeleloen:
@@ -1027,7 +1065,7 @@ static void pickanev( char* kepnev, char* texturanev, char* maszknev,
 
 			kirajzbox( Buffsima, x1, y1, x2, y2, Dialogszin, Dialogszelszin );
 			kirajzbox( Buffsima, lx1, ly1, lx2, ly2, Openlistaszin,  Dialogszelszin );
-			for( int i = 0; i < helyszam && i+felso < nevszam; i++ ) {
+			for( i = 0; i < helyszam && i+felso < nevszam; i++ ) {
 				if( i + felso == kur ) {
 					// Ez most kurens nev:
 					Buffsima->fillbox( lx1+1, ly1+i*dy + 1,
@@ -1259,6 +1297,8 @@ void tolt_pickasprite( void ) {
 
 
 int tolt_picklgrfile( char* lgrnev ) {
+	int i; // Legacy for-loop scope.
+
 	invalidateegesz();
 	blt8( Buffgolyo, Buffsima );
 	if( !Soknev ) {
@@ -1266,7 +1306,7 @@ int tolt_picklgrfile( char* lgrnev ) {
 		if( !Soknev )
 			hiba( "Nincs eleg memoria tolt_picklgrfile-ban!" );
 	}
-	for( int i = 0; i < Maxnev*10+10; i++ )
+	for( i = 0; i < Maxnev*10+10; i++ )
 		Soknev[i] = 0;
 	finame fname;
 	int done = fifirst( "lgr\\*.lgr", fname );
@@ -1388,11 +1428,13 @@ int tolt_picklgrfile( char* lgrnev ) {
 		}
 		igazit( &kur, &felso, nevszam, helyszam );
 		if( felso != eddigfelso || kur != eddigkur ) {
+	int i; // Legacy for-loop scope.
+
 			// Kirajzoljuk, mivel valtozott kep:
 			push();
 			kirajzbox( Buffsima, x1, y1, x2, y2, Dialogszin, Dialogszelszin );
 			kirajzbox( Buffsima, lx1, ly1, lx2, ly2, Openlistaszin,  Dialogszelszin );
-			for( int i = 0; i < helyszam && i < nevszam; i++ ) {
+			for( i = 0; i < helyszam && i < nevszam; i++ ) {
 				if( i + felso == kur ) {
 					// Ez most kurens nev:
 					Buffsima->fillbox( lx1+1, ly1+i*dy + 1,
@@ -1763,6 +1805,8 @@ void set_gyuru_attributes( gyuru* pgy ) {
 }
 
 void set_kerek_tipus( char* fejlec, int* pkajatipus, int* pfoodsorszam ) {
+	int i; // Legacy for-loop scope.
+
 	invalidateegesz();
 
 	// Koordok megadasa:
@@ -1797,7 +1841,7 @@ void set_kerek_tipus( char* fejlec, int* pkajatipus, int* pfoodsorszam ) {
 	Pabc2->writekozep( Buffsima, (boxanimszam.x1+boxanimszam.x2)/2,
 					boxanimszam.y1+15, tmp );
 
-	for( int i = 0; i < listaszam; i++ ) {
+	for( i = 0; i < listaszam; i++ ) {
 		kirajzbox( Buffsima, boxlista, Openlistaszin, Dialogszelszin );
 		int lx = (boxlista.x1+boxlista.x2)/2;
 		int ly = boxlista.y1+15;
@@ -1945,6 +1989,8 @@ static void change_level_name( char* nev ) {
 			( c >= 'a' && c <= 'z' ) ||
 			( c >= '0' && c <= '9' ) ||
 			c == ' ' ) {
+	int j; // Legacy for-loop scope.
+
 
 			char tmpfejlec[LEVELNAMEHOSSZ+10];
 			sprintf( tmpfejlec, "Ext: %s", nev );
@@ -1955,28 +2001,32 @@ static void change_level_name( char* nev ) {
 
 			// c-t beillesztjuk i. helyre:
 			int hossz = strlen( nev );
-			for( int j = hossz; j >= i; j-- )
+			for( j = hossz; j >= i; j-- )
 				nev[j+1] = nev[j];
 			nev[i] = (char)c;
 			i++;
 		}
 		if( c == MK_BACKSPACE ) {
+	int j; // Legacy for-loop scope.
+
 			// Torles:
 			if( nev[0] == 0 || i <= 0 )
 				continue;
 			// Kiszedjuk i-1-edik helyrol karaktert:
 			int hossz = strlen( nev );
-			for( int j = i-1; j < hossz; j++ )
+			for( j = i-1; j < hossz; j++ )
 				nev[j] = nev[j+1];
 			i--;
 		}
 		if( c == MK_DEL ) {
+	int j; // Legacy for-loop scope.
+
 			// Torles:
 			if( nev[0] == 0 || i >= (int)strlen( nev ) )
 				continue;
 			// Kiszedjuk i-1-edik helyrol karaktert:
 			int hossz = strlen( nev );
-			for( int j = i; j < hossz; j++ )
+			for( j = i; j < hossz; j++ )
 				nev[j] = nev[j+1];
 		}
 		if( c == MK_LEFT && i > 0 )

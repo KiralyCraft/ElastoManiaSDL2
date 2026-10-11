@@ -1,0 +1,67 @@
+name: Build and preservation tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux:
+    name: ${{ matrix.label }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {os: ubuntu-24.04, cxx: g++, type: Release, sanitize: 'OFF', label: 'Linux x86-64 GCC compatibility target'}
+          - {os: ubuntu-24.04, cxx: g++, type: Debug, sanitize: 'ON', label: 'Linux x86-64 sanitizers'}
+          - {os: ubuntu-24.04, cxx: clang++, type: Release, sanitize: 'OFF', label: 'Linux Clang experimental arithmetic'}
+          - {os: ubuntu-24.04-arm, cxx: g++, type: Release, sanitize: 'OFF', label: 'Linux ARM64 EXPERIMENTAL'}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6.1.0
+        with:
+          persist-credentials: false
+      - run: sudo apt-get update && sudo apt-get install -y g++ clang cmake ninja-build pkg-config libsdl2-dev
+      - run: cmake -S . -B build -G Ninja -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} -DCMAKE_BUILD_TYPE=${{ matrix.type }} -DELMA_SANITIZERS=${{ matrix.sanitize }}
+      - run: cmake --build build --parallel 2
+      - run: ctest --test-dir build --output-on-failure
+      - run: ./build/elma-sdl2 --version
+      - run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+  windows:
+    name: Windows MinGW x86-64 compatibility target
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v6.1.0
+        with:
+          persist-credentials: false
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-cmake
+            mingw-w64-ucrt-x86_64-ninja
+            mingw-w64-ucrt-x86_64-pkgconf
+            mingw-w64-ucrt-x86_64-SDL2
+      - run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+      - run: cmake --build build --parallel 2
+      - run: ctest --test-dir build --output-on-failure
+      - run: ./build/elma-sdl2.exe --version
+  macos:
+    name: macOS ARM64 / sdl2-compat EXPERIMENTAL
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v6.1.0
+        with:
+          persist-credentials: false
+      - run: brew install cmake ninja pkgconf sdl2-compat
+      - run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DELMA_X86_COMPAT=OFF
+      - run: cmake --build build --parallel 2
+      - run: ctest --test-dir build --output-on-failure
+      - run: ./build/elma-sdl2 --version
+# No game assets, copyrighted profiles, or game screenshots are fetched by CI.
+# Successful builds/test fixtures are not original-executable parity certificates.

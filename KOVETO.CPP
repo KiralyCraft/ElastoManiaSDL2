@@ -1,9 +1,11 @@
-#include	"all.h"
+#include	"ALL.H"
 
 koveto::koveto( void ) {
+	int i; // Legacy for-loop scope.
+
 	// Nullazas:
 	kepszam = 0;
-	for( int i = 0; i < MAXKOVETOKEPSZAM; i++ ) {
+	for( i = 0; i < MAXKOVETOKEPSZAM; i++ ) {
 		pkeptomb[i] = NULL;
 		feltomb[i] = 0;
 	}
@@ -20,7 +22,9 @@ void koveto::addkep( pic8* ppic, int up ) {
 }
 
 koveto::~koveto( void ) {
-	for( int i = 0; i < MAXKOVETOKEPSZAM; i++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < MAXKOVETOKEPSZAM; i++ ) {
 		if( pkeptomb[i] ) {
 			delete pkeptomb[i];
 			pkeptomb[i] = NULL;
@@ -32,6 +36,8 @@ koveto::~koveto( void ) {
 // Elso alkalommal kitolti *px0-at:
 static int feldolgvonalszakasz( gyuru* pgy, int p1, int p2, int* px0,
 				int cur, int* ytomb, int maxhely, vekt2* porigo ) {
+	int x; // Legacy for-loop scope.
+
 	if( p1 < 0 || p1 >= pgy->pontszam ||
 		p2 < 0 || p2 >= pgy->pontszam )
 		hiba( "8u9tg4" );
@@ -70,7 +76,7 @@ static int feldolgvonalszakasz( gyuru* pgy, int p1, int p2, int* px0,
 		return cur;
 	}
 
-	for( int x = x1; x <= x2; x++ ) {
+	for( x = x1; x <= x2; x++ ) {
 		if( x < cur )
 			continue;
 		if( x - *px0 >= maxhely )
@@ -85,11 +91,13 @@ static int feldolgvonalszakasz( gyuru* pgy, int p1, int p2, int* px0,
 // Ez nem hasznal semmit koveto adatokbol:
 int makevonal( gyuru* pgy, int* ytomb, int* phossz, int* px0,
 			int maxhely, vekt2* porigo ) {
+	int i; // Legacy for-loop scope.
+
 	*phossz = 0;
 	// Most megkeressuk osszekoto szakaszt:
 	double maxxhossz = 0.0;
 	int p1 = 0;
-	for( int i = 0; i < pgy->pontszam; i++ ) {
+	for( i = 0; i < pgy->pontszam; i++ ) {
 		int j = i+1;
 		if( j == pgy->pontszam )
 			j = 0;

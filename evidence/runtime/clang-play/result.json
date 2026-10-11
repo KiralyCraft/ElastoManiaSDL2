@@ -1,0 +1,64 @@
+{
+  "scenario": "play",
+  "binary_sha256": "6ada65d44dc164b4a53d2521a7df1fd40c51f9e859fa96558cfbb2e502a962d2",
+  "exit_code": 0,
+  "original_data_unchanged": true,
+  "audio_device": "disabled",
+  "screenshots": [
+    {
+      "name": "intro",
+      "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "main-menu",
+      "sha256": "6c1ab06ba4a65c144c99a03458200901d0f9d77ebdbc130c6cd3aa730ca062f6",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "warm-up-idle",
+      "sha256": "cf794c5fb082920a31083fc7189dc5b973fb8550956deef205c5424a81c1637c",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "warm-up-playing",
+      "sha256": "c3fc704b98c8623202cf5a85558ed01da6a6db53de02bb912a52069de4007960",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "after-controls",
+      "sha256": "b0cec79fafe31f8738fdc53ca3d6c158baeb8af8d9caf35f0851009b2c196fba",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    },
+    {
+      "name": "after-play",
+      "sha256": "ea9a2b0bec11d0c724ed5bc373a75059c30dc675f85d5214496fd2f3a39f73ea",
+      "size": [
+        1280,
+        960
+      ],
+      "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+    }
+  ],
+  "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+}

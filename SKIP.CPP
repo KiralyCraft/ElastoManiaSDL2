@@ -1,6 +1,8 @@
-#include	"all.h"
+#include	"ALL.H"
 
 int skippelheto( int level ) {
+	int i; // Legacy for-loop scope.
+
 	int maxskippelheto = 5;
 	if( Sarvari )
 		maxskippelheto = 3;
@@ -10,7 +12,7 @@ int skippelheto( int level ) {
 	if( pjatekos->sikerespalyakszama != level )
 		hiba( "skippelheto-ben pjatekos->sikerespalyakszam != level!" );
 	int eddigskippelt = 0;
-	for( int i = 0; i < level; i++ ) {
+	for( i = 0; i < level; i++ ) {
 		if( pjatekos->skippedtomb[i] )
 			eddigskippelt++;
 	}

@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 void wav::lefoglal( void ) {
 	if( size > 1000000 )
@@ -32,22 +32,26 @@ static void nevwavtest( char* nev ) {
 
 struct wavheader {
 	char riff[4];
-	long hossz1;
+	int32_t hossz1;
 	char wave[4];
 	// format:
 	char fmt[4];
-	long miez1;
+	int32_t miez1;
 	short mod; // 1 -> 8bit uncompressed
 	short channel; // 1 -> mono, 2 -> stereo
 	unsigned short frekvencia;
 	short miez2, miez3, miez4;
-	long nemkene;
+	int32_t nemkene;
 	// audio data:
 	char data[4];
-	long hossz;
+	int32_t hossz;
 };
 
+static_assert(sizeof(wavheader) == 44, "Original PCM WAV header layout.");
+
 wav::wav( char* nev, double maxamplitudo, int start, int ucsoutani ) {
+	int i; // Legacy for-loop scope.
+
 	tomb = NULL;
 	nevwavtest( nev );
 	// Lemeri file hosszat:
@@ -63,7 +67,7 @@ wav::wav( char* nev, double maxamplitudo, int start, int ucsoutani ) {
 	if( fread( &header, 1, 44, h ) != 44 )
 		hiba( "Nem sikerult beolvasni wav-ot!" );
 
-	long hossz = header.hossz;
+	int32_t hossz = header.hossz;
 	int bit16 = 1;
 
 	// Reszlet eldontese:
@@ -95,6 +99,8 @@ wav::wav( char* nev, double maxamplitudo, int start, int ucsoutani ) {
 			hiba( "Nem sikerult beolvasni wav-ot!: ", nev );
 	}
 	else {
+	int i; // Legacy for-loop scope.
+
 		// 8 bites uncompressed:
 		if( reszlet )
 			hiba( "8 bitre meg nincs megirva reszlet!" );
@@ -103,7 +109,7 @@ wav::wav( char* nev, double maxamplitudo, int start, int ucsoutani ) {
 		if( fread( tomb, 1, hossz, h ) != hossz )
 			hiba( "Nem sikerult beolvasni wav-ot!: ", nev );
 		unsigned char* bytetomb = (unsigned char*)tomb;
-		for( int i = size-1; i >= 0; i-- ) {
+		for( i = size-1; i >= 0; i-- ) {
 			tomb[i] = short((((short)(bytetomb[i]))-128)<<8);
 		}
 	}
@@ -112,7 +118,7 @@ wav::wav( char* nev, double maxamplitudo, int start, int ucsoutani ) {
 
 	// Megkeresi maximalis amplitudot:
 	int maxamp = 1;
-	for( int i = 0; i < size; i++ ) {
+	for( i = 0; i < size; i++ ) {
 		if( tomb[i] > 0 ) {
 			if( tomb[i] > maxamp )
 				maxamp = tomb[i];
@@ -143,9 +149,11 @@ void wav::save( char* nev ) {
 
 // Elejere tesz egy loopot a vegebol, amit aztan le is vag:
 void wav::loopol( int n ) {
+	int i; // Legacy for-loop scope.
+
 	if( n >= size )
 		hiba( "n >= size!" );
-	for( int i = 0; i < n; i++ ) {
+	for( i = 0; i < n; i++ ) {
 		double arany = ((double)i)/n;
 		tomb[i] = arany*tomb[i] + (1-arany)*tomb[size-n+i];
 	}
@@ -154,18 +162,22 @@ void wav::loopol( int n ) {
 
 // pwav elejet rateszi vegere:
 void wav::vegereilleszt( wav* pwav, int n ) {
+	int i; // Legacy for-loop scope.
+
 	if( n >= size )
 		hiba( "n >= size!" );
 	if( n >= pwav->size )
 		hiba( "n >= pwav->size!" );
-	for( int i = 0; i < n; i++ ) {
+	for( i = 0; i < n; i++ ) {
 		double arany = ((double)i)/n;
 		tomb[size-n+i] = (1-arany)*tomb[i] + arany*pwav->tomb[i];
 	}
 }
 
 void wav::hangero( double szorzo ) {
-	for( int i = 0; i < size; i++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < size; i++ ) {
 		tomb[i] *= szorzo;
 	}
 }
@@ -174,6 +186,8 @@ void wav::hangero( double szorzo ) {
 
 //short* tomb, mtomb;
 wav2::wav2( wav* pwav ) {
+	int i; // Legacy for-loop scope.
+
 	mtomb = NULL;
 	tomb = pwav->tomb;
 	#ifndef WATCOM
@@ -184,10 +198,10 @@ wav2::wav2( wav* pwav ) {
 	{ mtomb = NEW(short*) short[pwav->size]; }
 	if( !mtomb )
 		uzenet( "memory" );
-	for( int i = 0; i < pwav->size-1; i++ )
+	for( i = 0; i < pwav->size-1; i++ )
 		mtomb[i] = tomb[i+1]-tomb[i];
 	mtomb[pwav->size-1] = tomb[0]-tomb[pwav->size-1];
-	ulsize = ((unsigned long)pwav->size)*65536;
+	ulsize = ((uint32_t)pwav->size)*65536;
 	ulfuto = 0;
 	plow = (unsigned short*)&ulfuto;
 	phigh = plow+1;
@@ -201,7 +215,7 @@ void wav2::reset( int fazis ) {
 }
 
 // dt 65536 szoros:
-short wav2::getnextsample( long dt ) {
+short wav2::getnextsample( int32_t dt ) {
 	ulfuto += dt;
 	if( ulfuto >= ulsize )
 		ulfuto -= ulsize;

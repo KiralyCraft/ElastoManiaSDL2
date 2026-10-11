@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 #ifdef BUTITOTT
 	int Palyaszam = 2;
@@ -18,12 +18,14 @@ int getstatesoundon( void ) {
 
 // Van ugyanilyen neven topol.cpp-ben is ket fv.:
 static void titkosread( void* mut, int hossz, FILE* h, char* nev ) {
+	int i; // Legacy for-loop scope.
+
 	if( fread( mut, 1, hossz, h ) != hossz )
 		uzenet( "Corrupt file, please delete it!", nev );
 	unsigned char* pc = (unsigned char*)mut;
 	short a = 23, b = 9782, c = 3391;
 
-	for( int i = 0; i < hossz; i++ ) {
+	for( i = 0; i < hossz; i++ ) {
 		pc[i] ^= a;
 		a %= c;
 		b += a*c;
@@ -32,10 +34,12 @@ static void titkosread( void* mut, int hossz, FILE* h, char* nev ) {
 }
 
 static void titkoswrite( void* mut, int hossz, FILE* h ) {
+	int i; // Legacy for-loop scope.
+
 	unsigned char* pc = (unsigned char*)mut;
 	short a = 23, b = 9782, c = 3391;
 
-	for( int i = 0; i < hossz; i++ ) {
+	for( i = 0; i < hossz; i++ ) {
 		pc[i] ^= a;
 		a %= c;
 		b += a*c;
@@ -130,9 +134,9 @@ state_s::state_s( char* nev ) {
 	titkosread( &playextfilenev[0], 20, h, nev );
 
 	// Magic number:
-	long checknumber = 0;
-	if( fread( &checknumber, 1, sizeof( long ), h ) !=
-					sizeof( long ) )
+	int32_t checknumber = 0;
+	if( fread( &checknumber, 1, sizeof( int32_t ), h ) !=
+					sizeof( int32_t ) )
 		uzenet( "Corrupt file, please rename it!", nev );
 	if( Sarvari ) {
 		if( checknumber != Checknumber_state_s )
@@ -159,14 +163,10 @@ void state_s::reloadidok( void ) {
 
 	// Itt hagyni kell fopen-t!!!!!!!!!!!!!!!!!!!!:
 	FILE* h = fopen( nev, "rb" );
-	while( !h ) {
-		// Var egy kicsit:
-		int a = 0;
-		for( int i = 0; i < 10000; i++ )
-			idothuz( &a );
-
-		FILE* h = fopen( nev, "rb" );
-	}
+	// The original retry declared a second h and could never leave the loop.
+	// Report an unavailable profile instead of busy-spinning indefinitely.
+	if( h == NULL )
+		hiba( "Cannot reopen profile state: ", nev );
 
 	int verzio = 0;
 	titkosread( &verzio, 4, h, nev );
@@ -217,25 +217,29 @@ void state_s::save( void ) {
 	titkoswrite( &editfilenev[0], 20, h );
 	titkoswrite( &playextfilenev[0], 20, h );
 
-	long checknumber = Checknumber_state_r;
+	int32_t checknumber = Checknumber_state_r;
 	if( Sarvari )
 		checknumber = Checknumber_state_s;
-	if( fwrite( &checknumber, 1, sizeof( long ), h ) !=
-					sizeof( long ) )
+	if( fwrite( &checknumber, 1, sizeof( int32_t ), h ) !=
+					sizeof( int32_t ) )
 		hiba( "Nem megy beolvasas state file-ba!: ", Statenev );
 
 	fclose( h );
 }
 
 static void exportegylevel( FILE* h, palyaegyfeleidok* pidok, int single ) {
-	for( int i = 0; i < pidok->idokszama; i++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < pidok->idokszama; i++ ) {
+	int k; // Legacy for-loop scope.
+
 		char idostr[40];
 		ido2string( pidok->idok[i], idostr, 1 );
 		fprintf( h, "    " );
-		fprintf( h, idostr );
-		for( int k = 0; k < (12 - strlen( idostr)); k++ )
+		fprintf( h, "%s", idostr );
+		for( k = 0; k < (12 - strlen( idostr)); k++ )
 			fprintf( h, " " );
-		fprintf( h, pidok->nevek1[i] );
+		fprintf( h, "%s", pidok->nevek1[i] );
 		if( !single )
 			fprintf( h, ", %s", pidok->nevek2[i] );
 		fprintf( h, "\n" );
@@ -249,8 +253,10 @@ static int const Nincsmegpalyaido = 100*60*10;
 // Anonymous total times:
 void state_s::exportanonim( FILE* h, int single, char* text1, char* text2,
 														char* text3 ) {
+	int i; // Legacy for-loop scope.
+
 	int sum = 0;
-	for( int i = 0; i < Palyaszam-1; i++ ) { // ucso palyat nem szamitjuk
+	for( i = 0; i < Palyaszam-1; i++ ) { // ucso palyat nem szamitjuk
 		int levelsum = 100000000;
 		// Single:
 		palyaegyfeleidok* pidok = &palyakidejei[i].singleidok;
@@ -272,18 +278,22 @@ void state_s::exportanonim( FILE* h, int single, char* text1, char* text2,
 
 	char idostr[40];
 	ido2string( sum, idostr, 1 );
-	fprintf( h, idostr );
+	fprintf( h, "%s", idostr );
 	fprintf( h, "\n\n" );
 }
 
 void state_s::exportjatekossum( FILE* h, char* nev, int single ) {
+	int i; int k; // Legacy for-loop scope.
+
 	int sum = 0;
-	for( int i = 0; i < Palyaszam-1; i++ ) { // ucso palyat nem szamitjuk
+	for( i = 0; i < Palyaszam-1; i++ ) {
+	int j; // Legacy for-loop scope.
+ // ucso palyat nem szamitjuk
 		int levelsum = 100000000;
 
 		// Single times:
 		palyaegyfeleidok* pidok = &palyakidejei[i].singleidok;
-		for( int j = 0; j < pidok->idokszama; j++ ) {
+		for( j = 0; j < pidok->idokszama; j++ ) {
 			if( strcmp( nev, pidok->nevek1[j] ) == 0 /*||
 				(!single && strcmp( nev, pidok->nevek2[j] ) == 0)*/ ) {
 				// Megvan nev:
@@ -293,9 +303,11 @@ void state_s::exportjatekossum( FILE* h, char* nev, int single ) {
 		}
 
 		if( !single ) {
+	int j; // Legacy for-loop scope.
+
 			// Multi player times:
 			palyaegyfeleidok* pidok = &palyakidejei[i].multiidok;
-			for( int j = 0; j < pidok->idokszama; j++ ) {
+			for( j = 0; j < pidok->idokszama; j++ ) {
 				if( strcmp( nev, pidok->nevek1[j] ) == 0 ||
 					strcmp( nev, pidok->nevek2[j] ) == 0 ) {
 					// Megvan nev:
@@ -313,13 +325,15 @@ void state_s::exportjatekossum( FILE* h, char* nev, int single ) {
 	}
 	char idostr[40];
 	ido2string( sum, idostr, 1 );
-	fprintf( h, idostr );
-	for( int k = 0; k < (12 - strlen( idostr)); k++ )
+	fprintf( h, "%s", idostr );
+	for( k = 0; k < (12 - strlen( idostr)); k++ )
 		fprintf( h, " " );
 	fprintf( h, "%s\n", nev );
 }
 
-void state_s::export( void ) {
+void state_s::export_stats( void ) {
+	int i; // Legacy for-loop scope.
+
 	FILE* h = fopen( "stats.txt", "wt" );
 	if( !h )
 		uzenet( "Could not open STATS.TXT for writing!" );
@@ -344,7 +358,7 @@ void state_s::export( void ) {
 	// Single palyak:
 	fprintf( h, "Single player times:\n" );
 	fprintf( h, "\n" );
-	for( int i = 0; i < Palyaszam-1; i++ ) { // utolsot nem irjuk ki
+	for( i = 0; i < Palyaszam-1; i++ ) { // utolsot nem irjuk ki
 		fprintf( h, "Level %d, %s:\n", i+1, getleveldescription( i ) );
 		palyaegyfeleidok* pidok = &palyakidejei[i].singleidok;
 		exportegylevel( h, pidok, 1 );
@@ -437,7 +451,9 @@ void state_s::resetcontrols( void ) {
 }
 
 int getjatekosindex( char* nev ) {
-	for( int i = 0; i < MAXJATEKOS; i++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < MAXJATEKOS; i++ ) {
 		jatekos* pjatekos = &State->jatekosok[i];
 		if( strcmp( pjatekos->nev, nev ) == 0 )
 			return i;

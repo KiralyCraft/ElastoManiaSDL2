@@ -1,0 +1,9 @@
+Elasto Mania Classic SDL2
+x86-64 / x87 compatibility target (parity not certified)
+SDL 2.32.4 on Linux
+Data (read-only): /mnt/data/elma-assets/Elma
+User data: /mnt/data/elma-work/evidence-asan-demo/profile
+Captured running SDL output: /mnt/data/elma-work/evidence-asan-demo/current.bmp (1280x960)
+Captured running SDL output: /mnt/data/elma-work/evidence-asan-demo/current.bmp (1280x960)
+Captured running SDL output: /mnt/data/elma-work/evidence-asan-demo/current.bmp (1280x960)
+Clean exit: 583 presented frames, 81920 queued audio samples

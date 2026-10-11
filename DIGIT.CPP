@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 static int Vonalvizhossz, Vonalfugghossz;
 
@@ -186,7 +186,7 @@ void kidigit( char* time1, double fogoido, double time2d, pic8* ppic8,
 	Ketpy1 = 9*kepmerety;
 	Ketpy2 = 23*kepmerety;
 
-	long l2 = time2d*Idod2lszorzo;
+	int32_t l2 = time2d*Idod2lszorzo;
 	char time2[20];
 	ido2string( l2, time2 );
 
@@ -205,7 +205,7 @@ void kidigit( char* time1, double fogoido, double time2d, pic8* ppic8,
 
 	// Kirakjuk meg kozepre fogoido-t is:
 	if( fogoido >= 0 ) {
-		long lf = fogoido*Idod2lszorzo;
+		int32_t lf = fogoido*Idod2lszorzo;
 		char fogo[20];
 		ido2string( lf, fogo );
 		kiegyszam( fogo, (xelso+x)>>1, y );

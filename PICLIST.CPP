@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 static char Plnev[] = "pictures.lst";
 
@@ -142,11 +142,13 @@ int piclist::beolvasegysort( FILE* h, int index ) {
 }
 
 piclist::piclist( void ) {
+	int i; // Legacy for-loop scope.
+
 	FILE* h = fopen( Plnev, "rt" );
 	if( !h )
 		uzenet( "Could not open file:", Plnev );
 
-	for( int i = 0; i < (MAXPICLISTKEPSZAM+10)*10; i++ )
+	for( i = 0; i < (MAXPICLISTKEPSZAM+10)*10; i++ )
 		nevek[i] = 0;
 
 	for( i = 0; i < MAXPICLISTKEPSZAM+10; i++ ) {
@@ -211,7 +213,9 @@ void piclist::save( FILE* h ) {
 
 
 int piclist::getnevindex( char* nev ) {
-	for( int i = 0; i < kepszam; i++ )
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < kepszam; i++ )
 		if( strcmpi( &nevek[i*10], nev ) == 0 )
 			return i;
 	return -1;

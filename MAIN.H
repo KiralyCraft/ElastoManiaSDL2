@@ -5,7 +5,9 @@
 #define CFUGGVENY
 #endif
 
+#if defined(ELMA_SHAREWARE)
 #define SARVARI
+#endif
 extern int Sarvari;
 
 //#define BUTITOTT
@@ -28,5 +30,5 @@ extern int Waitforretrace; // Csak Windows-os w_v.cpp-ben allitodik
 void semmi( void );
 
 void inkremental( void );
-extern long	Inkremens;
+extern int32_t	Inkremens;
 

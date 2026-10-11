@@ -24,12 +24,12 @@ public:
 
 class wav2 {
 	short	*tomb, *mtomb;
-	unsigned long ulsize, ulfuto;
+	uint32_t ulsize, ulfuto;
 	unsigned short *plow, *phigh;
 public:
 		wav2( wav* pwav );
 	void reset( int fazis = -1 );
 	// dt 65536 szoros:
-	short getnextsample( long dt );
+	short getnextsample( int32_t dt );
 };
 

@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 static int Maxnevhossz = 8; // Ez kisebb kell hogy legyen JATEKOSNEVHOSSZ-nal!
 
@@ -97,6 +97,8 @@ void newjatekos( int A, int visszater ) {
 }
 
 void jatekosvalasztas( int A, int visszater ) {
+	int i; // Legacy for-loop scope.
+
 	// Valasztas:
 	valaszt2* pval = NULL;
 	pval = new valaszt2;
@@ -114,7 +116,7 @@ void jatekosvalasztas( int A, int visszater ) {
 
 	strcpy( Rubrikak[0], "Create New Player" );
 	pval->kur = 0;
-	for( int i = 0; i < State->jatekosokszama; i++ ) {
+	for( i = 0; i < State->jatekosokszama; i++ ) {
 		if( strlen( State->jatekosok[i].nev ) > MAXRUBRIKAHOSSZ )
 			hiba( "Tul hosszu nev jatekosvalasztas-ban!" );
 		strcpy( Rubrikak[i+1], State->jatekosok[i].nev );
@@ -143,6 +145,8 @@ void jatekosvalasztas( int A, int visszater ) {
 	}
 
 	if( RECidokellis && visszater ) {
+	int i; // Legacy for-loop scope.
+
 		// Ezt a jatekost akarja torolni (opciokbol hivva):
 		if( State->jatekosokszama <= 1 )
 			return;
@@ -158,7 +162,7 @@ void jatekosvalasztas( int A, int visszater ) {
 			btorlodott = 1;
 
 		// Toroljuk jatekost, tobbit elore hozzuk eggyel:
-		for( int i = torlendo; i < State->jatekosokszama-1; i++ ) {
+		for( i = torlendo; i < State->jatekosokszama-1; i++ ) {
 			// i-edik helyre elore hozzuk i+1-edik helyrol:
 			State->jatekosok[i] = State->jatekosok[i+1];
 		}

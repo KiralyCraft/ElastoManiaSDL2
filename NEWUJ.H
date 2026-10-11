@@ -14,7 +14,7 @@
 #define NEW( a )    new
 #define DELETE      { delete
 
-extern long Newszam;
+extern int32_t Newszam;
 
 void** newnovel( void );
 int newnovel2( void );

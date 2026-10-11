@@ -1,0 +1,341 @@
+[
+  {
+    "run": "release-play",
+    "presented_frames": 940,
+    "queued_audio_samples": 142848,
+    "scenario": "play",
+    "binary_sha256": "e2bd6d16a43f376fc29ee1d9157097b5ff88eeeeb820a8a11c5d3af210d5d7c4",
+    "exit_code": 0,
+    "original_data_unchanged": true,
+    "audio_device": "dummy",
+    "screenshots": [
+      {
+        "name": "intro",
+        "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "main-menu",
+        "sha256": "6532a3aa15aa074c5557e8e4d7ea591bc383b258e417f90a81ddf74136c35efa",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "warm-up-idle",
+        "sha256": "d47cae67fe469601b323ae35a034a07471b244e8a88adcb54414cf5ad46d3a15",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "warm-up-playing",
+        "sha256": "8f99c05fa9503ba89e22124d82e2b63d59255e785fa6c57c0035eba884dcf44d",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "after-controls",
+        "sha256": "cd066a2b1e65ca4ecaaf335f10a9bd8e4005634e9007d21468f90943ee9adbac",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "after-play",
+        "sha256": "9210c60733e660235a8d6f572bec1736e4c71ad1792c8752aeadc04c5f006301",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      }
+    ],
+    "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+  },
+  {
+    "run": "asan-editor",
+    "presented_frames": 412,
+    "queued_audio_samples": 0,
+    "scenario": "editor",
+    "binary_sha256": "aa0d82338f2e10e8f6605e84660889a6a58d58ff0800fba85e6567f6b8f58f97",
+    "exit_code": 0,
+    "original_data_unchanged": true,
+    "audio_device": "dummy",
+    "screenshots": [
+      {
+        "name": "intro",
+        "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "main-menu",
+        "sha256": "3f38c6dfd871dba34a9aec235d9d4ef993ad6351914cd110687ebc85c929dd04",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "editor",
+        "sha256": "8136d73833b9dac0511049e7be41b2ef5ed4c248a826db602898be970e192062",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "editor-loaded",
+        "sha256": "02062070090b5a45e287ea1eeb0c3fa087e49bf788d7cb0b7cd0b435ed82e0ec",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "editor-save-as",
+        "sha256": "18c257d28fd3fc5d14b6d8b62a44b2dca2947e46a2253083d71df0df5dc7f4ad",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "editor-saved",
+        "sha256": "6e1298e140c0bf66ed4a99afba08dd26a8719a8bdcbb9d0a7e23ffdf3965f6ab",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "editor-reloaded",
+        "sha256": "350341658d097a89019d1d04d6b3a57a7c0a0b9072309e715c2199480f997f32",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      }
+    ],
+    "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+  },
+  {
+    "run": "asan-replay",
+    "presented_frames": 558,
+    "queued_audio_samples": 70656,
+    "scenario": "replay",
+    "binary_sha256": "aa0d82338f2e10e8f6605e84660889a6a58d58ff0800fba85e6567f6b8f58f97",
+    "exit_code": 0,
+    "original_data_unchanged": true,
+    "audio_device": "dummy",
+    "screenshots": [
+      {
+        "name": "intro",
+        "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "main-menu",
+        "sha256": "e579876ab0acbef0a6b1bc5fcdba052354caa0594e381cda327e3e6ca3d922fb",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "replay",
+        "sha256": "eaabe92d64d3dd179fbd45913bfec0da4eb36cb7a49ec04113ac648b4e19627a",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      }
+    ],
+    "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+  },
+  {
+    "run": "clang-play",
+    "presented_frames": 900,
+    "queued_audio_samples": 0,
+    "scenario": "play",
+    "binary_sha256": "6ada65d44dc164b4a53d2521a7df1fd40c51f9e859fa96558cfbb2e502a962d2",
+    "exit_code": 0,
+    "original_data_unchanged": true,
+    "audio_device": "disabled",
+    "screenshots": [
+      {
+        "name": "intro",
+        "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "main-menu",
+        "sha256": "6c1ab06ba4a65c144c99a03458200901d0f9d77ebdbc130c6cd3aa730ca062f6",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "warm-up-idle",
+        "sha256": "cf794c5fb082920a31083fc7189dc5b973fb8550956deef205c5424a81c1637c",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "warm-up-playing",
+        "sha256": "c3fc704b98c8623202cf5a85558ed01da6a6db53de02bb912a52069de4007960",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "after-controls",
+        "sha256": "b0cec79fafe31f8738fdc53ca3d6c158baeb8af8d9caf35f0851009b2c196fba",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "after-play",
+        "sha256": "ea9a2b0bec11d0c724ed5bc373a75059c30dc675f85d5214496fd2f3a39f73ea",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      }
+    ],
+    "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+  },
+  {
+    "run": "asan-demo",
+    "presented_frames": 583,
+    "queued_audio_samples": 81920,
+    "scenario": "demo",
+    "binary_sha256": "aa0d82338f2e10e8f6605e84660889a6a58d58ff0800fba85e6567f6b8f58f97",
+    "exit_code": 0,
+    "original_data_unchanged": true,
+    "audio_device": "dummy",
+    "screenshots": [
+      {
+        "name": "intro",
+        "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "main-menu",
+        "sha256": "863bb2a22b2aceed3e5b9ad78818638d98d0a797f5e0b229442e0aa9ffff4ab3",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "demo",
+        "sha256": "0843c2e7f5bded6b12297040a448da2d3d96c1f35bbd4682f0d1b1241c0dabaf",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      }
+    ],
+    "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+  },
+  {
+    "run": "asan-external",
+    "presented_frames": 488,
+    "queued_audio_samples": 38912,
+    "scenario": "external",
+    "binary_sha256": "aa0d82338f2e10e8f6605e84660889a6a58d58ff0800fba85e6567f6b8f58f97",
+    "exit_code": 0,
+    "original_data_unchanged": true,
+    "audio_device": "dummy",
+    "screenshots": [
+      {
+        "name": "intro",
+        "sha256": "a663e96da930b8921d7a5ccc35032e53590d179df63f081783d030373bbdd509",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "main-menu",
+        "sha256": "0909335de8ce85271eb0433d9ca2e643709655b0b0a29ed62e8d7507268895d5",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "external-selector",
+        "sha256": "fb0ffdbaa8088e027e22f9e214b4013a96db7565b9e98ba0562e5aca9f209963",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      },
+      {
+        "name": "external-level",
+        "sha256": "89d42f047eac4ba5dadd5b47a5e1b30cea5792fd734c74a4fa89dc0270ca162f",
+        "size": [
+          1280,
+          960
+        ],
+        "method": "SDL_RenderReadPixels -> BMP -> lossless PNG"
+      }
+    ],
+    "claim": "Real-port UI/runtime smoke; not original-binary parity or audible-quality certification"
+  }
+]

@@ -1,4 +1,4 @@
-#include    "all.h"
+#include    "ALL.H"
  
 static void surlodasverseny( motorst* pmot, vekt2 fgumi, vekt2 sebesseg );
 
@@ -284,13 +284,15 @@ int vizsgalat( motorst* pmot ) {
 
     // Objektumokkal utkozesvizsgalat:
     int voltkaja = 1;
-    while( voltkaja ) { // Ha nem volt kaja kilepunk, kulonben vegtelen ciklus
+    while( voltkaja ) {
+	int i; // Legacy for-loop scope.
+ // Ha nem volt kaja kilepunk, kulonben vegtelen ciklus
         voltkaja = 0;
         int sorszamtomb[3];
         sorszamtomb[0] = utkozikesprite( pmot->kor2.r, pmot->kor2.sugar );
         sorszamtomb[1] = utkozikesprite( pmot->kor4.r, pmot->kor4.sugar );
         sorszamtomb[2] = utkozikesprite( pmot->fejr, Fejsugar );
-        for( int i = 0; i < 3; i++ ) {
+        for( i = 0; i < 3; i++ ) {
             if( sorszamtomb[i] >= 0 ) {
                 startwavegyujto( 0, 0.0, sorszamtomb[i] );
                 kerek* pker = Ptop->getptrkerek( sorszamtomb[i] );

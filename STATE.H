@@ -9,8 +9,8 @@ extern int Palyaszam; // Ez fugg attol, hogy shareware, vagy regisztralt
 struct jatekos {
 	char nev[JATEKOSNEVHOSSZ+2];
 	char skippedtomb[((MAXPALYASZAM/4)+1)*4];
-	long sikerespalyakszama;
-	long jelenlegipalya; // -1 eseten external files
+	int32_t sikerespalyakszama;
+	int32_t jelenlegipalya; // -1 eseten external files
 };
 
 int getjatekosindex( char* nev );
@@ -20,8 +20,8 @@ int getjatekosindex( char* nev );
 typedef char jatekosnev_type[JATEKOSNEVHOSSZ+1];
 
 struct palyaegyfeleidok {
-	long idokszama;
-	long idok[MAXIDOK];
+	int32_t idokszama;
+	int32_t idok[MAXIDOK];
 	jatekosnev_type nevek1[MAXIDOK];
 	jatekosnev_type nevek2[MAXIDOK];
 };
@@ -39,7 +39,7 @@ class state_s {
 public:
 	palyaidok palyakidejei[MAXPALYASZAM];
 	jatekos jatekosok[MAXJATEKOS];
-	long jatekosokszama;
+	int32_t jatekosokszama;
 	jatekosnev_type jatekosa, jatekosb;
 
 	// Opciok:
@@ -75,10 +75,14 @@ public:
 	void exportjatekossum( FILE* h, char* nev, int single );
 	void exportanonim( FILE* h, int single, char* text1, char* text2,
 															char* text3 );
-	void export( void );
+	void export_stats( void );
 	void resetcontrols( void );
 };
 
 extern state_s* State; // teljes.cpp-ben van inicializalva!
 
 
+
+static_assert(sizeof(jatekos) == 116, "Player records must retain their Win32 disk layout.");
+static_assert(sizeof(palyaegyfeleidok) == 344 && sizeof(palyaidok) == 688, "Score records must retain their Win32 disk layout.");
+static_assert(sizeof(jatekosopciok) == 32, "Original key-binding layout.");

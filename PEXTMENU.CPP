@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 
 /*static egyszovsor Idoszovegek[4];
@@ -88,8 +88,12 @@ static int afterplayext( char* filenev, long ido ) {
 int abcbenelobb( char* text1, char* text2 );
 
 static void abcberendez( int szam ) {
-	for( int i = 0; i < szam+3; i++ ) {
-		for( int j = 0; j < szam-1; j++ ) {
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < szam+3; i++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 0; j < szam-1; j++ ) {
 			// Ha j es j+1 edik elem forditva van visszacsereljuk oket:
 			char* nev1 = Rubrikak[j];
 			char* nev2 = Rubrikak[j+1];
@@ -106,6 +110,8 @@ static void abcberendez( int szam ) {
 
 // Nincs h-ja, hanem prototype ki van irva play.cpp-ben:
 void playextmenu( void ) {
+	int i; // Legacy for-loop scope.
+
 	// Kiirjuk osszes lev file nevet ide:
 	finame fname;
 	int done = fifirst( "lev\\*.lev", fname );
@@ -129,7 +135,7 @@ void playextmenu( void ) {
 	abcberendez( szam );
 
  	int kezdo = 0; // Ha megtalalja eddigit, akkor kur-t raallitja
-	for( int i = 0; i < szam; i++ ) {
+	for( i = 0; i < szam; i++ ) {
 		char tmp[50];
 		strcpy( tmp, Rubrikak[i] );
 		//strcat( tmp, ".lev" );

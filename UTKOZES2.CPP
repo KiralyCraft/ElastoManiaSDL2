@@ -1,6 +1,8 @@
-#include	"all.h"
+#include	"ALL.H"
 
 int utkozikesprite( vekt2 r, double sugar ) {
+	int i; // Legacy for-loop scope.
+
 	int balalsox, balalsoy;
 	if( !Pecsetalso )
 		hiba( "uovruor" );
@@ -10,7 +12,7 @@ int utkozikesprite( vekt2 r, double sugar ) {
 	int objmaxx = balalsox + 200;
 	int objmaxy = balalsoy + 200;
 
-	for( int i = 0; i < MAXKEREK; i++ ) {
+	for( i = 0; i < MAXKEREK; i++ ) {
 		kerek* pker = Ptop->kerektomb[i];
 		if( !pker )
 			break;

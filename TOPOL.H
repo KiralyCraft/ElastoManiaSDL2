@@ -124,7 +124,7 @@ class topol {
 	void loadbelso( char* filenev );
 public:
     // Beolvasas utan ervenyes, csak rec file ellenorzesere hasznalando
-    long belyeg;
+    int32_t belyeg;
 	// loadlgrfile allitja 1-be, ha nincs meg lgr es default.lgr-t hasznal:
 	int nincslgrje;
 
@@ -180,9 +180,9 @@ extern vekt2 Kezdetihelydiff; // setallaktiv allitja be
 // Ugyanugy viselkedik nevvel, mint topol konstruktora:
 int access_topol( char* filenev );
 
-unsigned long getbelyeg( char* nev );
+uint32_t getbelyeg( char* nev );
 // Igazzal ter vissza, ha megvan nev;
-int getbelyegheznev( unsigned long belyeg, char* nev );
+int getbelyegheznev( uint32_t belyeg, char* nev );
 
 // Csak external file-hoz:
 // Ha NULL, akkor valami baj volt vele:

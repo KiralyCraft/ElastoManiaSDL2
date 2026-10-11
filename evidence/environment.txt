@@ -1,0 +1,70 @@
+Delivery environment (not required installation paths)
+
+Linux 1ec61fbad4fc 6.18.44 #1 SMP Sat Sep 26 20:02:31 UTC 2026 x86_64 GNU/Linux
+
+g++ (Debian 14.2.0-19) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/local/swift/usr/bin
+
+cmake version 3.31.6
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+1.12.1
+
+	linux-vdso.so.1 (0x00007efd62157000)
+	libSDL2-2.0.so.0 => /lib/x86_64-linux-gnu/libSDL2-2.0.so.0 (0x00007efd61ea1000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007efd61c3b000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007efd61b4b000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007efd61b1e000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007efd61928000)
+	libasound.so.2 => /lib/x86_64-linux-gnu/libasound.so.2 (0x00007efd61807000)
+	libpulse.so.0 => /lib/x86_64-linux-gnu/libpulse.so.0 (0x00007efd617b2000)
+	libsamplerate.so.0 => /lib/x86_64-linux-gnu/libsamplerate.so.0 (0x00007efd61644000)
+	libX11.so.6 => /lib/x86_64-linux-gnu/libX11.so.6 (0x00007efd614fc000)
+	libXext.so.6 => /lib/x86_64-linux-gnu/libXext.so.6 (0x00007efd614e7000)
+	libXcursor.so.1 => /lib/x86_64-linux-gnu/libXcursor.so.1 (0x00007efd614d8000)
+	libXi.so.6 => /lib/x86_64-linux-gnu/libXi.so.6 (0x00007efd614c4000)
+	libXfixes.so.3 => /lib/x86_64-linux-gnu/libXfixes.so.3 (0x00007efd614bc000)
+	libXrandr.so.2 => /lib/x86_64-linux-gnu/libXrandr.so.2 (0x00007efd614af000)
+	libXss.so.1 => /lib/x86_64-linux-gnu/libXss.so.1 (0x00007efd614aa000)
+	libdrm.so.2 => /lib/x86_64-linux-gnu/libdrm.so.2 (0x00007efd61493000)
+	libgbm.so.1 => /lib/x86_64-linux-gnu/libgbm.so.1 (0x00007efd6148b000)
+	libwayland-egl.so.1 => /lib/x86_64-linux-gnu/libwayland-egl.so.1 (0x00007efd61486000)
+	libwayland-client.so.0 => /lib/x86_64-linux-gnu/libwayland-client.so.0 (0x00007efd61473000)
+	libwayland-cursor.so.0 => /lib/x86_64-linux-gnu/libwayland-cursor.so.0 (0x00007efd61469000)
+	libxkbcommon.so.0 => /lib/x86_64-linux-gnu/libxkbcommon.so.0 (0x00007efd6141e000)
+	libdecor-0.so.0 => /lib/x86_64-linux-gnu/libdecor-0.so.0 (0x00007efd61413000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007efd62159000)
+	libpulsecommon-17.0.so => /usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-17.0.so (0x00007efd61389000)
+	libdbus-1.so.3 => /lib/x86_64-linux-gnu/libdbus-1.so.3 (0x00007efd61332000)
+	libxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007efd61307000)
+	libXrender.so.1 => /lib/x86_64-linux-gnu/libXrender.so.1 (0x00007efd612fa000)
+	libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007efd612cc000)
+	libffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007efd612bf000)
+	libsndfile.so.1 => /lib/x86_64-linux-gnu/libsndfile.so.1 (0x00007efd61230000)
+	libX11-xcb.so.1 => /lib/x86_64-linux-gnu/libX11-xcb.so.1 (0x00007efd6122b000)
+	libsystemd.so.0 => /lib/x86_64-linux-gnu/libsystemd.so.0 (0x00007efd61116000)
+	libasyncns.so.0 => /lib/x86_64-linux-gnu/libasyncns.so.0 (0x00007efd6110d000)
+	libXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007efd61108000)
+	libXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007efd61100000)
+	libFLAC.so.14 => /lib/x86_64-linux-gnu/libFLAC.so.14 (0x00007efd61096000)
+	libvorbis.so.0 => /lib/x86_64-linux-gnu/libvorbis.so.0 (0x00007efd61068000)
+	libvorbisenc.so.2 => /lib/x86_64-linux-gnu/libvorbisenc.so.2 (0x00007efd60fbb000)
+	libopus.so.0 => /lib/x86_64-linux-gnu/libopus.so.0 (0x00007efd60c57000)
+	libogg.so.0 => /lib/x86_64-linux-gnu/libogg.so.0 (0x00007efd60c4d000)
+	libmpg123.so.0 => /lib/x86_64-linux-gnu/libmpg123.so.0 (0x00007efd60bf0000)
+	libmp3lame.so.0 => /lib/x86_64-linux-gnu/libmp3lame.so.0 (0x00007efd60b77000)
+	libcap.so.2 => /lib/x86_64-linux-gnu/libcap.so.2 (0x00007efd60b69000)
+
+Python 3.13.5
+
+Elma Classic SDL2 0.1.0
+x86-64 / x87 compatibility target (parity not certified)

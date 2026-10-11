@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 //int Kurzornegyzet = 0;
 
@@ -284,10 +284,12 @@ void t_create_vert_nyomva( int mx, int my ) {
 
 		Pgy = Ptop->legkozpont( x, y, &K );
 		if( !Pgy ) {
+	int i; // Legacy for-loop scope.
+
 			// Egy uj poligon elso pontjat rakjuk le:
 			// Eloszor megnezzuk, hogy van-e meg hely uj poligonnak:
 			int gyuruszam = 0;
-			for( int i = 0; i < MAXGYURU; i++ )
+			for( i = 0; i < MAXGYURU; i++ )
 				if( Ptop->ptomb[i] )
 					gyuruszam++;
 			#ifdef SARVARI
@@ -345,12 +347,14 @@ void t_create_vert_nyomva( int mx, int my ) {
 			K++;
 	}
 	else {
+	int i; // Legacy for-loop scope.
+
 		// Eddig egy pontja volt meg poligonnak, most mar valodi poligon-t
 		// csinalunk belole:
 		toolhelp( "Click the left button to place point. SPACE and ENTER swaps. ESC or right button cancels." );
 		if( !Egypont )
 			hiba( "!Egypont, pedig annak kene lennie (ffdsgiu)!" );
-		for( int i = 0; i < MAXGYURU; i++ ) {
+		for( i = 0; i < MAXGYURU; i++ ) {
 			if( !Ptop->ptomb[i] ) {
 				Pgy = Ptop->ptomb[i] = new gyuru;
 				Pgy->pontszam = 3;
@@ -379,10 +383,12 @@ void t_create_vert_esc( void ) {
 	if( Pgy ) {
 		// Pgy igaz, tehat egy pont meg van fogva, amit torlunk:
 		if( Pgy->getpontszam() <= 3 ) {
+	int i; // Legacy for-loop scope.
+
 			// Egesz poligont toroljuk:
 			// Eloszor egy kis ellenorzes:
 			int gyuruszam = 0;
-			for( int i = 0; i < MAXGYURU; i++ ) {
+			for( i = 0; i < MAXGYURU; i++ ) {
 				if( Ptop->ptomb[i] )
 					gyuruszam++;
 			}
@@ -517,6 +523,8 @@ void t_delete_vert_nyomva( int mx, int my ) {
 }
 
 void t_delete_poly_nyomva( int mx, int my ) {
+	int i; // Legacy for-loop scope.
+
 	if( Pgy )
 		hiba( "oiutrgiuot" );
 	// Most probalunk megfogni egy pontot:
@@ -529,7 +537,7 @@ void t_delete_poly_nyomva( int mx, int my ) {
 		return;
 	// Talaltunk egy poligont, amit le kene torolni:
 	int szam = 0;
-	for( int i = 0; i < MAXGYURU; i++ )
+	for( i = 0; i < MAXGYURU; i++ )
 		if( Ptop->ptomb[i] )
 			szam++;
 	if( szam == 0 )
@@ -565,9 +573,11 @@ void t_create_food_nyomva_jobb( void ) {
 
 // Food es killer is egyben:
 void t_create_kerek_nyomva( int mx, int my, int food ) {
+	int i; // Legacy for-loop scope.
+
 	// Megszamoljuk eddigi objektumokat:
 	int objszam = 0;
-	for( int i = 0; i < MAXKEREK; i++ )
+	for( i = 0; i < MAXKEREK; i++ )
 		if( Ptop->kerektomb[i] )
 			objszam++;
 	#ifdef SARVARI
@@ -611,12 +621,14 @@ void t_create_kerek_nyomva( int mx, int my, int food ) {
 // DELETE_KEREK DELETE_KEREK DELETE_KEREK DELETE_KEREK DELETE_KEREK
 
 void t_delete_kerek_nyomva( int mx, int my ) {
+	int i; // Legacy for-loop scope.
+
 	double x = konvx_i2d( mx );
 	double y = konvy_i2d( my );
 	kerek* pker = Ptop->legkozkerek( x, y );
 	if( !pker )
 		return;
-	for( int i = 0; i < MAXKEREK; i++ ) {
+	for( i = 0; i < MAXKEREK; i++ ) {
 		if( Ptop->kerektomb[i] == pker ) {
 			if( pker->tipus == T_CEL ) { // T_KEZDO
 				dialog( "You cannot delete the Exit object!" );
@@ -678,13 +690,15 @@ static void zoompont( int x, int y ) {
 }
 
 static void kikeret( int x1, int y1, int x2, int y2 ) {
+	int x; int y; // Legacy for-loop scope.
+
 	if( x2 < x1 ) { int tmp = x1; x1 = x2; x2 = tmp; }
 	if( y2 < y1 ) { int tmp = y1; y1 = y2; y2 = tmp; }
-	for( int x = x1; x <= x2; x++ ) {
+	for( x = x1; x <= x2; x++ ) {
 		zoompont( x, y1 );
 		zoompont( x, y2 );
 	}
-	for( int y = y1; y <= y2; y++ ) {
+	for( y = y1; y <= y2; y++ ) {
 		zoompont( x1, y );
 		zoompont( x2, y );
 	}
@@ -735,6 +749,8 @@ void t_create_sprite_nyomva_jobb( void ) {
 }
 
 void t_create_sprite_nyomva( int mx, int my ) {
+	int i; // Legacy for-loop scope.
+
 	if( !Plgr )
 		hiba( "987g45" );
 	if( Plgr->kepszam <= 0 ) {
@@ -744,7 +760,7 @@ void t_create_sprite_nyomva( int mx, int my ) {
 
 	// Megszamoljuk eddigi objektumokat:
 	int spriteszam = 0;
-	for( int i = 0; i < MAXSPRITE; i++ )
+	for( i = 0; i < MAXSPRITE; i++ )
 		if( Ptop->spritetomb[i] )
 			spriteszam++;
 	#ifdef SARVARI
@@ -780,12 +796,14 @@ void t_create_sprite_nyomva( int mx, int my ) {
 }
 
 void t_delete_sprite_nyomva( int mx, int my ) {
+	int i; // Legacy for-loop scope.
+
 	double x = konvx_i2d( mx );
 	double y = konvy_i2d( my );
 	sprite* psp = Ptop->legkozsprite( x, y );
 	if( !psp )
 		return;
-	for( int i = 0; i < MAXSPRITE; i++ ) {
+	for( i = 0; i < MAXSPRITE; i++ ) {
 		if( Ptop->spritetomb[i] == psp ) {
 			delete psp;
 			Ptop->spritetomb[i] = NULL;

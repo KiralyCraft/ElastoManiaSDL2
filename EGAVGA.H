@@ -1,6 +1,6 @@
 
 // idot adja vissza szazadmasodpercben:
-long lejatszo( recorder* prec, int replay );
+int32_t lejatszo( recorder* prec, int replay );
 
 void egesz( void );
 
@@ -11,7 +11,7 @@ extern int ColorBG, ColorFG, ColorFG2;
 
 void kinyom( int ertek ); // Csak teszt celokra!
 
-extern long L;
+extern int32_t L;
 
 extern szakaszok *Pszak;
 

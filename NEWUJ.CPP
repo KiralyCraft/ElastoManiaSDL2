@@ -1,6 +1,6 @@
-#include	"all.h"
+#include	"ALL.H"
 
-long Newszam = 0;
+int32_t Newszam = 0;
 void* Mutvoid;
 
 void** newnovel( void ) {

@@ -1,0 +1,1224 @@
+{
+  "source_archive_sha256": "e2cd34b3c6bd848604e2001369e133be366d6ce3011f36aa591e07f17dc98032",
+  "scope": "Every original snapshot file; new platform/docs/tests are additional files. Original README relocated unchanged.",
+  "files": [
+    {
+      "original_path": "ABC8.CPP",
+      "retained_path": "ABC8.CPP",
+      "original_sha256": "7e8f577e4bc89f8905c8d7e46230092f5d0cb5f7a7df7bbc2e3e101b4a5ad2fe",
+      "updated_sha256": "ccfe3ac8bbd4b5403788077ac4cba0c723f574e590b0e727711ad8f366a3d5aa",
+      "status": "modified"
+    },
+    {
+      "original_path": "ABC8.H",
+      "retained_path": "ABC8.H",
+      "original_sha256": "ab796ab67002da31219e7191a341c5112263df4ab74a30b27dfac905d147408b",
+      "updated_sha256": "ab796ab67002da31219e7191a341c5112263df4ab74a30b27dfac905d147408b",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "ABC_MAKE.CPP",
+      "retained_path": "ABC_MAKE.CPP",
+      "original_sha256": "ab337db87f1dde10820f411b09169d2a3e8af96b8932a4081930c21c0bece473",
+      "updated_sha256": "ab337db87f1dde10820f411b09169d2a3e8af96b8932a4081930c21c0bece473",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "ADATOK.CPP",
+      "retained_path": "ADATOK.CPP",
+      "original_sha256": "1721b3fbe2d2b41596370fa022af783831233897da7524a8df1a208c6314ef07",
+      "updated_sha256": "36926d6e8174dfc30f6e753e43ad2503f7f328fe40e3c7f397353de197ae59d7",
+      "status": "modified"
+    },
+    {
+      "original_path": "ADATOK.H",
+      "retained_path": "ADATOK.H",
+      "original_sha256": "0d963239d9de16cfdb12a7e232aa797e8af5537feed00a4ed778f35d7ace2189",
+      "updated_sha256": "0d963239d9de16cfdb12a7e232aa797e8af5537feed00a4ed778f35d7ace2189",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "ALL.H",
+      "retained_path": "ALL.H",
+      "original_sha256": "acce4e106c25f6f528b98ecf66bc5c242e55ca7dc52a5381da667de2afbc5a04",
+      "updated_sha256": "d6986783cfef827ade0b2b9330bf3c1ab12671b39ed52ec3b15ce58536120003",
+      "status": "modified"
+    },
+    {
+      "original_path": "ANIM.CPP",
+      "retained_path": "ANIM.CPP",
+      "original_sha256": "f3247169613404004c9f9463e45b4791a30cb96cf5fcfa0b514706226b07a139",
+      "updated_sha256": "089ed76e0b5963bec45e7daab2ea2a2c6e678e7cffba3b8ff6ca98a0094f1036",
+      "status": "modified"
+    },
+    {
+      "original_path": "ANIM.H",
+      "retained_path": "ANIM.H",
+      "original_sha256": "99b1f1fe2d39c2506c93f6920ff59353c80ee0874bd6f2b788f21a8537cb9fd0",
+      "updated_sha256": "99b1f1fe2d39c2506c93f6920ff59353c80ee0874bd6f2b788f21a8537cb9fd0",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "BEALLIT.CPP",
+      "retained_path": "BEALLIT.CPP",
+      "original_sha256": "684c91322e4106c36947cb612c209a6e01320180c767bcf93f58a3c1f4382d95",
+      "updated_sha256": "10775612d33e52401f06d094c4a014d58646057468766ba1f97c20f3a209b65d",
+      "status": "modified"
+    },
+    {
+      "original_path": "BEALLIT.H",
+      "retained_path": "BEALLIT.H",
+      "original_sha256": "717d114891e0413c1005c58150327cf48e2392d696bf2a2aef10546e2da35102",
+      "updated_sha256": "717d114891e0413c1005c58150327cf48e2392d696bf2a2aef10546e2da35102",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "BEALLITO.CPP",
+      "retained_path": "BEALLITO.CPP",
+      "original_sha256": "c987ba739c09c3ee6bdc0a34122a54556fff0bd99b6ee9f0625f459bd232c5cd",
+      "updated_sha256": "c987ba739c09c3ee6bdc0a34122a54556fff0bd99b6ee9f0625f459bd232c5cd",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "BENCH.CPP",
+      "retained_path": "BENCH.CPP",
+      "original_sha256": "fa636443c7ef6367374c854a7711ca47c500dc76ac85242ece111b4e80f9ee94",
+      "updated_sha256": "fa636443c7ef6367374c854a7711ca47c500dc76ac85242ece111b4e80f9ee94",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "BESTTIME.CPP",
+      "retained_path": "BESTTIME.CPP",
+      "original_sha256": "1a98fbb7d38527b1436e05bee63e722ef5411d4c029861fb3c80a7182a8ce5c6",
+      "updated_sha256": "0b618fdd51fe41f4551444fe6c2a1d25f20ebf2ec10c1520a9972ceb8ceaf5eb",
+      "status": "modified"
+    },
+    {
+      "original_path": "BESTTIME.H",
+      "retained_path": "BESTTIME.H",
+      "original_sha256": "27b1a2eaa20d411e8bff6350f9d8a0c0a9e26dc07e3165dbe0ffa60320aa7225",
+      "updated_sha256": "9334814ebd908638fbf3c6a82073e7c87b337ab3a492fc993d60e9adfc476e6c",
+      "status": "modified"
+    },
+    {
+      "original_path": "CRCCHECK.CPP",
+      "retained_path": "CRCCHECK.CPP",
+      "original_sha256": "75ca6d7a8032bfdba75c9ed54dfc1e258d4552ae1c69d83457fbd03509de47f0",
+      "updated_sha256": "744d91a3bf96a44b49cb468ebb7cbd705c0a3f24c41a89461d185c65e1515275",
+      "status": "modified"
+    },
+    {
+      "original_path": "CRCCHECK.H",
+      "retained_path": "CRCCHECK.H",
+      "original_sha256": "fbd448ba29ce89c03ea5b1715a97bc6663aaa5d4bd56fb74efa9639a02f01356",
+      "updated_sha256": "fbd448ba29ce89c03ea5b1715a97bc6663aaa5d4bd56fb74efa9639a02f01356",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "CUSTOM.CPP",
+      "retained_path": "CUSTOM.CPP",
+      "original_sha256": "7066cfcad4de5fc3c49c28ce68e9723e1820d0414321b674fb40e7ac6a2ee0eb",
+      "updated_sha256": "9466b9c19bbdee4d6903f8516479e4bf8123ab3ef941b768da1934e0d7fd1802",
+      "status": "modified"
+    },
+    {
+      "original_path": "CUSTOM.H",
+      "retained_path": "CUSTOM.H",
+      "original_sha256": "640219d8f26a68339e762bbf540fd7bb886e6685af24bc95b55ddaa5d90b1b5b",
+      "updated_sha256": "640219d8f26a68339e762bbf540fd7bb886e6685af24bc95b55ddaa5d90b1b5b",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "DIALOG.CPP",
+      "retained_path": "DIALOG.CPP",
+      "original_sha256": "71f1f84e33a621295b56ba33bba035d4e9b96dc16231e7ab05bf045f07f237cd",
+      "updated_sha256": "b8db93f92bd9bf7882d07183019adcd89ccc0558e6eeaa9a17704902c25fa739",
+      "status": "modified"
+    },
+    {
+      "original_path": "DIALOG.H",
+      "retained_path": "DIALOG.H",
+      "original_sha256": "72341796654d194a6f1f6bfbdb0811e89e40dbd45615d6f5b515b28dd942da2d",
+      "updated_sha256": "72341796654d194a6f1f6bfbdb0811e89e40dbd45615d6f5b515b28dd942da2d",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "DIALOG32.CPP",
+      "retained_path": "DIALOG32.CPP",
+      "original_sha256": "d634eac19c6a0c3c3079c4843a435705e0556148d08146e104d1ab97fc48839f",
+      "updated_sha256": "19d1f9431f3af004c2ab40f75dbe125c7b9a0edad9f9a0c0fd64dd9ae0f3df41",
+      "status": "modified"
+    },
+    {
+      "original_path": "DIALOG32.H",
+      "retained_path": "DIALOG32.H",
+      "original_sha256": "3a0af0c5471247e425eeaba4b0f7d94e16958bf0bde3a905ec81b89ec6ae0ece",
+      "updated_sha256": "3a0af0c5471247e425eeaba4b0f7d94e16958bf0bde3a905ec81b89ec6ae0ece",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "DIGIT.CPP",
+      "retained_path": "DIGIT.CPP",
+      "original_sha256": "9aec4633dcc18302628e6a61e4e443880832adc9e4f860be86bfc5f0af81c6df",
+      "updated_sha256": "bc21be9685a1f3682ba6cdd83350fd8dc102f248f144d022c494a3494e8153e5",
+      "status": "modified"
+    },
+    {
+      "original_path": "DIGIT.H",
+      "retained_path": "DIGIT.H",
+      "original_sha256": "918cd9a61f4f3f47e666dcc23fd18a6ad7e2cdd85fe802d5fb9fa8f2294c7b29",
+      "updated_sha256": "918cd9a61f4f3f47e666dcc23fd18a6ad7e2cdd85fe802d5fb9fa8f2294c7b29",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "DISPLAY.CPP",
+      "retained_path": "DISPLAY.CPP",
+      "original_sha256": "02e2e4f86addfecb38969579689739be203fbebdc70f5f943501199665e22809",
+      "updated_sha256": "60b9477bbdfc2c008633fc2626f8dbab81619520d06868823a103d8c25386485",
+      "status": "modified"
+    },
+    {
+      "original_path": "DISPLAY.H",
+      "retained_path": "DISPLAY.H",
+      "original_sha256": "79257f988ad509112f2d2bbde32d11ea2b7241c396d7487e7a829663599e1fb0",
+      "updated_sha256": "79257f988ad509112f2d2bbde32d11ea2b7241c396d7487e7a829663599e1fb0",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "DOBOZ.CPP",
+      "retained_path": "DOBOZ.CPP",
+      "original_sha256": "8421da75e6343cdd1fc8dd53bc801185fdc078f92529e03dbe134279efc4c692",
+      "updated_sha256": "63626a4a6a7574f427f8c88e9d87e3243daa55ca9ff492b843cce2be65bcaa1b",
+      "status": "modified"
+    },
+    {
+      "original_path": "DOBOZ.H",
+      "retained_path": "DOBOZ.H",
+      "original_sha256": "e1b029b4e0899cfac6bc4834e9efc490989c0f0b6182e628e9855141c588c311",
+      "updated_sha256": "e1b029b4e0899cfac6bc4834e9efc490989c0f0b6182e628e9855141c588c311",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "D_DD.CPP",
+      "retained_path": "D_DD.CPP",
+      "original_sha256": "89ba20ddf7ad0b97caa3de16dbbdc13a2734a48d5fe024ee8f824c5a7d276b91",
+      "updated_sha256": "89ba20ddf7ad0b97caa3de16dbbdc13a2734a48d5fe024ee8f824c5a7d276b91",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "D_K.CPP",
+      "retained_path": "D_K.CPP",
+      "original_sha256": "c43f558bc3eae9e66e71d67df1ecc7d556132b615ba3812f5feaa34d6656461d",
+      "updated_sha256": "c43f558bc3eae9e66e71d67df1ecc7d556132b615ba3812f5feaa34d6656461d",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "D_NEMPUB.H",
+      "retained_path": "D_NEMPUB.H",
+      "original_sha256": "c76145a1bd80750f2613a22b2c313d2ee60a6199e06d70bcfeebc02e866262ec",
+      "updated_sha256": "c76145a1bd80750f2613a22b2c313d2ee60a6199e06d70bcfeebc02e866262ec",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "D_PIC.CPP",
+      "retained_path": "D_PIC.CPP",
+      "original_sha256": "8f92e18b527d462a70168af0fef064e1ba453199d83ad9b673f5bbb82e99ceeb",
+      "updated_sha256": "d447eb4fdb950831e86f78e349eb3a2c188534b4702583ada3284fb927e64143",
+      "status": "modified"
+    },
+    {
+      "original_path": "D_STOPER.CPP",
+      "retained_path": "D_STOPER.CPP",
+      "original_sha256": "93f188d9fc9876f2fe5f76c596c1a79f4df1998fb21eaf671ec6836dcf45b399",
+      "updated_sha256": "93f188d9fc9876f2fe5f76c596c1a79f4df1998fb21eaf671ec6836dcf45b399",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "D_V.CPP",
+      "retained_path": "D_V.CPP",
+      "original_sha256": "8a561958e78ef09fad877fff0a9413da9b82a4624c9cb395237420dc3718bc0f",
+      "updated_sha256": "8a561958e78ef09fad877fff0a9413da9b82a4624c9cb395237420dc3718bc0f",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "ECSET.CPP",
+      "retained_path": "ECSET.CPP",
+      "original_sha256": "b5f06567d5ac578dc32da2a4889a0d2e2205df15977a284a31477bf8f79ea1ea",
+      "updated_sha256": "c09415bbeda3ec24375d96a091193c82d51cfd29b0f648c4d1b466057456375b",
+      "status": "modified"
+    },
+    {
+      "original_path": "ECSET.H",
+      "retained_path": "ECSET.H",
+      "original_sha256": "20ddbcd032b51bec7b16ce8d15a6ff05a34bf2050aedb05ac8fa41f6763cf151",
+      "updated_sha256": "377941f9ca3fce884770fcc05681a0f8f6934ba83d97cc2a772cdfd746348530",
+      "status": "modified"
+    },
+    {
+      "original_path": "EDITHELP.CPP",
+      "retained_path": "EDITHELP.CPP",
+      "original_sha256": "f02d2da4a70026185d51c335625b0048bc4d6d6630bf8d2f82cafc47d1b8dffc",
+      "updated_sha256": "a1ec50e6be64ea310364538df3cfbd374c42cea2c6376335fb7d74b248e4c24b",
+      "status": "modified"
+    },
+    {
+      "original_path": "EDITHELP.H",
+      "retained_path": "EDITHELP.H",
+      "original_sha256": "bccc7ae1b8b96182ce938adf1eb4ae500345970f62e4bb4e8872f8c8a37b3caa",
+      "updated_sha256": "bccc7ae1b8b96182ce938adf1eb4ae500345970f62e4bb4e8872f8c8a37b3caa",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "EDITMENU.CPP",
+      "retained_path": "EDITMENU.CPP",
+      "original_sha256": "936de750a4c9103b5615de2cf8eb27ca59377ef0d809262cd9fdcd1c73fddacf",
+      "updated_sha256": "0e3979036f4759af4ab4c574219856b2ab767a43c6989dad200662f11aca0d6a",
+      "status": "modified"
+    },
+    {
+      "original_path": "EDITMENU.H",
+      "retained_path": "EDITMENU.H",
+      "original_sha256": "fae12ff95a3d7cdb72f2e837277715d05fb4e786a353400714babd2b4cf8b5e5",
+      "updated_sha256": "fae12ff95a3d7cdb72f2e837277715d05fb4e786a353400714babd2b4cf8b5e5",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "EDITPLAY.CPP",
+      "retained_path": "EDITPLAY.CPP",
+      "original_sha256": "a91d9341d1889c77cf76a6ab4052d0a7f0a2c3d6988cc33f77204c8ef2df38c1",
+      "updated_sha256": "f3084ddb002393b3643ab70d0402fe50a80d8a7360c8f44b41c440aa6a0a5660",
+      "status": "modified"
+    },
+    {
+      "original_path": "EDITPLAY.H",
+      "retained_path": "EDITPLAY.H",
+      "original_sha256": "c4525b4d276bf6a74a8a458659d5778587c11dbbbbf1282c2457e1a391e381c1",
+      "updated_sha256": "c4525b4d276bf6a74a8a458659d5778587c11dbbbbf1282c2457e1a391e381c1",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "EDITTOLT.CPP",
+      "retained_path": "EDITTOLT.CPP",
+      "original_sha256": "3e8724e1d145e62313e667e3d856fac6c617aa67a3be8b3010c6e9f33d480872",
+      "updated_sha256": "94d17a48d61de8ad0068e76b2ab7df26b34b9d75374983d224116d02a66ab693",
+      "status": "modified"
+    },
+    {
+      "original_path": "EDITTOLT.H",
+      "retained_path": "EDITTOLT.H",
+      "original_sha256": "0d5d55c87beeb2c79407c9216dd1024ed3c464b7cca8afb0cd2068e16cb163e6",
+      "updated_sha256": "0d5d55c87beeb2c79407c9216dd1024ed3c464b7cca8afb0cd2068e16cb163e6",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "EDITTOOL.CPP",
+      "retained_path": "EDITTOOL.CPP",
+      "original_sha256": "ae5ceea9909edb41d0b04f72789863e103717d632e212d51ae3e722d68abe356",
+      "updated_sha256": "e497baabd197131efba48ce2e67ae6c72262fe6e2f93c8a3618204a30ae8dedf",
+      "status": "modified"
+    },
+    {
+      "original_path": "EDITTOOL.H",
+      "retained_path": "EDITTOOL.H",
+      "original_sha256": "af6f9836bfd4a84865493a0b39873dd8d8ff659bf23a51fd6f3d8e82ec71c21b",
+      "updated_sha256": "af6f9836bfd4a84865493a0b39873dd8d8ff659bf23a51fd6f3d8e82ec71c21b",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "EDITUJ.CPP",
+      "retained_path": "EDITUJ.CPP",
+      "original_sha256": "b07b7ed42472d47a00b8cd0ec689c1d5abc7fdf976db78a08b8ee62a0d24b4fb",
+      "updated_sha256": "6a935297950575fd970c5958cfa51215fc3419c060ab2e8bafc571b793bdb0f8",
+      "status": "modified"
+    },
+    {
+      "original_path": "EDITUJ.H",
+      "retained_path": "EDITUJ.H",
+      "original_sha256": "c2e079d7e61e24625c9adcc04bed8fd506d1a57666524dc535cc546749ecbd28",
+      "updated_sha256": "c2e079d7e61e24625c9adcc04bed8fd506d1a57666524dc535cc546749ecbd28",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "EDTARGY.H",
+      "retained_path": "EDTARGY.H",
+      "original_sha256": "679f228f78a31f43be3fdd669302b2e271ba839d891577fd5e75795d500c19a4",
+      "updated_sha256": "679f228f78a31f43be3fdd669302b2e271ba839d891577fd5e75795d500c19a4",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "ED_CHECK.CPP",
+      "retained_path": "ED_CHECK.CPP",
+      "original_sha256": "f42d0f474c46acdef957df467eec7b41121a7e01c75a9de06fc433dec0a91c61",
+      "updated_sha256": "6aa74c9c28900a2c97dcf83a998968a7c644703d04a3503b9c034c139af9d627",
+      "status": "modified"
+    },
+    {
+      "original_path": "ED_CHECK.H",
+      "retained_path": "ED_CHECK.H",
+      "original_sha256": "9cb0f74b859347c873209dd72cdeb71f216b573c6ea971eacde207df5a26b6d6",
+      "updated_sha256": "9cb0f74b859347c873209dd72cdeb71f216b573c6ea971eacde207df5a26b6d6",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "EGAVGA.CPP",
+      "retained_path": "EGAVGA.CPP",
+      "original_sha256": "559a134661b0c9abe56caa074f73beee55eecb060f3e060fcd3234006b550f44",
+      "updated_sha256": "559a134661b0c9abe56caa074f73beee55eecb060f3e060fcd3234006b550f44",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "EGAVGA.H",
+      "retained_path": "EGAVGA.H",
+      "original_sha256": "99e1a845f429b35aa04dbc15490dda8f24a046d469f96bcdc232622f7b67ebbf",
+      "updated_sha256": "a5806754525a61ca102424472a697b1edc7162860952548f16900d56e8d5884c",
+      "status": "modified"
+    },
+    {
+      "original_path": "FOGOCSKA.CPP",
+      "retained_path": "FOGOCSKA.CPP",
+      "original_sha256": "dc0e32d92828a1aeca5ac0275203e5f2caf080d1f7e02b54439a2c6f094f89ee",
+      "updated_sha256": "d673dc6232323210ce49d7a602dc75cc8dca1e50a067e71496fe2c4e7338aace",
+      "status": "modified"
+    },
+    {
+      "original_path": "FOGOCSKA.H",
+      "retained_path": "FOGOCSKA.H",
+      "original_sha256": "016107d32d848008a42054563cff92864e62514dcd75e71417e6516e51d42732",
+      "updated_sha256": "016107d32d848008a42054563cff92864e62514dcd75e71417e6516e51d42732",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/MAINPROB.CPP",
+      "retained_path": "F_WIN/MAINPROB.CPP",
+      "original_sha256": "b3bd5c497a9622b53fcf9ea36f733271fd3d92eaf444f618cb297eef2cf117cd",
+      "updated_sha256": "b3bd5c497a9622b53fcf9ea36f733271fd3d92eaf444f618cb297eef2cf117cd",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/M_SOUND.H",
+      "retained_path": "F_WIN/M_SOUND.H",
+      "original_sha256": "e3207905ed085f188f9f67b2016c54b87a14a720f9f47f2155f0033b01924ba6",
+      "updated_sha256": "e3207905ed085f188f9f67b2016c54b87a14a720f9f47f2155f0033b01924ba6",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/TOROL.CPP",
+      "retained_path": "F_WIN/TOROL.CPP",
+      "original_sha256": "77398f3fa9791fbff5f60162d4154221ba0ed112c7f93497abe6e9625eea2e75",
+      "updated_sha256": "77398f3fa9791fbff5f60162d4154221ba0ed112c7f93497abe6e9625eea2e75",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_ALL.H",
+      "retained_path": "F_WIN/W_ALL.H",
+      "original_sha256": "aa6cfe8ebcc551e3ab93bfa15dd5e1e291dbb4cecd886df462b8d8f497e6fd0a",
+      "updated_sha256": "aa6cfe8ebcc551e3ab93bfa15dd5e1e291dbb4cecd886df462b8d8f497e6fd0a",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_DD.CPP",
+      "retained_path": "F_WIN/W_DD.CPP",
+      "original_sha256": "2c07773a5b8006d53ed053dce319b500d67980ff54a6c5ad6376876e5f52bd5d",
+      "updated_sha256": "2c07773a5b8006d53ed053dce319b500d67980ff54a6c5ad6376876e5f52bd5d",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_DD_DUM.CPP",
+      "retained_path": "F_WIN/W_DD_DUM.CPP",
+      "original_sha256": "c553fb720dc010fe9694eab44f9e525ed407c5c53c0fd1fcaae5be11e5b352aa",
+      "updated_sha256": "c553fb720dc010fe9694eab44f9e525ed407c5c53c0fd1fcaae5be11e5b352aa",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_DI.CPP",
+      "retained_path": "F_WIN/W_DI.CPP",
+      "original_sha256": "54c3acd8422923cbeea44014f01bb3b922bdfa76146f47f86d05ca7ede5692b6",
+      "updated_sha256": "54c3acd8422923cbeea44014f01bb3b922bdfa76146f47f86d05ca7ede5692b6",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_HHIGH.CPP",
+      "retained_path": "F_WIN/W_HHIGH.CPP",
+      "original_sha256": "ebf33c3c8c50f12afb8200d5f18c8cc468e6cbb64f34720e0defa330e502f393",
+      "updated_sha256": "b831a7c63f71330820169a633a0056d8418b03a1e33e6d7ed61daab82ce10a9b",
+      "status": "modified"
+    },
+    {
+      "original_path": "F_WIN/W_K.CPP",
+      "retained_path": "F_WIN/W_K.CPP",
+      "original_sha256": "f672351484ca188e4d10e4b4557427dca6053f69eac757dd1dc2c9fc8d3df313",
+      "updated_sha256": "f672351484ca188e4d10e4b4557427dca6053f69eac757dd1dc2c9fc8d3df313",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_NEMPUB.H",
+      "retained_path": "F_WIN/W_NEMPUB.H",
+      "original_sha256": "c8e498c18f1b63150481d2de1d8d44e0851e0d786bc9a504510efba2f13af08d",
+      "updated_sha256": "c8e498c18f1b63150481d2de1d8d44e0851e0d786bc9a504510efba2f13af08d",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_SOUND.CPP",
+      "retained_path": "F_WIN/W_SOUND.CPP",
+      "original_sha256": "e50efd50e4732d2605eb69ed9bea3e25de14ef04cb29b053ab50c52a90e9b2a3",
+      "updated_sha256": "e50efd50e4732d2605eb69ed9bea3e25de14ef04cb29b053ab50c52a90e9b2a3",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_SOUND2.CPP",
+      "retained_path": "F_WIN/W_SOUND2.CPP",
+      "original_sha256": "8c5bb3f4f8266f55e42aa98f57ba3f9a1247ce8829740a28dde427c139556035",
+      "updated_sha256": "8c5bb3f4f8266f55e42aa98f57ba3f9a1247ce8829740a28dde427c139556035",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_V.CPP",
+      "retained_path": "F_WIN/W_V.CPP",
+      "original_sha256": "7439e05d40c298cab9aa7c447da7d6047b1ce322d5b3166c6c144d02978cc1e3",
+      "updated_sha256": "7439e05d40c298cab9aa7c447da7d6047b1ce322d5b3166c6c144d02978cc1e3",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "F_WIN/W_V_TOR.CPP",
+      "retained_path": "F_WIN/W_V_TOR.CPP",
+      "original_sha256": "c60645cd9e836a83c22c14181a93481ba58572c827997aba240bb49b02f2ca94",
+      "updated_sha256": "c60645cd9e836a83c22c14181a93481ba58572c827997aba240bb49b02f2ca94",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "GOLYKISZ.CPP",
+      "retained_path": "GOLYKISZ.CPP",
+      "original_sha256": "902db9b847a88861bfe212dd852c80504110a278d8d3c0d6cb66704ac538908c",
+      "updated_sha256": "2f5592b802fe302296509919d71dacdaeedd7d7618e659d21c13583c84db7edc",
+      "status": "modified"
+    },
+    {
+      "original_path": "GOLYKISZ.H",
+      "retained_path": "GOLYKISZ.H",
+      "original_sha256": "abd4c553ba1496462ad0cdc30cec6a78ad1e39341157f0d54845699a46f624c8",
+      "updated_sha256": "abd4c553ba1496462ad0cdc30cec6a78ad1e39341157f0d54845699a46f624c8",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "GOLYOK.CPP",
+      "retained_path": "GOLYOK.CPP",
+      "original_sha256": "74152dd14d6a3e5dc25ce306e3d259eb06eafbdaa0d6797d41a9bbf7e161a6ba",
+      "updated_sha256": "a9637d3ec8008a99019bcaa768f3b94fa57419885c6d34b944c7042b4bfc2d20",
+      "status": "modified"
+    },
+    {
+      "original_path": "GOLYOK.H",
+      "retained_path": "GOLYOK.H",
+      "original_sha256": "10424e1441e3e7561fb4c0e41b14d0b162a45e6c8331b7219de538609a3b0df0",
+      "updated_sha256": "10424e1441e3e7561fb4c0e41b14d0b162a45e6c8331b7219de538609a3b0df0",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "GOLYUTK.CPP",
+      "retained_path": "GOLYUTK.CPP",
+      "original_sha256": "dc3f1e12662536535e7af9cc4e1831f8a55984c480398106a94edc09904ce862",
+      "updated_sha256": "d49a9faba52b231b0c72fb70a9379b6fe969b4e22acacd8780c229d6a8ebc7d5",
+      "status": "modified"
+    },
+    {
+      "original_path": "GOLYUTK.H",
+      "retained_path": "GOLYUTK.H",
+      "original_sha256": "fa405a70f411add814a2eed74f6a04b30a069fe76c8c8376694df43bc302fd75",
+      "updated_sha256": "fa405a70f411add814a2eed74f6a04b30a069fe76c8c8376694df43bc302fd75",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "GRAPH.CPP",
+      "retained_path": "GRAPH.CPP",
+      "original_sha256": "855ef51b6ee3b0441211f524d499c61e276452060e5e9f454488186739ff3448",
+      "updated_sha256": "855ef51b6ee3b0441211f524d499c61e276452060e5e9f454488186739ff3448",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "GYURU.CPP",
+      "retained_path": "GYURU.CPP",
+      "original_sha256": "b6de50a1d0dec7fb0242ecbd28cacbb9e7befc4d9adf58f6da71a459df2c4dfe",
+      "updated_sha256": "a0e32413b724ed621497c317bbc3eb362a78476111fb90050b418014b1f27e9f",
+      "status": "modified"
+    },
+    {
+      "original_path": "HANG.H",
+      "retained_path": "HANG.H",
+      "original_sha256": "d5cc4d0a435bfeedc71825abaa18b354507cac274131590127e493e4f2515f73",
+      "updated_sha256": "d5cc4d0a435bfeedc71825abaa18b354507cac274131590127e493e4f2515f73",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "HANGHIGH.H",
+      "retained_path": "HANGHIGH.H",
+      "original_sha256": "d1154119d082ebb4c4b674fcc4ce03d4bb165758de72704f9f2e0d24b2b25f0b",
+      "updated_sha256": "a42d7b0b7ab6a71657b2c926a43c76ccde6ae5e7e4680148c98e5dcfc06b4ddc",
+      "status": "modified"
+    },
+    {
+      "original_path": "HIBA.H",
+      "retained_path": "HIBA.H",
+      "original_sha256": "5f4256b1eb25e4f2d58f82c76dc9caa3e3a9e3910e8fea0e9f85fb13278b2118",
+      "updated_sha256": "5f4256b1eb25e4f2d58f82c76dc9caa3e3a9e3910e8fea0e9f85fb13278b2118",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "H_.CPP",
+      "retained_path": "H_.CPP",
+      "original_sha256": "25c480642ed067fb8c2a2fe462b170a9874b841bfb21cfe5ece89f1146baf962",
+      "updated_sha256": "25c480642ed067fb8c2a2fe462b170a9874b841bfb21cfe5ece89f1146baf962",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "H_DUMMY.CPP",
+      "retained_path": "H_DUMMY.CPP",
+      "original_sha256": "4beeb432e8c87ed5d125d73cbde1c4b64fe02bdf2e3b0d4bae1db5fd075572fe",
+      "updated_sha256": "4beeb432e8c87ed5d125d73cbde1c4b64fe02bdf2e3b0d4bae1db5fd075572fe",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "H_HIGH.CPP",
+      "retained_path": "H_HIGH.CPP",
+      "original_sha256": "aa2629db9f8872fb9ca7ef6278bf4d88f20a58c6bba00e1410a91bb48f206c74",
+      "updated_sha256": "aa2629db9f8872fb9ca7ef6278bf4d88f20a58c6bba00e1410a91bb48f206c74",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "H_WAV.CPP",
+      "retained_path": "H_WAV.CPP",
+      "original_sha256": "b3b328e1f72839572786e7e7c3e633a079e8050eebb5caf74329ff0a49db4aa3",
+      "updated_sha256": "daf91e1f2fafb8a7a4d34f709cb2cf14735e4910c71ef26e081966993d4f634d",
+      "status": "modified"
+    },
+    {
+      "original_path": "JATEKOS.CPP",
+      "retained_path": "JATEKOS.CPP",
+      "original_sha256": "5f21af63c7c59fc9342836436dc196a1335934979367675597fdf1f1b5a53bca",
+      "updated_sha256": "c6bdfbb6c25c276b23c0ffe944ffe8a6460cd89bf69fb02b7c743be2d1327f3c",
+      "status": "modified"
+    },
+    {
+      "original_path": "JATEKOS.H",
+      "retained_path": "JATEKOS.H",
+      "original_sha256": "9221dcf13c34e3b9b1a403ade3bc994f003cc09f3cf34a5f316df27ec88efaf9",
+      "updated_sha256": "9221dcf13c34e3b9b1a403ade3bc994f003cc09f3cf34a5f316df27ec88efaf9",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "KIRAJ320.CPP",
+      "retained_path": "KIRAJ320.CPP",
+      "original_sha256": "9af1d8c76e04d6f10b9ee5d2bb907f55215b5d7ac64d71caa978cfe4f5fef705",
+      "updated_sha256": "4f7eae986dc8d0497913ecfa35649b1c9a6d5c9fc350bfb60cb4b633858af1ef",
+      "status": "modified"
+    },
+    {
+      "original_path": "KIRAJZOL.H",
+      "retained_path": "KIRAJZOL.H",
+      "original_sha256": "701cc4dcca81a1ee9a01d08af58973b0e0e8b1266c027c134251bd5cd837140b",
+      "updated_sha256": "701cc4dcca81a1ee9a01d08af58973b0e0e8b1266c027c134251bd5cd837140b",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "KISKEP.CPP",
+      "retained_path": "KISKEP.CPP",
+      "original_sha256": "fc488af508f81addf885d06a8c3faf9810f3493bdf29a7bb9a780136377de4c0",
+      "updated_sha256": "07ee5f1e58eb902e325d9b2334d6495d2fddd2afa42392ea995ca6cedee0acc9",
+      "status": "modified"
+    },
+    {
+      "original_path": "KISKEP.H",
+      "retained_path": "KISKEP.H",
+      "original_sha256": "3154e6fcf58045ba066ac68da4ebe567f08fe855573ca12dae369ada7e15ff36",
+      "updated_sha256": "1e376d0d1ec6d513d5de48f1af4ff7ddc0fdfc30f40cf5d97c3dddb95eb896c0",
+      "status": "modified"
+    },
+    {
+      "original_path": "KOR.H",
+      "retained_path": "KOR.H",
+      "original_sha256": "464d482e9ca92b4f4c59d8ac7ccd1b6717cf2d3606093babf84559eb0f3f19ff",
+      "updated_sha256": "464d482e9ca92b4f4c59d8ac7ccd1b6717cf2d3606093babf84559eb0f3f19ff",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "KOVETO.CPP",
+      "retained_path": "KOVETO.CPP",
+      "original_sha256": "bb5af2732f50901e0540bd54320e1cd56161c31f52fd7eb88a52d8c65a6bf459",
+      "updated_sha256": "40c229dfd09f3f796cf490693d36b8e961e0476abd83ae27675b8308c31abf37",
+      "status": "modified"
+    },
+    {
+      "original_path": "KOVETO.H",
+      "retained_path": "KOVETO.H",
+      "original_sha256": "27cbae675e5b9693919560a2a76775525478a9055000e0d837fa2117833e68a6",
+      "updated_sha256": "27cbae675e5b9693919560a2a76775525478a9055000e0d837fa2117833e68a6",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "KOZOS.CPP",
+      "retained_path": "KOZOS.CPP",
+      "original_sha256": "70837fbc96eb89467a8e850f648be094cbfd8c266e1bcc0088e1ca1a0695fc52",
+      "updated_sha256": "0ae558c9ec2f38bb054dfa700b621d2214115200e9c10e83bbde7cf1bf98aa91",
+      "status": "modified"
+    },
+    {
+      "original_path": "KOZOS.H",
+      "retained_path": "KOZOS.H",
+      "original_sha256": "e3f1dfa441ea0c9476398db2c645741229fb123506b241edaddd44ead51d500b",
+      "updated_sha256": "e3f1dfa441ea0c9476398db2c645741229fb123506b241edaddd44ead51d500b",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "LEJATSZO.CPP",
+      "retained_path": "LEJATSZO.CPP",
+      "original_sha256": "fc14cbf25e60eb764ff3813326ec6c434a6c54b44c77aafdc586b2b85b69806b",
+      "updated_sha256": "e6bb47e07579ee70bc0482ab07baa28f7d1639dca8d8dfd88edcfdee2db892cd",
+      "status": "modified"
+    },
+    {
+      "original_path": "LEJATSZO.H",
+      "retained_path": "LEJATSZO.H",
+      "original_sha256": "6ea341f08603c1033f3d2b287a048bdd103caec564aa931c5dbf3f4edf58444e",
+      "updated_sha256": "5dc4c4d57367e693d89ea8ee92df24b2729c98433f8ca69d0fca7205f3079034",
+      "status": "modified"
+    },
+    {
+      "original_path": "LEJATTOR.CPP",
+      "retained_path": "LEJATTOR.CPP",
+      "original_sha256": "ead4d2b7b21f3c61217def1d96d2c633c18dbfbae7da42da0e720327b06c86dd",
+      "updated_sha256": "ead4d2b7b21f3c61217def1d96d2c633c18dbfbae7da42da0e720327b06c86dd",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "LEPTET.CPP",
+      "retained_path": "LEPTET.CPP",
+      "original_sha256": "12a495d0e29177491bf27bde30147a5da374dbe06d7a8dfefbb7ec93c92e9a20",
+      "updated_sha256": "d045196dfe3b18def98fb344d1d4174ed3a98bddd68407d6fc4375bbfebba229",
+      "status": "modified"
+    },
+    {
+      "original_path": "LEPTET.H",
+      "retained_path": "LEPTET.H",
+      "original_sha256": "c55dc69845221a2b65526f3c8e759c1ae3720b94932c2afa6e66704c91baa44e",
+      "updated_sha256": "c55dc69845221a2b65526f3c8e759c1ae3720b94932c2afa6e66704c91baa44e",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "LEPTET_D.CPP",
+      "retained_path": "LEPTET_D.CPP",
+      "original_sha256": "cd4daa0b349f78e91e46f1a549a3c5e2e05c63b9c162d8ad2aa032e4c25d8765",
+      "updated_sha256": "cd4daa0b349f78e91e46f1a549a3c5e2e05c63b9c162d8ad2aa032e4c25d8765",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "LGRFILE.CPP",
+      "retained_path": "LGRFILE.CPP",
+      "original_sha256": "5d20c0cbadffbbe6d4e2d530e6d35063c6dcfcb65cf15a7387ea7ab2f261d84a",
+      "updated_sha256": "e03c653677859acd794b0be423c7231ad1c61032141c262964a4d6572bcad510",
+      "status": "modified"
+    },
+    {
+      "original_path": "LGRFILE.H",
+      "retained_path": "LGRFILE.H",
+      "original_sha256": "ed3c23d40ec56da412e71cfc570d978bd93ab3a5192cc845a0d66f4a7f766ae0",
+      "updated_sha256": "79ebae3a0239725bcdad99d0251c61bc37da38f539b646e7f87f46417ce958cd",
+      "status": "modified"
+    },
+    {
+      "original_path": "LGRFILEO.CPP",
+      "retained_path": "LGRFILEO.CPP",
+      "original_sha256": "4bcee54d154eb95c4f304f4a6cb5475d6cef52ae6aa830e5c88e249971eb913f",
+      "updated_sha256": "4bcee54d154eb95c4f304f4a6cb5475d6cef52ae6aa830e5c88e249971eb913f",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "LICENSE.md",
+      "retained_path": "LICENSE.md",
+      "original_sha256": "f214ec24d04bc0de8422ac11b9d4b13a4c9dd4d52a753e7d351187ec19e4be77",
+      "updated_sha256": "f214ec24d04bc0de8422ac11b9d4b13a4c9dd4d52a753e7d351187ec19e4be77",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "LOAD.CPP",
+      "retained_path": "LOAD.CPP",
+      "original_sha256": "26f3e53a325d948a754501676eb61d4ca87f2311af886bdc97b09c0381b0ff44",
+      "updated_sha256": "683c29f6980202016372bba65c5c9cde699b32dbc383b473652e17ba05addc12",
+      "status": "modified"
+    },
+    {
+      "original_path": "LOAD.H",
+      "retained_path": "LOAD.H",
+      "original_sha256": "643ee1bf740011444661382b9ba386fc6e7604f24d84759c6e75ea7cb2ed2ce6",
+      "updated_sha256": "643ee1bf740011444661382b9ba386fc6e7604f24d84759c6e75ea7cb2ed2ce6",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "MAIN.CPP",
+      "retained_path": "MAIN.CPP",
+      "original_sha256": "1eff3bd00cd6ac7affcd4faf4848b7db819ee3a2952ac911013c7ce176047d08",
+      "updated_sha256": "9355a6a90b396dca510d19aeccf60b134f47447dfe7e2c3581796774bf2d366e",
+      "status": "modified"
+    },
+    {
+      "original_path": "MAIN.H",
+      "retained_path": "MAIN.H",
+      "original_sha256": "b9a4e3d9b8a1b408f780bf92e9d47783d11c544c6db09614266344ead6630861",
+      "updated_sha256": "5c6176fe6c67ad33d8e00222cddd00ae0ed7cf80fffd398279c2664792bd9215",
+      "status": "modified"
+    },
+    {
+      "original_path": "MAINMENU.CPP",
+      "retained_path": "MAINMENU.CPP",
+      "original_sha256": "772f45a34c18ac17dc1b3d6572f70d2f999751492ac9e903abf4c2a3c15ff0dd",
+      "updated_sha256": "6ca903f7f4850193b81d117e7ab1cf19ab2e07d2d6805945968382a8132b963f",
+      "status": "modified"
+    },
+    {
+      "original_path": "MAINMENU.H",
+      "retained_path": "MAINMENU.H",
+      "original_sha256": "b61f8287035198d4f99f809c08f63762d50f006afd7291663bf584b0d3577f32",
+      "updated_sha256": "b61f8287035198d4f99f809c08f63762d50f006afd7291663bf584b0d3577f32",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "MENUKEP.CPP",
+      "retained_path": "MENUKEP.CPP",
+      "original_sha256": "83d8b08532feaa07dc30e38b7a1c1e04d24be61ff34d4c0795b80f602b3e686e",
+      "updated_sha256": "276d3e3ec59a7ec80b483892eb3056c1b722271359ae7c09d4fe302465d3f0fa",
+      "status": "modified"
+    },
+    {
+      "original_path": "MENUKEP.H",
+      "retained_path": "MENUKEP.H",
+      "original_sha256": "4e63523225a0380f0dba8ad5bd7654a38c79b68113e69ba035f6f723d8dad61c",
+      "updated_sha256": "4e63523225a0380f0dba8ad5bd7654a38c79b68113e69ba035f6f723d8dad61c",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "MENUTOR.CPP",
+      "retained_path": "MENUTOR.CPP",
+      "original_sha256": "b48b98645a12248c9c5dc021fac861e75b89bc0cd3c1d9b28be524c4e032b78c",
+      "updated_sha256": "b48b98645a12248c9c5dc021fac861e75b89bc0cd3c1d9b28be524c4e032b78c",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "MOUSE.H",
+      "retained_path": "MOUSE.H",
+      "original_sha256": "e5ad27eb4ece52c97fce07d4deea8b6125d9bf0c553b0f159b990c75b27c4eea",
+      "updated_sha256": "e5ad27eb4ece52c97fce07d4deea8b6125d9bf0c553b0f159b990c75b27c4eea",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "MOUSE386.CPP",
+      "retained_path": "MOUSE386.CPP",
+      "original_sha256": "bf7be6eedd0e6176d53919e1f297fbb3b0641853444f32b9627c6f2be31535ab",
+      "updated_sha256": "bf7be6eedd0e6176d53919e1f297fbb3b0641853444f32b9627c6f2be31535ab",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "M_DD.H",
+      "retained_path": "M_DD.H",
+      "original_sha256": "920c4bd2b56e36e63256aca6c1e9d943f4804ab10ab5f9b165770e4e0fd9c130",
+      "updated_sha256": "920c4bd2b56e36e63256aca6c1e9d943f4804ab10ab5f9b165770e4e0fd9c130",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "M_K.H",
+      "retained_path": "M_K.H",
+      "original_sha256": "5c1f289194a66bdef8d38813bea004558f2412d323ea9f01a748fab07fe92e6f",
+      "updated_sha256": "5c1f289194a66bdef8d38813bea004558f2412d323ea9f01a748fab07fe92e6f",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "M_PIC.H",
+      "retained_path": "M_PIC.H",
+      "original_sha256": "70f58ec0a5cb9207ea620123051eacfb78e68e2f65494961dc2b895869096ec4",
+      "updated_sha256": "70f58ec0a5cb9207ea620123051eacfb78e68e2f65494961dc2b895869096ec4",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "M_V.H",
+      "retained_path": "M_V.H",
+      "original_sha256": "7df267404855e2ea9ffb28d9f7f7ce85fb9d64c1d590affdc266f5f01f125dec",
+      "updated_sha256": "7df267404855e2ea9ffb28d9f7f7ce85fb9d64c1d590affdc266f5f01f125dec",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "NEWUJ.CPP",
+      "retained_path": "NEWUJ.CPP",
+      "original_sha256": "7673eb11cb864c3f9d68a5e39700e211dc7d3798c0eabed594d9fe8c10e9cef6",
+      "updated_sha256": "aace5a7d5c8141b18a74388e62263380e95f67acf09b3c1a1df5067420ed5a19",
+      "status": "modified"
+    },
+    {
+      "original_path": "NEWUJ.H",
+      "retained_path": "NEWUJ.H",
+      "original_sha256": "3897041241ca18891f97e1b8f7352d10ab2299469a519983108446b03c7a96d0",
+      "updated_sha256": "e3e54b91c166961c2810f542afe952e618278812264d46d87bf2e8f8a6f6e647",
+      "status": "modified"
+    },
+    {
+      "original_path": "OPTIONS.CPP",
+      "retained_path": "OPTIONS.CPP",
+      "original_sha256": "f784bf0c5e7fdf37ab1dbc8eed87eef861f68fc69c33274b35410099f56d0c35",
+      "updated_sha256": "2aa1cc6a01319350d233fa723196c54b8c8d5de0d7ab73905c27f99761f94843",
+      "status": "modified"
+    },
+    {
+      "original_path": "OPTIONS.H",
+      "retained_path": "OPTIONS.H",
+      "original_sha256": "266b2029468fc929d85e45ddbec47b834f5f64f4fb521ee68f12200cc774af33",
+      "updated_sha256": "266b2029468fc929d85e45ddbec47b834f5f64f4fb521ee68f12200cc774af33",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PALOPTIM.CPP",
+      "retained_path": "PALOPTIM.CPP",
+      "original_sha256": "6775310ce186225192ca50048ac74ffb6754e5cb9c373a4e72a6b7768b74322b",
+      "updated_sha256": "6775310ce186225192ca50048ac74ffb6754e5cb9c373a4e72a6b7768b74322b",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PALOPTIM.H",
+      "retained_path": "PALOPTIM.H",
+      "original_sha256": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070",
+      "updated_sha256": "75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PEXTMENU.CPP",
+      "retained_path": "PEXTMENU.CPP",
+      "original_sha256": "894009525a7848ead0d0ca38992cb7a4dd4bb643c20498d6c67ac5d13cf6b7bd",
+      "updated_sha256": "441188dd61d8aa44add9bc9d6e6ff231dda47929ec9bdf9108dadae7bcbe4466",
+      "status": "modified"
+    },
+    {
+      "original_path": "PIC8.CPP",
+      "retained_path": "PIC8.CPP",
+      "original_sha256": "d8ed555f8a57e7b957807df6f92aa656c445428df2c05ccd7d02b30670b00fb2",
+      "updated_sha256": "846e4528b824882f76ad4b7e9a60e6c1814cbf7682b3d9818ee5d95fc6206c10",
+      "status": "modified"
+    },
+    {
+      "original_path": "PIC8.H",
+      "retained_path": "PIC8.H",
+      "original_sha256": "d49c8a1c875a2b715572f4f5adc40a1dfe698493d7d4d8274bc9f5b49e93855a",
+      "updated_sha256": "74c0d168c2dcd4d119a30569d553007cfcf5d6f6f5f37669f65d9a14b9484560",
+      "status": "modified"
+    },
+    {
+      "original_path": "PICL8VES.CPP",
+      "retained_path": "PICL8VES.CPP",
+      "original_sha256": "9f191d0bc07c229870aac3a1ed4a68c3e635b0782dd575aa4a38a406eb18b356",
+      "updated_sha256": "9f191d0bc07c229870aac3a1ed4a68c3e635b0782dd575aa4a38a406eb18b356",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PICL8VES.H",
+      "retained_path": "PICL8VES.H",
+      "original_sha256": "c274d9be744cff31936ea6ec3093e352964e3b95963c702f56eec970813c433f",
+      "updated_sha256": "c274d9be744cff31936ea6ec3093e352964e3b95963c702f56eec970813c433f",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PICLIST.CPP",
+      "retained_path": "PICLIST.CPP",
+      "original_sha256": "645454758bd59e1eb7bd0b66dcbe36d1eff3d74c78170e3b24d4cbb2a7911151",
+      "updated_sha256": "b60620e063d4bd0a9aa23882ca9ead2a18c5448f57904790fe860d862bbb386d",
+      "status": "modified"
+    },
+    {
+      "original_path": "PICLIST.H",
+      "retained_path": "PICLIST.H",
+      "original_sha256": "6c7d1104b3dd021f846f8523a4a20b018b4dee91acc977d41a0dd5c5922cf667",
+      "updated_sha256": "6c7d1104b3dd021f846f8523a4a20b018b4dee91acc977d41a0dd5c5922cf667",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PICMCGA.CPP",
+      "retained_path": "PICMCGA.CPP",
+      "original_sha256": "8e39d1cf371fe194f6d85f9fb5ec3f84cd094fabbe3bf12eac09aa659d81e5b1",
+      "updated_sha256": "8e39d1cf371fe194f6d85f9fb5ec3f84cd094fabbe3bf12eac09aa659d81e5b1",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PICMCGA.H",
+      "retained_path": "PICMCGA.H",
+      "original_sha256": "0107a93691e59d143f063640e4c17ccdd70f714c29224bb7cbd48d6105e55ed5",
+      "updated_sha256": "0107a93691e59d143f063640e4c17ccdd70f714c29224bb7cbd48d6105e55ed5",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PLAY.CPP",
+      "retained_path": "PLAY.CPP",
+      "original_sha256": "1b2229d9fbc7a99435d8cae02db0a3cf096ce5f9358cdf1e0ef91a0d6e6c24e3",
+      "updated_sha256": "946d60d4fcfa42cacf7513ddb84bcc487683a5656c217f002a07db735eb53dda",
+      "status": "modified"
+    },
+    {
+      "original_path": "PLAY.H",
+      "retained_path": "PLAY.H",
+      "original_sha256": "b071f2660e3aaea3859e51a625bcb2654d4a6f15b2326741b53185d04f20eee3",
+      "updated_sha256": "6740bde50562a052938c3d5961382bed86dd1f5fcc383fe6daf7f60d4e8bce19",
+      "status": "modified"
+    },
+    {
+      "original_path": "PLAYOLD.CPP",
+      "retained_path": "PLAYOLD.CPP",
+      "original_sha256": "f0ba147bae602d12a24f690426a70238105277fbf1f1b406d825e343b4e4936c",
+      "updated_sha256": "f0ba147bae602d12a24f690426a70238105277fbf1f1b406d825e343b4e4936c",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "PUBGOLY.H",
+      "retained_path": "PUBGOLY.H",
+      "original_sha256": "0066be38a828bf2fdfa94e80fee88e47dc58220dbae7ea89e614df2a5e4c560d",
+      "updated_sha256": "0066be38a828bf2fdfa94e80fee88e47dc58220dbae7ea89e614df2a5e4c560d",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "QOPEN.CPP",
+      "retained_path": "QOPEN.CPP",
+      "original_sha256": "428fd76d693df3f2df748ff0f6019bce81deaefdc11074b28ec3a87fe87c97cc",
+      "updated_sha256": "1ad84cfda62d3f13b75ddfdeefe88ad1336274168ab098170132927bd19275bd",
+      "status": "modified"
+    },
+    {
+      "original_path": "QOPEN.H",
+      "retained_path": "QOPEN.H",
+      "original_sha256": "be4572f590499d27bfec35a494a8f387f56dbdaedbbd420e206b599c126c3c80",
+      "updated_sha256": "42608c33d1dbf6af18c6920279c66db6ff86699ce79b99f6b47be294b4f3537c",
+      "status": "modified"
+    },
+    {
+      "original_path": "RAJZ.H",
+      "retained_path": "RAJZ.H",
+      "original_sha256": "39af9dfbc6633a181b4d6db757046b2fca81a4ab074ed852e93e0b382d512c6a",
+      "updated_sha256": "39af9dfbc6633a181b4d6db757046b2fca81a4ab074ed852e93e0b382d512c6a",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "RAYBACK.CPP",
+      "retained_path": "RAYBACK.CPP",
+      "original_sha256": "93f796bcd10cf15ab9ae64107b0088873e617db5e3a436ada5d51f3fc7669897",
+      "updated_sha256": "93f796bcd10cf15ab9ae64107b0088873e617db5e3a436ada5d51f3fc7669897",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "RAYBACK.H",
+      "retained_path": "RAYBACK.H",
+      "original_sha256": "6db0ae3d24e82fc93b79eebf98c806dd882472468ad6374f46ce540337b6d74e",
+      "updated_sha256": "6db0ae3d24e82fc93b79eebf98c806dd882472468ad6374f46ce540337b6d74e",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "README.CPP",
+      "retained_path": "README.CPP",
+      "original_sha256": "2baa6a740b3c70724b98421802d4b87561a5e6f957ad8466e2b5f53079dce1eb",
+      "updated_sha256": "6c2b9f3f91a1692a976484bc0691e0ef41ca4a4dfa49f6cf1897540536ee044b",
+      "status": "modified"
+    },
+    {
+      "original_path": "README.H",
+      "retained_path": "README.H",
+      "original_sha256": "c0cfca73d620f145d202987a5c942b1ddc52ed0be5108fb4cc2bf8bdf4ebfce0",
+      "updated_sha256": "c0cfca73d620f145d202987a5c942b1ddc52ed0be5108fb4cc2bf8bdf4ebfce0",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "README.md",
+      "retained_path": "docs/UPSTREAM_README.md",
+      "original_sha256": "57e49913e85e7784357e750497a5d271c6c1c749c985d0db6d3c1ce965c94089",
+      "updated_sha256": "57e49913e85e7784357e750497a5d271c6c1c749c985d0db6d3c1ce965c94089",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "RECORDER.CPP",
+      "retained_path": "RECORDER.CPP",
+      "original_sha256": "d7bf384072674cd143465d7a85b3c5b52dc495c80de0193cd82f5145763e3523",
+      "updated_sha256": "8f758eae0d94b4639e38c1f338f8b8357bf7f06ee910f60b6771d4a9fa066da2",
+      "status": "modified"
+    },
+    {
+      "original_path": "RECORDER.H",
+      "retained_path": "RECORDER.H",
+      "original_sha256": "360a0ba276b0de796d6a105450595ac59931cfbe54678fdf6566d87d6cc52a5a",
+      "updated_sha256": "62b7232b880956c8cbd46a087c13dca3b06bcea859e1585cee04a264c6d0c5eb",
+      "status": "modified"
+    },
+    {
+      "original_path": "REC_TOR.CPP",
+      "retained_path": "REC_TOR.CPP",
+      "original_sha256": "64918ca42703c6a5a059563cd37a0341f4f5b4214e97eb249cb74c2c1e09436b",
+      "updated_sha256": "64918ca42703c6a5a059563cd37a0341f4f5b4214e97eb249cb74c2c1e09436b",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "SKIP.CPP",
+      "retained_path": "SKIP.CPP",
+      "original_sha256": "594dbb3c7f8df87cb8273105b7f26576b1c82880cd2b06aa292cc97e08678199",
+      "updated_sha256": "6dcd51420057ae3ca6e193a1751cb89145a94d7a358fe4fa5d6345b75383cf58",
+      "status": "modified"
+    },
+    {
+      "original_path": "SKIP.H",
+      "retained_path": "SKIP.H",
+      "original_sha256": "9026d8ecbbf2eeb734536db165ed690e1d3563d474b440009b9236489bab99c5",
+      "updated_sha256": "9026d8ecbbf2eeb734536db165ed690e1d3563d474b440009b9236489bab99c5",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "SPRITE.CPP",
+      "retained_path": "SPRITE.CPP",
+      "original_sha256": "7283188a52497c6274ccfd16e656c4c8152382b30808cbf7eb140b0dc6cbbe7d",
+      "updated_sha256": "c98f26a113ef929ed81e8acbefe50c1f5a66d83d8e7a8bbb3472f77e4c70bfc4",
+      "status": "modified"
+    },
+    {
+      "original_path": "STATE.CPP",
+      "retained_path": "STATE.CPP",
+      "original_sha256": "33fcedeaa11433f49a335765ebeee098a81f9e588345a1237bc6882944ec1fc0",
+      "updated_sha256": "ba1f4f7b51b4c1a58c75b5cfa961c1e4e8c90dafab706a91cd1e1eb17c0d2ba0",
+      "status": "modified"
+    },
+    {
+      "original_path": "STATE.H",
+      "retained_path": "STATE.H",
+      "original_sha256": "65779b3f9973542bdac152cfb6e638d20afd65c6ea2e5a21a10fc549ec7697f0",
+      "updated_sha256": "0b3b6b7552030415236198acf10db0b8ea6a28753a9d9a9c41d6cc81ca52627d",
+      "status": "modified"
+    },
+    {
+      "original_path": "SZAKASZ.CPP",
+      "retained_path": "SZAKASZ.CPP",
+      "original_sha256": "e938b14f44fec1a5eb7dc230fca096791ad24128930b18e88fb638ed54b0890b",
+      "updated_sha256": "5b1bb52134fb077b9c601a405a37b19521c37759d588c869b0d30abfde2bd9fa",
+      "status": "modified"
+    },
+    {
+      "original_path": "SZAKASZ.H",
+      "retained_path": "SZAKASZ.H",
+      "original_sha256": "ed1a9147df7b8734b8744b12a405431ddebc4811ff84f5fc9999bf1ad91bdc62",
+      "updated_sha256": "ed1a9147df7b8734b8744b12a405431ddebc4811ff84f5fc9999bf1ad91bdc62",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "TELJES.CPP",
+      "retained_path": "TELJES.CPP",
+      "original_sha256": "26be3b9ebfc3bff773a80eea7f923a3f38c3089707e736e03fb11b0a0e0810a6",
+      "updated_sha256": "9fc15cdb6519352e344a224ba69340f2f8bd98df3a673139e032daf1b854f8ef",
+      "status": "modified"
+    },
+    {
+      "original_path": "TELJES.H",
+      "retained_path": "TELJES.H",
+      "original_sha256": "b4fd15dcf76f140c60e688c181e8c575fcedf5c4a6628b2f24d798d6375644ac",
+      "updated_sha256": "b4fd15dcf76f140c60e688c181e8c575fcedf5c4a6628b2f24d798d6375644ac",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "TOPOL.CPP",
+      "retained_path": "TOPOL.CPP",
+      "original_sha256": "a2a55007a7392f809c3e4deb393e7c4953dd40def2d3ad115f84eb70aa583faf",
+      "updated_sha256": "7062706a363c62a56d0c1971c9e29f71a892ff565d98e5dd2bb1a080cf02dd21",
+      "status": "modified"
+    },
+    {
+      "original_path": "TOPOL.H",
+      "retained_path": "TOPOL.H",
+      "original_sha256": "06649efdf8113fc3cc4b8292efb4101e587b0292c2e53ec33a2a109835deeb30",
+      "updated_sha256": "11e1952e16e13debab3d1af646148829379cbd2ecf06bee30aef61e915ded3a4",
+      "status": "modified"
+    },
+    {
+      "original_path": "TOROL.CPP",
+      "retained_path": "TOROL.CPP",
+      "original_sha256": "231762b6cc909ac4ee9a8d8dd50f06bbb34289404ed20a8149ea0fc61960bb2a",
+      "updated_sha256": "231762b6cc909ac4ee9a8d8dd50f06bbb34289404ed20a8149ea0fc61960bb2a",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "TULMINTA.H",
+      "retained_path": "TULMINTA.H",
+      "original_sha256": "e26506ede8d9cc38e78e0da325039e2d56cdd691007e650ef563766516d57f97",
+      "updated_sha256": "e26506ede8d9cc38e78e0da325039e2d56cdd691007e650ef563766516d57f97",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "UPGRADE.CPP",
+      "retained_path": "UPGRADE.CPP",
+      "original_sha256": "9f3fa790b568e5169b3a5b4e634d9e16f3aec75983d1d9bf86b1378d19e151c2",
+      "updated_sha256": "eae1209c0865ff8e1d19e9a1f9be4a9bf516507dfbef5093c5e497ac3c562797",
+      "status": "modified"
+    },
+    {
+      "original_path": "UPGRADE.H",
+      "retained_path": "UPGRADE.H",
+      "original_sha256": "92bc497337db854d085f1c52e2c7992b274d1ca7bea8c637bc168eaaaa5846dc",
+      "updated_sha256": "92bc497337db854d085f1c52e2c7992b274d1ca7bea8c637bc168eaaaa5846dc",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "UTKOZES.CPP",
+      "retained_path": "UTKOZES.CPP",
+      "original_sha256": "c940fb2171d8715d6aabb2eb2efe5f24459641f192f0ed9de8b77b70c79dbebb",
+      "updated_sha256": "bd8a1f2af132d0da643ddeab896fd46b91b54b9c7dad6db45c07d4ab77691dc5",
+      "status": "modified"
+    },
+    {
+      "original_path": "UTKOZES.H",
+      "retained_path": "UTKOZES.H",
+      "original_sha256": "5fb14424b898f9bfda16068590d9e92a14100b1cde80615747001554685a853e",
+      "updated_sha256": "5fb14424b898f9bfda16068590d9e92a14100b1cde80615747001554685a853e",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "UTKOZES2.CPP",
+      "retained_path": "UTKOZES2.CPP",
+      "original_sha256": "0b28719d761f214e0f61e2ea28c717b892f7d6dfdf3d7faa5f8bffeb337cf95e",
+      "updated_sha256": "e711ebbcb7d7ed73cbf94c58572b01544de59d762537e01348613563cc041a27",
+      "status": "modified"
+    },
+    {
+      "original_path": "UTKOZES2.H",
+      "retained_path": "UTKOZES2.H",
+      "original_sha256": "3d587e4afa5c4988e62e05cd07911c792895443257582c59518306dc859422a8",
+      "updated_sha256": "3d587e4afa5c4988e62e05cd07911c792895443257582c59518306dc859422a8",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "VALASZT2.CPP",
+      "retained_path": "VALASZT2.CPP",
+      "original_sha256": "40658c94cde08419a20df6b89fc53df349146bf32119a7fd139274198c224364",
+      "updated_sha256": "166c9b2880987d62e9229391e2ebc48393c5459ca54803e03768bfb79efb6ce0",
+      "status": "modified"
+    },
+    {
+      "original_path": "VALASZT2.H",
+      "retained_path": "VALASZT2.H",
+      "original_sha256": "8ff1d8ace2d76f9329c01eccbf285fb38ea3db28560a4687765b9fa166342646",
+      "updated_sha256": "8ff1d8ace2d76f9329c01eccbf285fb38ea3db28560a4687765b9fa166342646",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "VEKT2.CPP",
+      "retained_path": "VEKT2.CPP",
+      "original_sha256": "edcc57efd30f86113c0ccb3ffa1b122a74d2212eda266dbc8d1aedb51155fd93",
+      "updated_sha256": "b158ee30824a405a23df3d989daf19e4b60b853c1bdc96a7abca08794e9c5659",
+      "status": "modified"
+    },
+    {
+      "original_path": "VEKT2.H",
+      "retained_path": "VEKT2.H",
+      "original_sha256": "f828151c1b982769fde1f8168d8f1ffb0b4fbd110d26e0f737a1355ae9c3426a",
+      "updated_sha256": "f828151c1b982769fde1f8168d8f1ffb0b4fbd110d26e0f737a1355ae9c3426a",
+      "status": "unchanged"
+    },
+    {
+      "original_path": "WAV.H",
+      "retained_path": "WAV.H",
+      "original_sha256": "0598dad2c732ef670c85909294b1e2d21ead9594d9c64aad63e5240d5e6bbebc",
+      "updated_sha256": "0d5a971794897e08fcf93783684eb36520a259880806d3019a2b220c7d8b8e5d",
+      "status": "modified"
+    }
+  ]
+}

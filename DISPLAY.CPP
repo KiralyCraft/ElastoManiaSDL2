@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 int Vonalcsakeditbe = 0; // vonalrajzolashoz
 
@@ -191,6 +191,8 @@ void vonalrajz( vekt2 p1, vekt2 p2, int szaggatott ) {
 		y2 = tmp;
 	} */
 	if( fabs( x2-x1 ) > fabs( y2-y1 ) ) {
+	int x; // Legacy for-loop scope.
+
 		// Vonal inkabb vizszintes:
 		if( x2 == x1 )
 			hiba( "vonal-ban x2 == x1!" );
@@ -216,7 +218,7 @@ void vonalrajz( vekt2 p1, vekt2 p2, int szaggatott ) {
 			xkezd++;
 		else
 			xveg--;
-		for( int x = xkezd; x <= xveg; x++ ) {
+		for( x = xkezd; x <= xveg; x++ ) {
 			if( szaggatott && x % 4 )
 				continue;
 			double yd = y0 + m*x;
@@ -231,6 +233,8 @@ void vonalrajz( vekt2 p1, vekt2 p2, int szaggatott ) {
 		}
 	}
 	else {
+	int y; // Legacy for-loop scope.
+
 		// Vonal inkabb fuggoleges:
 		if( y2 == y1 )
 			hiba( "vonal-ban y2 == y1!" );
@@ -256,7 +260,7 @@ void vonalrajz( vekt2 p1, vekt2 p2, int szaggatott ) {
 			ykezd++;
 		else
 			yveg--;
-		for( int y = y1+0.5; y <= yveg; y++ ) {
+		for( y = y1+0.5; y <= yveg; y++ ) {
 			if( szaggatott && y % 4 )
 				continue;
 			double xd = x0 + m*y;

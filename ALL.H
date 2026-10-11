@@ -1,13 +1,15 @@
+#pragma once
 #include	<stdio.h>
 #include	<stdlib.h>
-#include	<io.h>
-#include	<dos.h>
-#include	<conio.h>
+
+
+
 //#include	<mem.h>
 #include	<string.h>
 #include	<math.h>
 #include	<time.h>
 #include	<ctype.h>
+#include "platform/compat.hpp"
 
 // Ez Win95-os verzio h file-ja, csak ennek egy szinten kell
 // lennie tobbi forras file-lal.
@@ -24,104 +26,104 @@
 
 //#define TEST
 
-#include	"main.h"
-#include	"pic8.h"
-#include	"anim.h"
-//#include	"picmcga.h"
-//#include	"picl8ves.h"
+#include	"MAIN.H"
+#include	"PIC8.H"
+#include	"ANIM.H"
+//#include	"PICMCGA.H"
+//#include	"PICL8VES.H"
 
-#include	"abc8.h"
+#include	"ABC8.H"
 
-//#include	"mouse.h"
+//#include	"MOUSE.H"
 
-#include	"rayback.h"
+#include	"RAYBACK.H"
 
-#include	"vekt2.h"
-#include	"kor.h"
-#include	"adatok.h"
-#include	"beallit.h"
-#include	"leptet.h"
-#include	"utkozes.h"
-#include	"fogocska.h"
+#include	"VEKT2.H"
+#include	"KOR.H"
+#include	"ADATOK.H"
+#include	"BEALLIT.H"
+#include	"LEPTET.H"
+#include	"UTKOZES.H"
+#include	"FOGOCSKA.H"
 
-#include	"recorder.h"
+#include	"RECORDER.H"
 
-#include	"szakasz.h"
-#include	"utkozes2.h"
+#include	"SZAKASZ.H"
+#include	"UTKOZES2.H"
 
-#include	"lejatszo.h"
+#include	"LEJATSZO.H"
 
 // Kozos:
 
-#include	"kirajzol.h"
+#include	"KIRAJZOL.H"
 
-#include	"wav.h"
-#include	"hang.h"
-#include	"hanghigh.h"
+#include	"WAV.H"
+#include	"HANG.H"
+#include	"HANGHIGH.H"
 
-#include	"kiskep.h"
-#include	"doboz.h"
+#include	"KISKEP.H"
+#include	"DOBOZ.H"
 
-#include	"state.h"
+#include	"STATE.H"
 
-#include	"teljes.h"
+#include	"TELJES.H"
 
-#include	"jatekos.h"
-#include	"mainmenu.h"
-#include	"play.h"
-#include	"skip.h"
-#include	"besttime.h"
+#include	"JATEKOS.H"
+#include	"MAINMENU.H"
+#include	"PLAY.H"
+#include	"SKIP.H"
+#include	"BESTTIME.H"
 
-#include	"qopen.h"
+#include	"QOPEN.H"
 
-#include	"kozos.h"
-#include	"digit.h"
+#include	"KOZOS.H"
+#include	"DIGIT.H"
 
-#include	"custom.h"
-#include	"options.h"
-#include	"crccheck.h"
+#include	"CUSTOM.H"
+#include	"OPTIONS.H"
+#include	"CRCCHECK.H"
 
-#include	"newuj.h"
+#include	"NEWUJ.H"
 
-#include	"topol.h"
-#include	"edituj.h"
-#include	"dialog.h"
-#include	"display.h"
-#include	"edittool.h"
-#include	"editmenu.h"
-#include	"edittolt.h"
+#include	"TOPOL.H"
+#include	"EDITUJ.H"
+#include	"DIALOG.H"
+#include	"DISPLAY.H"
+#include	"EDITTOOL.H"
+#include	"EDITMENU.H"
+#include	"EDITTOLT.H"
 
-#include	"edithelp.h"
-#include	"editplay.h"
-#include	"ed_check.h"
+#include	"EDITHELP.H"
+#include	"EDITPLAY.H"
+#include	"ED_CHECK.H"
 
-#include	"koveto.h"
-#include	"piclist.h"
-#include	"lgrfile.h"
+#include	"KOVETO.H"
+#include	"PICLIST.H"
+#include	"LGRFILE.H"
 
-#include	"load.h"
-#include	"ecset.h"
-#include	"menukep.h"
+#include	"LOAD.H"
+#include	"ECSET.H"
+#include	"MENUKEP.H"
 
-#include	"valaszt2.h"
-#include	"dialog32.h"
-
-
-#include	"pubgoly.h"
-#include	"golyok.h"
-#include	"golykisz.h"
-#include	"golyutk.h"
+#include	"VALASZT2.H"
+#include	"DIALOG32.H"
 
 
-#include	"upgrade.h"
-#include	"readme.h"
-
-#include	"m_dd.h"
-#include	"m_k.h"
-#include	"m_v.h"
-#include	"m_pic.h"
+#include	"PUBGOLY.H"
+#include	"GOLYOK.H"
+#include	"GOLYKISZ.H"
+#include	"GOLYUTK.H"
 
 
-#include	"d_nempub.h"
+#include	"UPGRADE.H"
+#include	"README.H"
+
+#include	"M_DD.H"
+#include	"M_K.H"
+#include	"M_V.H"
+#include	"M_PIC.H"
+
+
+#include	"D_NEMPUB.H"
 
 

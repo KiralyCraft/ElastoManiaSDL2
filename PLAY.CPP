@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 /*static void betuki( int oszlop, char c ) {
 	int x = 50+oszlop*19;
@@ -164,7 +164,7 @@ static void konvback( char* text ) {
 	}
 } */
 
-void saveplay( long belyeg ) {
+void saveplay( int32_t belyeg ) {
 	//Korny->pabc_saveplay->write( Korny->picbuffer, 20, 2*SM, "To exit press ESC!" );
 	//Korny->pabc_saveplay->write( Korny->picbuffer, 20, 5*SM, "Please enter filename:" );
 	//lassufizre( Korny->picbuffer, Korny->pal_saveplay );
@@ -283,7 +283,9 @@ void saveplay( long belyeg ) {
 }
 
 // Idot beirja tablaba, ha kell:
-void idoelintezes( long ido, char* valasz, int level, char* filenev ) {
+void idoelintezes( int32_t ido, char* valasz, int level, char* filenev ) {
+	int i; // Legacy for-loop scope.
+
 	if( (ido > 0) && (ido%4 == 0) )
 		kimentreadme();
 
@@ -375,11 +377,13 @@ void idoelintezes( long ido, char* valasz, int level, char* filenev ) {
 		pidok->idokszama++;
 	}
 	// Sorrendbe allitjuk idoket:
-	for( int i = 0; i < MAXIDOK+1; i++ ) {
-		for( int j = 0; j < pidok->idokszama-1; j++ ) {
+	for( i = 0; i < MAXIDOK+1; i++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 0; j < pidok->idokszama-1; j++ ) {
 			if( pidok->idok[j] > pidok->idok[j+1] ) {
 				// Csere:
-				long tmp = pidok->idok[j];
+				int32_t tmp = pidok->idok[j];
 				pidok->idok[j] = pidok->idok[j+1];
 				pidok->idok[j+1] = tmp;
 
@@ -535,7 +539,7 @@ int afterplay( int level, int nextdefault, char* idoeredmeny, char* filenev ) {
 			Idoszovegek[2].y = ya;
 
 			if( tagisvan ) {
-				long longido = Afogoido*Idod2lszorzo;
+				int32_t longido = Afogoido*Idod2lszorzo;
 				ido2string( longido, Idoszovegek[3].text );
 				Idoszovegek[3].x = 440+dx;
 				Idoszovegek[3].y = ya;
@@ -561,7 +565,7 @@ int afterplay( int level, int nextdefault, char* idoeredmeny, char* filenev ) {
 			Idoszovegek[5].y = yb;
 
 			if( tagisvan ) {
-				long longido = Bfogoido*Idod2lszorzo;
+				int32_t longido = Bfogoido*Idod2lszorzo;
 				ido2string( longido, Idoszovegek[6].text );
 				Idoszovegek[6].x = 440+dx;
 				Idoszovegek[6].y = yb;
@@ -686,7 +690,7 @@ static void playlevel( int level ) {
 		int parreplay = 0;
 		Prec1->erase( tmpnev );
 		Prec2->erase( tmpnev );
-		long ido = lejatszo( tmpnev );
+		int32_t ido = lejatszo( tmpnev );
 		Pmenupal->set();
 		if( Ptop->kerekekfejjellefele )
 			hiba( "playlevel-ben Ptop->kerekekfejjellefel!" );
@@ -739,6 +743,8 @@ static void playlevel( int level ) {
 
 void play( void ) {
 	while( 1 ) {
+	int i; // Legacy for-loop scope.
+
 		int jatekosindex = getjatekosindex( State->jatekosa );
 		jatekos* pjatekos = &State->jatekosok[jatekosindex];
 		int kirpalyszam = pjatekos->sikerespalyakszama + 1;
@@ -764,7 +770,7 @@ void play( void ) {
 		strcpy( val.cim, "Select Level!" );
 
 		strcpy( Rubrikak[0], "External File" );
-		for( int i = 0; i < kirpalyszam; i++ ) {
+		for( i = 0; i < kirpalyszam; i++ ) {
 			char tmp[MAXRUBRIKAHOSSZ];
 			itoa( i+1, tmp, 10 );
 			strcat( tmp, " " );

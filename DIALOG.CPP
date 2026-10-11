@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 // Ez igaz, ha editorban van vezerles:
 int Editorban_dialnak = 0;
@@ -37,12 +37,14 @@ int dialog( char* text1, char* text2, char* text3,
 			 char* text16, char* text17, char* text18,
 			 char* text19, char* text20, char* text21,
 			 char* text22, char* text23, char* text24 ) {
+	int i; // Legacy for-loop scope.
+
 	char* texttomb[30] = { text1, text2, text3, text4, text5, text6,
 					   text7, text8, text9, text10, text11, text12,
 					   text13, text14, text15, text16, text17, text18,
 					   text19, text20, text21, text22, text23, text24 };
 	int textszam = 24;
-	for( int i = 0; i < 24; i++ ) {
+	for( i = 0; i < 24; i++ ) {
 		if( !texttomb[i] ) {
 			textszam = i;
 			break;
@@ -54,11 +56,13 @@ int dialog( char* text1, char* text2, char* text3,
 	int gombszam = 0;
 	for( i = 0; i < textszam; i++ ) {
 		if( strcmp( texttomb[i], "GOMBOK" ) == 0 ) {
+	int j; // Legacy for-loop scope.
+
 			gombszam = textszam-i-1;
 			if( gombszam <= 0 )
 				hiba( "dialog-ban gombszam <= 0!" );
 			textszam = i;
-			for( int j = 0; j < gombszam; j++ )
+			for( j = 0; j < gombszam; j++ )
 				gombtomb[j] = texttomb[textszam+j+1];
 			break;
 		}
@@ -147,6 +151,8 @@ int dialog( char* text1, char* text2, char* text3,
 	int egerjobblevoltnyomva = 1; // Eger gombja csak lemenetnel aktivizalodik
 	while( 1 ) {
 		while( mk_kbhit() ) {
+	int i; // Legacy for-loop scope.
+
 			int c = mk_getextchar();
 			if( gombszam == 1 ) {
 				if( c == MK_ESC || c == MK_ENTER ) {
@@ -155,7 +161,7 @@ int dialog( char* text1, char* text2, char* text3,
 					return 0;
 				}
 			}
-			for( int i = 0; i < gombszam; i++ )
+			for( i = 0; i < gombszam; i++ )
 				if( c == tolower( *(gombtomb[i]) ) ) {
 					if( !Editorban_dialnak )
 						push(); // Leszedjuk egeret keprol
@@ -202,6 +208,8 @@ int dialog( char* text1, char* text2, char* text3,
 		}
 
 		if( balnyomva ) {
+	int i; // Legacy for-loop scope.
+
 			int ujx = 0, ujy = 0;
 			getmou( &ujx, &ujy );
 			push();
@@ -209,7 +217,7 @@ int dialog( char* text1, char* text2, char* text3,
 			Mouy = ujy;
 			pop();
 			// Most nezzuk meg, hogy hova kattintott:
-			for( int i = 0; i < gombszam; i++ ) {
+			for( i = 0; i < gombszam; i++ ) {
 				if( ujx >= gx1tomb[i] && ujx <= gx2tomb[i] &&
 					ujy >= gy1 && ujy <= gy2 ) {
 						if( !Editorban_dialnak )

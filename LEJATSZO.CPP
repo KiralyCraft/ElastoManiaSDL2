@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 // Jatek modja ket fele lehet:
 int Single = 1; 
@@ -89,7 +89,7 @@ static double Forgasido = 0.35;
 // Ide csak *pmeghalt == 0-val erkezhet
 static void belsoresz( motorst* pmot, jatekosopciok* popciok,
 					   valtozok* pvalt, recorder* prec,
-					   long* pmegvanido, int* pmeghalt,
+					   int32_t* pmegvanido, int* pmeghalt,
 					   double eddig, double dt ) {
 	// Ugras elintezese:
 	int ugrik1 = 0, ugrik2 = 0;
@@ -299,7 +299,7 @@ int Aerintetteviragot = 0;
 int Masodikmenet = 0;
 
 // Idot adja vissza szazadmasodpercben:
-long lejatszo( char* filenev ) {
+int32_t lejatszo( char* filenev ) {
 	//hiba( "Ezegyhosszusor,szetkellvagnibiztosanhibaEzegy hosszu sor, szet kell vagni biztosan!",
 	//	"Ez egy masik hosszu sor, szet kell vagni biztosan!" );
 
@@ -358,8 +358,8 @@ long lejatszo( char* filenev ) {
 
 	int meghalt1 = 0;
 	int meghalt2 = 0;
-	long megvanido1 = 0;
-	long megvanido2 = 0;
+	int32_t megvanido1 = 0;
+	int32_t megvanido2 = 0;
 	resetleptet( Pmot1 );
 	resetleptet( Pmot2 );
 
@@ -376,7 +376,7 @@ long lejatszo( char* filenev ) {
 	fogocskareset();
 
 	Pmot1->kajaszam = Pmot2->kajaszam = 0;
-	long l = 0;
+	int32_t l = 0;
 	int mindjar = 1;
 	while( 1 ) {
 		// Kiszamolja mennyit kell leptetni:
@@ -460,7 +460,7 @@ long lejatszo( char* filenev ) {
 				(!Single &&
 					(megvanido1 || megvanido2 || (meghalt1&&meghalt2)))) {
 				// Vege jateknak:
-				long megvanido = megvanido1;
+				int32_t megvanido = megvanido1;
 				if( megvanido2 )
 					megvanido = megvanido2;
 
@@ -728,7 +728,7 @@ static int replaymag( motorst* pmot, jatekosopciok* popciok,
 static int Elozoshowkep1 = 1, Elozoshowkep2 = 1;
 
 // Termeszetes befejezes eseten 0-t ad vissza:
-long lejatszo_r( char* filenev, int showkepmarad ) {
+int32_t lejatszo_r( char* filenev, int showkepmarad ) {
 	Kitoltestmegrak = 3; // kirajz meg 3x kirakja keretet
 
 	// Jatekmod eldontese:
@@ -793,7 +793,7 @@ long lejatszo_r( char* filenev, int showkepmarad ) {
 	fogocskareset();
 
 	//Pmot1->kajaszam = Pmot2->kajaszam = 0;
-	long l = 0;
+	int32_t l = 0;
 	int jar1 = 1, jar2 = 1;
 	while( 1 ) {
 		mv_check( /*"Lej 534"*/ );  // Billentyut itt olvassuk be

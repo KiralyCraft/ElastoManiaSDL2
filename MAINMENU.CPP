@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 /*void showinstruct( void ) {
 	blt8( Korny->picbuffer, Korny->ppic_help );
@@ -75,6 +75,8 @@ int abcbenelobb( char* text1, char* text2 ) {
 static int Megnemrand = 1;
 
 int veletlen( void ) {
+	int i; // Legacy for-loop scope.
+
 	// Veletlenszeru lejatszas:
 	if( Megnemrand ) {
 		Megnemrand = 0;
@@ -82,7 +84,7 @@ int veletlen( void ) {
 	}
 
 	int sum = 0;
-	for( int i = 0; i < 100; i++ )
+	for( i = 0; i < 100; i++ )
 		sum += rand();
 	while( sum < 0 )
 		sum *= 3;
@@ -90,6 +92,8 @@ int veletlen( void ) {
 }
 
 void replay( void ) {
+	int i; // Legacy for-loop scope.
+
 	strcpy( Rubrikak[0], "Randomizer" );
 
 	finame fname;
@@ -133,8 +137,10 @@ void replay( void ) {
 		return;
 
 	// ABC sorrendbe rendez:
-	for( int i = 0; i < szamuk+1; i++ ) {
-		for( int j = 1; j < szamuk-1; j++ ) {
+	for( i = 0; i < szamuk+1; i++ ) {
+	int j; // Legacy for-loop scope.
+
+		for( j = 1; j < szamuk-1; j++ ) {
 			if( abcbenelobb( Rubrikak[j+1], Rubrikak[j] ) ) {
 				// Csere:
 				char tmp[100];
@@ -186,7 +192,7 @@ void replay( void ) {
 				// 0 param azt jelenti, hogy nem resource filebol olvas:
 				Pmenupal->set();
 				kiirloading();
-				long belyeg = loadrecek( tmp, 0 );
+				int32_t belyeg = loadrecek( tmp, 0 );
 				if( access_topol( Prec1->palyanev ) != 0 ) {
 					int c = dialog320( "Cannot find the lev file that corresponds",
 							   "to the record file!", tmp, Prec1->palyanev );
@@ -216,7 +222,7 @@ void replay( void ) {
 			strcpy( tmp, Rubrikak[kurrens] );
 			strcat( tmp, ".REC" );
 			kiirloading();
-			long belyeg = loadrecek( tmp, 0 );
+			int32_t belyeg = loadrecek( tmp, 0 );
 			if( RECidokellis ) {
 				// loadrecek beallitotta Multirec-et.
 				int ido = Prec1->betoltve;
@@ -300,7 +306,7 @@ static void demo( void ) {
 		elozodemo = demo;
 
 		kiirloading();
-		long belyeg = loadrecek( demonevek[demo], 1 );
+		int32_t belyeg = loadrecek( demonevek[demo], 1 );
 		if( access_topol( Prec1->palyanev ) != 0 )
 			hiba( "783654" );
 		floadlevel_p( Prec1->palyanev );
@@ -339,7 +345,7 @@ static void kilephakell( void ) {
 		State->reloadidok();
 
 		State->save();
-		State->export();
+		State->export_stats();
 		kilep();
 	}
 }

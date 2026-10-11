@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 static int Hibaismeretlenkar = 0;
 
@@ -10,6 +10,8 @@ int torolfv( void ) {
 }
 
 abc8::abc8( char* nev ) {
+	int i; int kkk; // Legacy for-loop scope.
+
 	success = 0;
 	tav = 0;
 	ppsprite = NULL;
@@ -19,7 +21,7 @@ abc8::abc8( char* nev ) {
 		uzenet( "memory" );
 		return;
 	}
-	for( int i = 0; i < 256; i++ )
+	for( i = 0; i < 256; i++ )
 		ppsprite[i] = NULL;
 	{ ytomb = NEW(short*) short[256]; }
 	if( !ytomb ) {
@@ -52,7 +54,7 @@ abc8::abc8( char* nev ) {
 	}
 	if( darabszam <= 0 || darabszam > 256 )
 		hiba( "abc file darabszama nem stimmel!" );
-	for( int kkk = 0; kkk < darabszam; kkk++ ) {
+	for( kkk = 0; kkk < darabszam; kkk++ ) {
 		// Sorban beolvassa betuk spritejait:
 		if( fread( tmp, 7, 1, h ) != 1 ) {
 			hiba( "Nem tudja olvasni abc-t!: ", nev );
@@ -91,17 +93,19 @@ abc8::abc8( char* nev ) {
 
 abc8::~abc8( void ) {
 	if( ppsprite ) {
-		for( int i = 0; i < 256; i++ ) {
+	int i; // Legacy for-loop scope.
+
+		for( i = 0; i < 256; i++ ) {
 			if( ppsprite[i] ) {
 				DELETE ppsprite[i]; }
 				ppsprite[i] = NULL;
 			}
 		}
-		DELETE ppsprite; }
+		DELETE[] ppsprite; }
 		ppsprite = NULL;
 	}
 	if( ytomb ) {
-		DELETE ytomb; }
+		DELETE[] ytomb; }
 		ytomb = NULL;
 	}
 }

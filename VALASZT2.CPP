@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 const int LISTegykepen = 11;
 const int LISTx0 = 200;
@@ -65,9 +65,9 @@ valaszt2::valaszt2( void ) {
 
 valaszt2::~valaszt2( void ) {
 	if( rubrikak )
-		delete rubrikak;
+		delete[] rubrikak;
 	if( rubrikak_tab )
-		delete rubrikak_tab;
+		delete[] rubrikak_tab;
 	if( pszovlist )
 		delete pszovlist;
 
@@ -80,6 +80,8 @@ valaszt2::~valaszt2( void ) {
 
 // Rubrikakat beveszi:
 void valaszt2::bead( int szam_p, int tabos_p ) {
+	int i; // Legacy for-loop scope.
+
 	if( rubrikak )
 		hiba( "valaszt2::bead rubrikak!" );
 	szam = szam_p;
@@ -97,7 +99,7 @@ void valaszt2::bead( int szam_p, int tabos_p ) {
 		if( !rubrikak_tab )
 			hiba( "memoria" );
 	}
-	for( int i = 0; i < szam; i++ ) {
+	for( i = 0; i < szam; i++ ) {
 		if( strlen( Rubrikak[i] ) > MAXRUBRIKAHOSSZ )
 			hiba( "valaszt2::bead tul hosszu string!:", Rubrikak[i] );
 		strcpy( rubrikak[i], Rubrikak[i] );
@@ -216,10 +218,12 @@ int valaszt2::valassz( egyszovsor* preszovegek, int preszovegszam,
 			} */
 		}
 		if( valtozott ) {
+	int i; // Legacy for-loop scope.
+
 			valtozott = 0;
 			// Betaplalja kirajzba uj kepszoveget:
 			pszovlist->clear();
-			for( int i = 0; i < preszovegszam; i++ ) {
+			for( i = 0; i < preszovegszam; i++ ) {
 				if( strncmp( preszovegek[i].text, "*$$^&|@", 7 ) == 0 ) {
 					// Kozepre kell tenni:
 					pszovlist->addszoveg_kozep( &preszovegek[i].text[7],

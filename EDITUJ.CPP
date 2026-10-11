@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 topol* Ptop = NULL;
 
@@ -23,13 +23,15 @@ ddpal* Pal_editor = NULL;
 static unsigned char Pal_editor_byteok[768];
 
 void seteditorpal( void ) {
+	int i; // Legacy for-loop scope.
+
 	unsigned char* pal = Pal_editor_byteok;
 	// Paletta elso 64 szine menu szinek,
 	// Masodik 64 szin truecolor tabla
 	// Masodik 128 szin eger szine:
 
 	// Lenullazzuk:
-	for( int i = 0; i < 768; i++ )
+	for( i = 0; i < 768; i++ )
 		pal[i] = 128;
 
 	pal[ 0+0] =   0; pal[ 0+1] =   0; pal[ 0+2] =   0; //  0.
@@ -76,10 +78,12 @@ void seteditorpal( void ) {
 }
 
 static int hanypalyavanmeg( void ) {
+	int i; // Legacy for-loop scope.
+
 	int jatekosindex = getjatekosindex( State->jatekosa );
 	jatekos* pjatekos = &State->jatekosok[jatekosindex];
 	int skippelt = 0;
-	for( int i = 0; i < pjatekos->sikerespalyakszama; i++ ) {
+	for( i = 0; i < pjatekos->sikerespalyakszama; i++ ) {
 		if( pjatekos->skippedtomb[i] )
 			skippelt++;
 	}
@@ -106,6 +110,8 @@ static void elintezegymousepixelt( int x , int y ) {
 }
 
 static void egeretrajzolja( void ) {
+	int i; // Legacy for-loop scope.
+
 	/*if( Tool == T_MOVE && !Pgy && !Pker && !Psp && Kurzornegyzet ) {
 		//hiba( "Most itt van benn!" );
 		vekt2 r = konv( Moux, Mouy );
@@ -123,7 +129,7 @@ static void egeretrajzolja( void ) {
 	// Lockolunk is:
 	lockfrontbuffer_pic();
 	int sugar = 4;
-	for( int i = -sugar; i <= sugar; i++ ) {
+	for( i = -sugar; i <= sugar; i++ ) {
 		if( Kozelvan ) {
 			elintezegymousepixelt( Moux+i, Mouy+i );
 			if( i != 0 )
@@ -221,6 +227,8 @@ static char Menuszovegek[23][15] = { // Masodik egy string hossza
 int Tool = T_MOVE;
 
 static void editbe_balmenu( void ) {
+	int i; // Legacy for-loop scope.
+
 	Buffsima->fillbox( 0, 0, 639, 479, Menuszin );
 	// Eloszor is egy nagy keret:
 	Buffsima->line( 0, 0, 639, 0, Menulineszin );
@@ -230,7 +238,7 @@ static void editbe_balmenu( void ) {
 	// Meg ket belso vonal:
 	Buffsima->line( 0, Savy-1, 639, Savy-1, Menulineszin );
 	Buffsima->line( Savx-1, Savy, Savx-1, 479, Menulineszin );
-	for( int i = 0; i < Menuszam; i++ ) {
+	for( i = 0; i < Menuszam; i++ ) {
 		// x1... stb a belso reszt jelenti:
 		int x1 = 1;
 		int y1 = Savy + i*Menudy+1;
@@ -724,8 +732,10 @@ void editor( void ) {
 				pop();
 			}
 			if( ujx < Savx ) {
+	int i; // Legacy for-loop scope.
+
 				// Billentyuk folott tortent lenyomas:
-				for( int i = 0; i < Menuszam; i++ ) {
+				for( i = 0; i < Menuszam; i++ ) {
 					if( Savy + i*Menudy <= ujy && ujy < Savy + (i+1)*Menudy ) {
 						// i-edik gombot lenyomtak menuben:
 						if( i == 0 && balnyomva )

@@ -1,12 +1,14 @@
-#include	"all.h"
+#include	"ALL.H"
 
 // Visszaadja, hogy volt-e hiba:
 int check_topology( int kelldialog ) {
+	int i; // Legacy for-loop scope.
+
 	dialog( "Checking Topology, please wait!",
 					"GOMBOK", "VISSZATER" );
 
 	// Eloszor egymason fekvo szomszedos pontokat valasztjuk szet:
-	for( int i = 0; i < MAXGYURU; i++ ) {
+	for( i = 0; i < MAXGYURU; i++ ) {
 		gyuru* pgy = Ptop->ptomb[i];
 		if( pgy )
 			pgy->szetvalaszt();
@@ -47,7 +49,11 @@ int check_topology( int kelldialog ) {
 	for( i = 0; i < MAXGYURU; i++ ) {
 		gyuru* pgy = Ptop->ptomb[i];
 		if( pgy && !pgy->koveto ) {
-			for( int j = 0; j < pgy->pontszam; j++ ) {
+	int j; // Legacy for-loop scope.
+
+			for( j = 0; j < pgy->pontszam; j++ ) {
+	int k; // Legacy for-loop scope.
+
 				vekt2 r = pgy->ponttomb[j];
 				vekt2 v;
 				if( j == pgy->pontszam-1 )
@@ -56,7 +62,7 @@ int check_topology( int kelldialog ) {
 					v = pgy->ponttomb[j+1] - r;
 				// Megvan r, v szakasz, amirol el kell donteni, hogy van-e
 				// metszespontja akarmi massal:
-				for( int k = 0; k < MAXGYURU; k++ ) {
+				for( k = 0; k < MAXGYURU; k++ ) {
 					gyuru* pgy2 = Ptop->ptomb[k];
 					if( pgy2 && !pgy2->koveto ) {
 						int vanmetszes = 0;

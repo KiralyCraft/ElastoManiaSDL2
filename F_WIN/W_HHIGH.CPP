@@ -1,4 +1,4 @@
-#include    "..\all.h"
+#include    "../ALL.H"
 
 int Hangenabled = 0;
 
@@ -30,12 +30,14 @@ static int Wavszam = 0;
 #define MAXWAV  (5)
 static int Ezmegy[MAXWAV];
 static int Kovhang[MAXWAV];
-static unsigned long Hangerok[MAXWAV];
+static uint32_t Hangerok[MAXWAV];
 static wav *Pwavok[MAXWAV];
 
 static int Elsostart = 1;
 
 void starthanghigh( void ) {
+	int i; // Legacy for-loop scope.
+
     if( !Elsostart )
         hiba( "starthanghigh-ban !Elsostart!" );
     Elsostart = 0;
@@ -50,7 +52,7 @@ void starthanghigh( void ) {
     if( Hanghighbevoltkapcsolva )
         hiba( "Hanghighbevoltkapcsolva igaz starthanghigh-ban!" );
     Hanghighbevoltkapcsolva = 1;
-    for( int i = 0; i < WAVBANKSZAM; i++ ) {
+    for( i = 0; i < WAVBANKSZAM; i++ ) {
         Wavbank[i] = NULL;
     }
     { Wavbank[WAV_UTODES] = NEW(wav*) wav( "utodes.wav", 0.25 ); }
@@ -159,6 +161,8 @@ void setsurlodas( double ero ) {
 //int Wavevolt = 0;
 
 void startwave( int wavazonosito, double hangero ) {
+	int i; // Legacy for-loop scope.
+
 	//Wavevolt = 1;		
     if( !Hangenabled || Mute )
         return;
@@ -172,7 +176,7 @@ void startwave( int wavazonosito, double hangero ) {
         return;
 
     //_disable();
-    for( int i = 0; i < MAXWAV; i++ ) {
+    for( i = 0; i < MAXWAV; i++ ) {
         if( !Ezmegy[i] ) {
             // i. csatorna szabad!
             Wavszam++;
@@ -206,8 +210,10 @@ int vanmegwav( void ) {
 
 // hangero meg van szorozva 65536-tal:
 static void wavadd( short* buff, short* tomb,
-            long size, unsigned long hangero ) {
-    for( unsigned long i = 0; i < size; i++ ) {
+            int32_t size, uint32_t hangero ) {
+	uint32_t i; // Legacy for-loop scope.
+
+    for( i = 0; i < size; i++ ) {
         buff[i] += short((tomb[i]*hangero)>>16);
     }
 }
@@ -249,7 +255,9 @@ void stopmotor( int mot1 ) {
 }*/
 
 static void shortadd( short* dest, short* sour, int number ) {
-	for( int i = 0; i < number; i++ )
+	int i; // Legacy for-loop scope.
+
+	for( i = 0; i < number; i++ )
 		dest[i] += sour[i];
 }
 
@@ -372,10 +380,12 @@ static void motorelintezes( int mot1, short* sbuff, int buffsize ) {
 			case A_MAGAS:
 				int masolando = buffsize-counter;
 				if( !pms->gaz && masolando > Mix ) {
+	int i; // Legacy for-loop scope.
+
 					pms->allapot = A_ALACSONY;
 					pms->i_alacsony = Mix;
-					long dtmost = 65536.0*pms->frekvenciamost;
-					for( int i = 0; i < Mix; i++ ) {
+					int32_t dtmost = 65536.0*pms->frekvenciamost;
+					for( i = 0; i < Mix; i++ ) {
 						short gazshort;
 						if( mot1 )
 							gazshort = Pw42a->getnextsample( dtmost );
@@ -393,13 +403,15 @@ static void motorelintezes( int mot1, short* sbuff, int buffsize ) {
 					break;
 				}
 				else {
-					long dtmost = 65536.0*pms->frekvenciamost;
-					long dtkell = 65536.0*pms->frekvenciakell;
-					long ddt = 0;
+	int i; // Legacy for-loop scope.
+
+					int32_t dtmost = 65536.0*pms->frekvenciamost;
+					int32_t dtkell = 65536.0*pms->frekvenciakell;
+					int32_t ddt = 0;
 					if( masolando > 30 ) {
 						ddt = (dtkell-dtmost)/((double)masolando);
 					}
-					for( int i = 0; i < masolando; i++ ) {
+					for( i = 0; i < masolando; i++ ) {
 						if( mot1 )
 							sbuff[counter+i] +=
 								Pw42a->getnextsample( dtmost );
@@ -421,6 +433,8 @@ static int Surltart = 0;
 
 // Ennek hozza kell adnia eddigi ertekhez:
 static void surlodaselintezes( short* sbuff, int buffsize ) {
+	int i; // Legacy for-loop scope.
+
     /*if( !Ppic8 ) {
         { Ppic8 = NEW(pic8*) pic8( 320, 2 ); }
         for( int i = 0; i < 320; i++ ) {
@@ -437,12 +451,12 @@ static void surlodaselintezes( short* sbuff, int buffsize ) {
         return;
     }
 
-    long eromost = 65536.0*Surleromost;
-    long erokell = 65536.0*Surlerokell;
-    long dero = (erokell-eromost)/((double)buffsize);
+    int32_t eromost = 65536.0*Surleromost;
+    int32_t erokell = 65536.0*Surlerokell;
+    int32_t dero = (erokell-eromost)/((double)buffsize);
     int meret = Psurl->size;
-    for( int i = 0; i < buffsize; i++ ) {
-        long ertek = Psurl->tomb[Surltart];
+    for( i = 0; i < buffsize; i++ ) {
+        int32_t ertek = Psurl->tomb[Surltart];
         Surltart++;
         if( Surltart >= meret )
             Surltart = 0;
@@ -461,6 +475,8 @@ static short Buffer16bit[MAX16BUFFER];
 
 // buffsize valojaban minta szam, vagyis = 2*byteszam:
 void callbackhang( short* sbuff, int buffsize ) {
+	int i; // Legacy for-loop scope.
+
     if( !Hangenabled )
         hiba( "callbackhang, pedig !Hangenabled!" );
 
@@ -468,8 +484,10 @@ void callbackhang( short* sbuff, int buffsize ) {
     if( Mute ) {
         // Nem kell hang:
         if( Wavszam > 0 ) {
+	int i; // Legacy for-loop scope.
+
             Wavszam = 0;
-            for( int i = 0; i < MAXWAV; i++ )
+            for( i = 0; i < MAXWAV; i++ )
                 Ezmegy[i] = 0;
         }
         return;
@@ -486,7 +504,7 @@ void callbackhang( short* sbuff, int buffsize ) {
     surlodaselintezes( sbuff, buffsize );
 
     // Wavok lejatszasa:
-    for( int i = 0; i < MAXWAV; i++ ) {
+    for( i = 0; i < MAXWAV; i++ ) {
         if( Ezmegy[i] ) {
             int darab = buffsize;
             if( darab > Pwavok[i]->size-Kovhang[i] ) {
@@ -538,13 +556,15 @@ void CustomMixer( void* buffer1, int byteszam1,
 	else {
 		// 8 bites  8 bites  8 bites  8 bites  8 bites:
 		if( buffer2 ) {
+	int i; // Legacy for-loop scope.
+
 			// Ket reszletbol tesszuk ossze:
 			int osszbyte = byteszam1+byteszam2;
 			callbackhang( Buffer16bit, osszbyte );
 			// Most 8 bitesre konvertaljuk:
 			unsigned char* tmp8bit = 
 								(unsigned char*)Buffer16bit;
-			for( int i = 0; i < osszbyte; i++ )
+			for( i = 0; i < osszbyte; i++ )
 	            tmp8bit[i] = (unsigned char)
 							((Buffer16bit[i]>>8)+128);
 			// Most bemasoljuk vegleges bufferekbe:
@@ -553,11 +573,13 @@ void CustomMixer( void* buffer1, int byteszam1,
 												byteszam2 );
 		}
 		else {
+	int i; // Legacy for-loop scope.
+
 			// Egy reszletbol all buffer:
 			callbackhang( Buffer16bit, byteszam1 );
 			// Most 8 bitesre konvertaljuk:
 			unsigned char* tmp8bit = (unsigned char*)Buffer16bit;
-			for( int i = 0; i < byteszam1; i++ )
+			for( i = 0; i < byteszam1; i++ )
 	            tmp8bit[i] = (unsigned char)
 							((Buffer16bit[i]>>8)+128);
 			// Most bemasoljuk vegleges bufferekbe:
@@ -566,7 +588,7 @@ void CustomMixer( void* buffer1, int byteszam1,
 	}
 }
 
-void hangosdelay( long t ) {
+void hangosdelay( int32_t t ) {
 	// 182*sec-et adja vissza idot tortresszel egyutt!
 	double kezdo = mv_stopperido();
 	while( mv_stopperido()/182.0 < kezdo/182.0+t/1000.0 ) {

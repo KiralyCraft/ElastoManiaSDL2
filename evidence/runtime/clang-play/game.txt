@@ -1,0 +1,12 @@
+Elasto Mania Classic SDL2
+EXPERIMENTAL architecture / floating-point backend
+SDL 2.32.4 on Linux
+Data (read-only): /mnt/data/elma-assets/Elma
+User data: /mnt/data/elma-work/evidence-clang-play/profile
+Captured running SDL output: /mnt/data/elma-work/evidence-clang-play/current.bmp (1280x960)
+Captured running SDL output: /mnt/data/elma-work/evidence-clang-play/current.bmp (1280x960)
+Captured running SDL output: /mnt/data/elma-work/evidence-clang-play/current.bmp (1280x960)
+Captured running SDL output: /mnt/data/elma-work/evidence-clang-play/current.bmp (1280x960)
+Captured running SDL output: /mnt/data/elma-work/evidence-clang-play/current.bmp (1280x960)
+Captured running SDL output: /mnt/data/elma-work/evidence-clang-play/current.bmp (1280x960)
+Clean exit: 900 presented frames, 0 queued audio samples

@@ -1,4 +1,4 @@
-#include	"all.h"
+#include	"ALL.H"
 
 static int Egybol = 1;
 
@@ -7,11 +7,13 @@ static char Nagyfilenev[] = "elma.res";
 struct fileleiro {
 	char nev[16];
 	#ifdef SARVARI
-		long kezdet, hossz;
+		int32_t kezdet, hossz;
 	#else
-		long hossz, kezdet;
+		int32_t hossz, kezdet;
 	#endif
 };
+
+static_assert(sizeof(fileleiro) == 24, "The original resource directory uses 24-byte records.");
 
 static fileleiro* Leirotomb = NULL;
 
@@ -19,9 +21,11 @@ static fileleiro* Leirotomb = NULL;
 
 #define AZONNUMBER (1347839l)
 
-static long Fileszam = 0;
+static int32_t Fileszam = 0;
 
 static void titkosit( void ) {
+	int i; // Legacy for-loop scope.
+
 	#ifdef SARVARI
 		short a = 23, b = 9882, c = 3391;
 	#else
@@ -31,9 +35,11 @@ static void titkosit( void ) {
 	if( !Leirotomb )
 		hiba( "titkosit-ban !Leirotomb!" );
 	int leiromeret = sizeof( fileleiro );
-	for( int i = 0; i < FILESZAM; i++ ) {
+	for( i = 0; i < FILESZAM; i++ ) {
+	int j; // Legacy for-loop scope.
+
 		unsigned char* pc = (unsigned char*)(&Leirotomb[i]);
-		for( int j = 0; j < leiromeret; j++ ) {
+		for( j = 0; j < leiromeret; j++ ) {
 			pc[j] ^= a;
 			a %= c;
 			b += a*c;
@@ -68,19 +74,35 @@ void initqopen( void ) {
 	if( Fileszam <= 0 || Fileszam > FILESZAM )
 		hiba( "Fileszam <= 0 || Fileszam > FILESZAM!" );
 
-	long hossz = sizeof( fileleiro[FILESZAM] );
+	int32_t hossz = sizeof( fileleiro[FILESZAM] );
 	if( hossz > 64000l )
 		hiba( "Tul hosszu Leirotomb initqopen-ben!" );
 	if( fread( Leirotomb, 1, unsigned(hossz), h ) != hossz )
 		hiba( "initqopen-ben nem sikerult olvasni!" );
 	titkosit();
 
-	long magicnumber = 0;
+	int32_t magicnumber = 0;
 	if( fread( &magicnumber, 1, 4, h ) != 4 )
 		hiba( "initqopen-ben nem sikerult olvasni!" );
 	if( magicnumber != AZONNUMBER )
 		hiba( "initqopen-ben nem stimmel magicnumber!" );
 
+	// Validate the decoded directory before any name lookup or asset read. This
+	// changes malformed-input handling, not valid registered/shareware resources.
+	if( fseek(h, 0, SEEK_END) != 0 )
+		hiba("Could not measure Elma.res.");
+	const auto resource_size = ftell(h);
+	for( int entry = 0; entry < Fileszam; ++entry ) {
+		const auto& record = Leirotomb[entry];
+		if( memchr(record.nev, 0, sizeof(record.nev)) == nullptr || record.nev[0] == 0 )
+			hiba("Invalid resource filename. Check the registered/shareware build setting.");
+		if( record.kezdet < 3608 || record.hossz < 0 ||
+			int64_t(record.kezdet) + int64_t(record.hossz) > resource_size )
+			hiba("Resource extent outside Elma.res. Check the data edition and file integrity.");
+		for( int previous = 0; previous < entry; ++previous )
+			if( strcmpi(record.nev, Leirotomb[previous].nev) == 0 )
+				hiba("Duplicate resource directory entry.");
+	}
 	fclose( h );
 }
 
@@ -108,13 +130,13 @@ void becsomagol( void ) {
 	if( fwrite( &Fileszam, 1, 4, h ) != 4 )
 		hiba( "becsomagol-ban nem sikerult irni!" );
 
-	long hossz = sizeof( fileleiro[FILESZAM] );
+	int32_t hossz = sizeof( fileleiro[FILESZAM] );
 	if( hossz > 64000l )
 		hiba( "Tul hosszu Leirotomb initqopen-ben!" );
 	if( fwrite( Leirotomb, 1, unsigned(hossz), h ) != hossz )
 		hiba( "becsomagol-ban nem sikerult irni!" );
 
-	long azonnumber = AZONNUMBER;
+	int32_t azonnumber = AZONNUMBER;
 	if( fwrite( &azonnumber, 1, 4, h ) != 4 )
 		hiba( "becsomagol-ban nem sikerult irni!" );
 
@@ -135,7 +157,7 @@ void becsomagol( void ) {
 			hiba( "becsomagolban nem nyilik file!: ", fname );
 		// Masolas:
 		while( 1 ) {
-			long hossz = fread( Csomagbuffer, 1, 60000u, hs );
+			int32_t hossz = fread( Csomagbuffer, 1, 60000u, hs );
 			if( !hossz )
 				break;
 			if( fwrite( Csomagbuffer, 1, unsigned(hossz), h ) != hossz )
@@ -186,7 +208,9 @@ FILE* qopen( char* nev, char* paramok ) {
 		hiba( "qopen-ben sem rb, sem rt!: ", nev );
 
 	if( Egybol ) {
-		for( int i = 0; i < Fileszam; i++ ) {
+	int i; // Legacy for-loop scope.
+
+		for( i = 0; i < Fileszam; i++ ) {
 			if( strcmpi( nev, Leirotomb[i].nev ) == 0 ) {
 				Htomb[Nyitva] = fopen( Nagyfilenev, paramok );
 				Indextomb[Nyitva] = i;
@@ -205,7 +229,7 @@ FILE* qopen( char* nev, char* paramok ) {
 	}
 	else {
 		Nyitva++;
-		char tmp[30] = "..\\files\\";
+		char tmp[30] = "files\\";
 		if( strlen( nev ) > 12 || nev[0] == '.' )
 			hiba( "Hibas nev qopen-ben!: ", nev );
 		strcat( tmp, nev );
@@ -219,10 +243,14 @@ void qclose( FILE* h ) {
 	if( !Nyitva )
 		hiba( "qclose-ban !Nyitva!" );
 	if( Egybol ) {
-		for( int i = 0; i < Nyitva; i++ ) {
+	int i; // Legacy for-loop scope.
+
+		for( i = 0; i < Nyitva; i++ ) {
 			if( Htomb[i] == h ) {
+	int j; // Legacy for-loop scope.
+
 				fclose( h );
-				for( int j = i; j < Nyitva-1; j++ ) {
+				for( j = i; j < Nyitva-1; j++ ) {
 					Htomb[j] = Htomb[j+1];
 					Indextomb[j] = Indextomb[j+1];
 				}
@@ -238,11 +266,13 @@ void qclose( FILE* h ) {
 	}
 }
 
-int qseek( FILE *h, long offset, int whence ) {
+int qseek( FILE *h, int32_t offset, int whence ) {
 	if( whence != SEEK_SET && whence != SEEK_END && whence != SEEK_CUR )
 		hiba( "whence != SEEK_SET && whence != SEEK_END && whence != SEEK_CUR!" );
 	if( Egybol ) {
-		for( int i = 0; i < Nyitva; i++ ) {
+	int i; // Legacy for-loop scope.
+
+		for( i = 0; i < Nyitva; i++ ) {
 			if( Htomb[i] == h ) {
 				int index = Indextomb[i];
 				if( whence == SEEK_SET ) {
@@ -257,7 +287,7 @@ int qseek( FILE *h, long offset, int whence ) {
 			}
 		}
 		hiba( "qclose nem talalta meg h-t!" );
-		return NULL;
+		return -1;
 	}
 	else {
 		return fseek( h, offset, whence );
